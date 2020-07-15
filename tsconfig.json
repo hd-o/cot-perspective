@@ -1,0 +1,14 @@
+/* Visit https://aka.ms/tsconfig.json to read more about this file */
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

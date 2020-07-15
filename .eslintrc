@@ -1,0 +1,17 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "standard"
+  ],
+  "rules": {
+    "react/jsx-uses-vars": 1
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

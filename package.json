@@ -1,0 +1,41 @@
+{
+  "name": "cotperspective",
+  "version": "1.0.0",
+  "main": "source/index.tsx",
+  "repository": "https://github.com/brbull/cotperspective.git",
+  "author": "Brazilian Bull <contact@brbull.club>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec ts-node source/index.tsx --ignore '**/*.json'",
+    "build": "ts-node source/index.tsx"
+  },
+  "dependencies": {
+    "@types/clean-css": "^4.2.2",
+    "@types/lodash": "^4.14.155",
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.38",
+    "@types/react-dom": "^16.9.8",
+    "@types/request": "^2.48.5",
+    "@types/unzipper": "^0.10.3",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.3.0",
+    "clean-css": "^4.2.3",
+    "csv-parse": "^4.10.1",
+    "eslint": "^7.2.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.20.3",
+    "eslint-plugin-standard": "^4.0.1",
+    "lodash": "^4.17.15",
+    "nodemon": "^2.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "request": "^2.88.2",
+    "standard": "^14.3.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5",
+    "unzipper": "^0.10.11"
+  }
+}
