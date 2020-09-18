@@ -1,15 +1,15 @@
 import React from 'react'
 import fs from 'fs'
 import { renderToString } from 'react-dom/server'
-import { Template } from './Template'
-import { COTData } from './processData'
-import { processTableData, traderCategories } from './processTableData'
-import { getPagePath } from './getFileName'
-import { getCOTData } from './getCOTData'
-// import testData from './testData.json'
-
-// Quantity of periods to calculate the average of COT values
-const averagePeriod = 12
+import { Template } from './components/Template'
+import { processTableData } from './functions/processTableData'
+import { getPagePath } from './functions/getFileName'
+import { getCOTData } from './functions/getCOTData'
+import { getSortedKeys } from './functions/getSortedKeys'
+import { COTData } from './constants/COTTypes'
+import { traderCategories } from './constants/traderCategories'
+import { selectedExchange, selectedMarket, selectedTraderCategory } from './constants/defaultSelections'
+import { averagePeriod } from './constants/averagePeriod'
 
 /**
  * Fetch COT data from CFTC site, process data into JS object, and render
@@ -18,9 +18,9 @@ const averagePeriod = 12
 const main = async () => {
   console.log('-- process start')
 
-  const data: COTData = await getCOTData(2020, averagePeriod)
+  const data: COTData = await getCOTData((new Date()).getFullYear(), averagePeriod)
   // Using Object.keys for sorting (instead of looping though object key/values)
-  const exchanges = Object.keys(data).sort()
+  const exchanges = getSortedKeys(data)
   const buildPath = './build'
 
   console.log('-- creating output directory')
@@ -29,21 +29,23 @@ const main = async () => {
   console.log('-- rendering HTML pages')
   exchanges.forEach(selectedExchange => {
     const marketsData = data[selectedExchange]
-    const markets = Object.keys(marketsData).sort()
+    const markets = getSortedKeys(marketsData)
     markets.forEach(selectedMarket => {
       const marketData = marketsData[selectedMarket]
       for (const selectedTraderCategory of traderCategories) {
         console.log(`-- processing template data for ${selectedExchange}, ${selectedMarket}, and ${selectedTraderCategory}`)
         const template = <Template
-          tableData={{
+          dropDownsData={{
             data,
-            averagePeriod,
             markets,
             exchanges,
             traderCategories,
             selectedExchange,
             selectedMarket,
-            selectedTraderCategory,
+            selectedTraderCategory
+          }}
+          tableData={{
+            averagePeriod,
             values: marketData.map(processTableData(selectedTraderCategory))
           }}
         />
@@ -56,11 +58,7 @@ const main = async () => {
 
   console.log('-- creating index page')
   // Create index page from Euro FX page
-  const euroFxPage = getPagePath({
-    selectedExchange: 'CHICAGO MERCANTILE EXCHANGE',
-    selectedMarket: 'EURO FX',
-    selectedTraderCategory: 'Noncommercial'
-  })
+  const euroFxPage = getPagePath({ selectedExchange, selectedMarket, selectedTraderCategory })
   fs.copyFileSync(`${buildPath}/${euroFxPage}.html`, `${buildPath}/index.html`)
 }
 

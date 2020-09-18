@@ -1,10 +1,10 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "jest"],
   "extends": [
+    "standard",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "standard"
+    "plugin:react/recommended"
   ],
   "rules": {
     "react/jsx-uses-vars": 1
@@ -13,5 +13,8 @@
     "react": {
       "version": "detect"
     }
+  },
+  "env": {
+    "jest/globals": true
   }
 }
