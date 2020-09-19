@@ -6,7 +6,7 @@
   "author": "Brazilian Bull <contact@brbull.club>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon --exec ts-node source/index.tsx --ignore '**/*.json'",
+    "dev": "ts-node-dev --respawn source/index.tsx useTestData",
     "build": "ts-node source/index.tsx",
     "type-check": "tsc --noEmit -p ./tsconfig.json",
     "lint": "eslint",
@@ -53,6 +53,7 @@
     "standard": "^14.3.4",
     "ts-jest": "^26.3.0",
     "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.62",
     "typescript": "^3.9.5",
     "unzipper": "^0.10.11"
   }

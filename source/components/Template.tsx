@@ -1,12 +1,9 @@
 import React, { ReactNode } from 'react'
 import fs from 'fs'
-import CleanCSS from 'clean-css'
 import { PageDropDowns, PageDropDownsProps } from './PageDropDowns'
 import { DataTable, DataTableProps } from './DataTable'
 
 const license = fs.readFileSync('./LICENSE').toString()
-const stylesInput = fs.readFileSync('./source/components/styles.css').toString()
-const styles = new CleanCSS().minify(stylesInput).styles
 
 const Link = (props: React.HTMLProps<HTMLAnchorElement>) => (
   <a
@@ -56,7 +53,7 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
         <meta name='description' content='A pleasant way to view COT data' />
         <meta name='author' content='Brazilian Bull <contact@brbull.club>' />
         <link rel='stylesheet' href='https://bootswatch.com/4/cosmo/bootstrap.min.css' />
-        <style>{styles}</style>
+        <link rel='stylesheet' href='./styles.css' />
       </head>
       <body>
         <div id='cotperspective' className='container'>

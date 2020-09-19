@@ -1,5 +1,6 @@
 import React from 'react'
 import fs from 'fs'
+import CleanCSS from 'clean-css'
 import { renderToString } from 'react-dom/server'
 import { Template } from './components/Template'
 import { processTableData } from './functions/processTableData'
@@ -10,6 +11,8 @@ import { COTData } from './constants/COTTypes'
 import { traderCategories } from './constants/traderCategories'
 import { selectedExchange, selectedMarket, selectedTraderCategory } from './constants/defaultSelections'
 import { averagePeriod } from './constants/averagePeriod'
+import { buildPath } from './constants/buildPath'
+import { testData } from './constants/testData'
 
 /**
  * Fetch COT data from CFTC site, process data into JS object, and render
@@ -18,13 +21,20 @@ import { averagePeriod } from './constants/averagePeriod'
 const main = async () => {
   console.log('-- process start')
 
-  const data: COTData = await getCOTData((new Date()).getFullYear(), averagePeriod)
+  const data: COTData = process.argv.includes('useTestData')
+    ? testData
+    : await getCOTData((new Date()).getFullYear(), averagePeriod)
+
   // Using Object.keys for sorting (instead of looping though object key/values)
   const exchanges = getSortedKeys(data)
-  const buildPath = './build'
 
   console.log('-- creating output directory')
   if (!fs.existsSync(buildPath)) fs.mkdirSync(buildPath)
+
+  console.log('-- sorting static files')
+  const stylesInput = fs.readFileSync('./source/components/styles.css').toString()
+  const styles = new CleanCSS().minify(stylesInput).styles
+  fs.writeFileSync(`${buildPath}/styles.css`, styles)
 
   console.log('-- rendering HTML pages')
   exchanges.forEach(selectedExchange => {
