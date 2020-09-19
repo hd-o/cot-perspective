@@ -21,11 +21,11 @@ exports[`PageDropDowns snapshot 1`] = `
           Exchange
         </label>
         <Select
-          defaultValue="chicagomercantileexchangeeurofxnoncommercial"
+          defaultValue="chicagomercantileexchange3monthsofrnoncommercial"
         >
           <option
             key="CHICAGO MERCANTILE EXCHANGE"
-            value="chicagomercantileexchangeeurofxnoncommercial"
+            value="chicagomercantileexchange3monthsofrnoncommercial"
           >
             CHICAGO MERCANTILE EXCHANGE
           </option>

@@ -62,7 +62,12 @@ export const PageDropDowns = ({
   selectedMarket,
   selectedTraderCategory
 }: PageDropDownsProps): JSX.Element => {
-  const defaultPage = getPagePath({
+  const defaultExchangeValue = getPagePath({
+    selectedExchange,
+    selectedMarket: Object.keys(data[selectedExchange])[0],
+    selectedTraderCategory
+  })
+  const defaultSelectValue = getPagePath({
     selectedExchange,
     selectedMarket,
     selectedTraderCategory
@@ -73,7 +78,7 @@ export const PageDropDowns = ({
         <div className='col'>
           <div className='form-group'>
             <label>Exchange</label>
-            <Select defaultValue={defaultPage}>
+            <Select defaultValue={defaultExchangeValue}>
               {exchanges.map(exchange =>
                 <option
                   key={exchange}
@@ -90,7 +95,7 @@ export const PageDropDowns = ({
         <div className='col'>
           <div className='form-group'>
             <label>Market</label>
-            <Select defaultValue={defaultPage}>
+            <Select defaultValue={defaultSelectValue}>
               {markets.map(market =>
                 <option
                   key={market}
@@ -107,7 +112,7 @@ export const PageDropDowns = ({
         <div className='col'>
           <div className='form-group'>
             <label>Trader</label>
-            <Select defaultValue={defaultPage}>
+            <Select defaultValue={defaultSelectValue}>
               {traderCategories.map(traderCategory =>
                 <option
                   key={traderCategory}
