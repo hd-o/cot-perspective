@@ -20,13 +20,9 @@ import { testData } from './constants/testData'
  */
 const main = async () => {
   console.log('-- process start')
-
   const data: COTData = process.argv.includes('useTestData')
     ? testData
     : await getCOTData((new Date()).getFullYear(), averagePeriod)
-
-  // Using Object.keys for sorting (instead of looping though object key/values)
-  const exchanges = getSortedKeys(data)
 
   console.log('-- creating output directory')
   if (!fs.existsSync(buildPath)) fs.mkdirSync(buildPath)
@@ -37,6 +33,7 @@ const main = async () => {
   fs.writeFileSync(`${buildPath}/styles.css`, styles)
 
   console.log('-- rendering HTML pages')
+  const exchanges = getSortedKeys(data)
   exchanges.forEach(selectedExchange => {
     const marketsData = data[selectedExchange]
     const markets = getSortedKeys(marketsData)
