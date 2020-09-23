@@ -1,4 +1,4 @@
-name: PR_Checks
+name: Pull Request
 
 on: [pull_request]
 
@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@master
+
       - name: Setup dependencies
         run: yarn
 
