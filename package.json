@@ -11,11 +11,12 @@
     "type-check": "tsc --noEmit -p ./tsconfig.json",
     "lint": "eslint ./source",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watch",
+    "check-all": "yarn lint && yarn type-check && yarn test"
   },
   "config": {
     "ghooks": {
-      "pre-push": "yarn lint && yarn type-check && yarn test"
+      "pre-push": "yarn check-all"
     }
   },
   "dependencies": {
