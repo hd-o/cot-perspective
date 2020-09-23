@@ -1,15 +1,11 @@
-import { CSVData, FormattedCSVData } from './processData'
-
-export const traderCategories = <const> ['Commercial', 'Noncommercial']
-
-type TraderCategory = typeof traderCategories[number]
+import { CSVData, FormattedCSVData, TraderCategory } from '../constants/COTTypes'
 
 /**
  * For a given trader category, return a function that prepares
  * an array of data to be used in table/view rendering
 */
-export function processTableData (selectedTraderCategory: TraderCategory) {
-  return (values: FormattedCSVData): (string|number)[] => {
+export const processTableData = (selectedTraderCategory: TraderCategory) =>
+  (values: FormattedCSVData): (string|number)[] => {
     const longs = Number(values[`${selectedTraderCategory} Positions-Long (All)` as keyof CSVData])
     const shorts = Number(values[`${selectedTraderCategory} Positions-Short (All)` as keyof CSVData])
     const netPositions = longs - shorts
@@ -24,4 +20,3 @@ export function processTableData (selectedTraderCategory: TraderCategory) {
       netPositions
     ]
   }
-}

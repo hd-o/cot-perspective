@@ -1,6 +1,7 @@
 import unzipper from 'unzipper'
 import request from 'request'
-import { processData, COTData } from './processData'
+import { processData } from './processData'
+import { COTData } from '../constants/COTTypes'
 
 const zipBaseURL = 'https://www.cftc.gov/sites/default/files/files/dea/history/'
 
