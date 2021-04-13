@@ -1,4 +1,6 @@
 # COT Perspective
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbrbull%2Fcotperspective.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbrbull%2Fcotperspective?ref=badge_shield)
+
 
 A pleasant way to view [COT][COT] data
 
@@ -15,3 +17,7 @@ A pleasant way to view [COT][COT] data
 [COT]: https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm
 
 [MIT]: ./LICENSE
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbrbull%2Fcotperspective.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbrbull%2Fcotperspective?ref=badge_large)
