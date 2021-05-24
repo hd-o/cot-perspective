@@ -29,7 +29,7 @@
     "@types/unzipper": "^0.10.3",
     "clean-css": "^4.2.3",
     "csv-parse": "^4.10.1",
-    "lodash": "^4.17.19",    
+    "lodash": "^4.17.21",    
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "request": "^2.88.2",
