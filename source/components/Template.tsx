@@ -58,19 +58,11 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
       <body>
         <div id='cotperspective' className='container'>
           <Header>
-            <div className='col-4 pt-1'>
-              <Link href='https://github.com/brbull/cotperspective'>
-                📄 Source Code
-              </Link>
-            </div>
+            <div className='col-4 pt-1' />
             <div className='col-4 text-center'>
               <a className='blog-header-logo text-dark' href='/'>COT Perspective</a>
             </div>
-            <div className='col-4 d-flex justify-content-end align-items-center'>
-              <Link href='https://ko-fi.com/brbull'>
-                ❤️ Support This Project
-              </Link>
-            </div>
+            <div className='col-4 d-flex justify-content-end align-items-center' />
           </Header>
           <PageDropDowns {...dropDownsData} />
           <DataTable {...tableData} />
@@ -81,6 +73,11 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
           </Header>
           <div className='row mb-2' style={{ paddingTop: 20 }}>
             <ul>
+              <UsefulLink
+                link='https://github.com/hd-o/cotperspective'
+                channel='Source Code'
+                title='github.com/hd-o/cotperspective'
+              />
               <UsefulLink
                 link='https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm'
                 channel='CFTC'
@@ -95,11 +92,6 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
                 link='https://www.youtube.com/watch?v=mjaWvU6tzrM'
                 channel='Magic Trader FX'
                 title='CFTC COT Report Understanding the Institutions'
-              />
-              <UsefulLink
-                link='https://www.instagram.com/_brbull/'
-                channel='Developed By'
-                title='Brazilian Bull @_brbull'
               />
             </ul>
           </div>

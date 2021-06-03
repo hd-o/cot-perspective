@@ -37,13 +37,7 @@ exports[`Template snapshot 1`] = `
         <Header>
           <div
             className="col-4 pt-1"
-          >
-            <Link
-              href="https://github.com/brbull/cotperspective"
-            >
-              📄 Source Code
-            </Link>
-          </div>
+          />
           <div
             className="col-4 text-center"
           >
@@ -56,13 +50,7 @@ exports[`Template snapshot 1`] = `
           </div>
           <div
             className="col-4 d-flex justify-content-end align-items-center"
-          >
-            <Link
-              href="https://ko-fi.com/brbull"
-            >
-              ❤️ Support This Project
-            </Link>
-          </div>
+          />
         </Header>
         <Component
           data={
@@ -2319,6 +2307,11 @@ exports[`Template snapshot 1`] = `
         >
           <ul>
             <UsefulLink
+              channel="Source Code"
+              link="https://github.com/hd-o/cotperspective"
+              title="github.com/hd-o/cotperspective"
+            />
+            <UsefulLink
               channel="CFTC"
               link="https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm"
               title="Commitments of Traders (COT) Reports Descriptions"
@@ -2332,11 +2325,6 @@ exports[`Template snapshot 1`] = `
               channel="Magic Trader FX"
               link="https://www.youtube.com/watch?v=mjaWvU6tzrM"
               title="CFTC COT Report Understanding the Institutions"
-            />
-            <UsefulLink
-              channel="Developed By"
-              link="https://www.instagram.com/_brbull/"
-              title="Brazilian Bull @_brbull"
             />
           </ul>
         </div>
@@ -2355,7 +2343,7 @@ exports[`Template snapshot 1`] = `
             <small>
               MIT License.
 
-Copyright (c) 2020 Brazilian Bull.
+Copyright (c) 2021 Hadrian de Oliveira.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
