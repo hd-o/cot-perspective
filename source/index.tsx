@@ -30,8 +30,10 @@ const main = async () => {
   console.log('-- sorting static files')
   const stylesInput = fs.readFileSync('./source/components/styles.css').toString()
   const styles = new CleanCSS().minify(stylesInput).styles
+  // TO-DO: Use assets folder
   fs.writeFileSync(`${buildPath}/styles.css`, styles)
   fs.copyFileSync('./source/preview.png', `${buildPath}/preview.png`)
+  fs.copyFileSync('./source/calendar.ico', `${buildPath}/favicon.ico`)
   
   console.log('-- rendering HTML pages')
   const exchanges = getSortedKeys(data)
