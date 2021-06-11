@@ -44,8 +44,6 @@ interface TemplateProps {
   tableData: DataTableProps
 }
 
-const previewImage = 'https://raw.githubusercontent.com/hd-o/cotperspective/master/source/preview.png'
-
 export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Element => (
   <React.StrictMode>
     <html lang='en'>
@@ -58,14 +56,12 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
         <meta property="og:site_name" content="COT Perspective" />
         <meta property="og:title" content="COT Perspective" />
         <meta property="og:description" content="A pleasant view on the COT reports" />
-        <meta property="twitter:image" content={previewImage} />
-        <meta property="og:image" content={previewImage} />
-        <meta property="og:url" content="https://cotperspective.com" />        
+        <meta property="og:image" content="https://cotperspective.com/preview.png" />
+        <meta property="og:url" content="https://cotperspective.com" />
         <link rel='stylesheet' href='https://bootswatch.com/4/cosmo/bootstrap.min.css' />
         <link rel='stylesheet' href='./styles.css' />
       </head>
       <body>
-        <img src={previewImage} style={{ display: 'none' }} />
         <div id='cotperspective' className='container'>
           <Header>
             <div className='col-4 pt-1' />
