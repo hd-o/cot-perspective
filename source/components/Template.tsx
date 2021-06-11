@@ -50,8 +50,14 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
       <head>
         <meta charSet='utf-8' />
         <title>COT Perspective</title>
-        <meta name='description' content='A pleasant way to view COT data' />
-        <meta name='author' content='Brazilian Bull <contact@brbull.club>' />
+        <meta name='description' content='A pleasant view on the COT reports' />
+        <meta name='author' content='Hadrian de Oliveira' />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="COT Perspective" />
+        <meta property="og:title" content="COT Perspective" />
+        <meta property="og:description" content="A pleasant view on the COT reports" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/hd-o/cotperspective/master/source/preview.png" />
+        <meta property="og:url" content="https://cotperspective.com" />        
         <link rel='stylesheet' href='https://bootswatch.com/4/cosmo/bootstrap.min.css' />
         <link rel='stylesheet' href='./styles.css' />
       </head>
