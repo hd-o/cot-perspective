@@ -31,7 +31,8 @@ const main = async () => {
   const stylesInput = fs.readFileSync('./source/components/styles.css').toString()
   const styles = new CleanCSS().minify(stylesInput).styles
   fs.writeFileSync(`${buildPath}/styles.css`, styles)
-
+  fs.copyFileSync('./src/preview.png', `${buildPath}/preview.png`)
+  
   console.log('-- rendering HTML pages')
   const exchanges = getSortedKeys(data)
   exchanges.forEach(selectedExchange => {
