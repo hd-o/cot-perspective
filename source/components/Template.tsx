@@ -91,14 +91,14 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
                 title='Commitments of Traders (COT) Reports Descriptions'
               />
               <UsefulLink
-                link='https://www.youtube.com/watch?v=2EpSaM2H540'
-                channel='Transparent Fx Academy'
-                title='How To Read The COMMITMENT OF TRADERS - COT Report'
-              />
-              <UsefulLink
                 link='https://www.youtube.com/watch?v=mjaWvU6tzrM'
                 channel='Magic Trader FX'
                 title='CFTC COT Report Understanding the Institutions'
+              />
+              <UsefulLink
+                link='https://www.youtube.com/watch?v=2EpSaM2H540'
+                channel='Transparent Fx Academy'
+                title='How To Read The COMMITMENT OF TRADERS - COT Report'
               />
             </ul>
           </div>
