@@ -106,9 +106,10 @@ exports[`PageDropDowns snapshot 1`] = `
   window.cotperspective = {
     assignLocation: window.location.assign.bind(window.location)
   }
+  const pagePath = (selectValue) => selectValue + '.html'
   document.getElementById('cotperspective').addEventListener('change', (event) => {
     if (event.target.className.includes('js-page-dropdown-select')) {
-      window.cotperspective.assignLocation(event.target.value + '.html')
+      window.cotperspective.assignLocation(pagePath(event.target.value))
     }
   })
 ",

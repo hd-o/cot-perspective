@@ -9,16 +9,45 @@ exports[`Template snapshot 1`] = `
       <meta
         charSet="utf-8"
       />
+      <link
+        href="favicon.ico"
+        rel="icon"
+        type="image/x-icon"
+      />
       <title>
-        COT Perspective
+        COT Perspective • Delightful COT Reports
       </title>
       <meta
-        content="A pleasant way to view COT data"
+        content="Delightful COT Reports"
         name="description"
       />
       <meta
-        content="Brazilian Bull <contact@brbull.club>"
+        content="Hadrian de Oliveira"
         name="author"
+      />
+      <meta
+        content="website"
+        property="og:type"
+      />
+      <meta
+        content="COT Perspective"
+        property="og:site_name"
+      />
+      <meta
+        content="COT Perspective • Delightful COT Reports"
+        property="og:title"
+      />
+      <meta
+        content="Delightful COT Reports"
+        property="og:description"
+      />
+      <meta
+        content="https://cotperspective.com/preview.png"
+        property="og:image"
+      />
+      <meta
+        content="https://cotperspective.com"
+        property="og:url"
       />
       <link
         href="https://bootswatch.com/4/cosmo/bootstrap.min.css"
@@ -1988,12 +2017,14 @@ exports[`Template snapshot 1`] = `
               },
             }
           }
+          exchange="CHICAGO MERCANTILE EXCHANGE"
           exchanges={
             Array [
               "CHICAGO MERCANTILE EXCHANGE",
               "ICE FUTURES U.S.",
             ]
           }
+          market="EURO FX"
           markets={
             Array [
               "3-MONTH SOFR",
@@ -2001,15 +2032,13 @@ exports[`Template snapshot 1`] = `
               "EURO FX/BRITISH POUND XRATE",
             ]
           }
-          selectedExchange="CHICAGO MERCANTILE EXCHANGE"
-          selectedMarket="EURO FX"
-          selectedTraderCategory="Noncommercial"
           traderCategories={
             Array [
               "Commercial",
               "Noncommercial",
             ]
           }
+          traderCategory="Noncommercial"
         />
         <Component
           averagePeriod={12}
@@ -2317,14 +2346,14 @@ exports[`Template snapshot 1`] = `
               title="Commitments of Traders (COT) Reports Descriptions"
             />
             <UsefulLink
-              channel="Transparent Fx Academy"
-              link="https://www.youtube.com/watch?v=2EpSaM2H540"
-              title="How To Read The COMMITMENT OF TRADERS - COT Report"
-            />
-            <UsefulLink
               channel="Magic Trader FX"
               link="https://www.youtube.com/watch?v=mjaWvU6tzrM"
               title="CFTC COT Report Understanding the Institutions"
+            />
+            <UsefulLink
+              channel="Transparent Fx Academy"
+              link="https://www.youtube.com/watch?v=2EpSaM2H540"
+              title="How To Read The COMMITMENT OF TRADERS - COT Report"
             />
           </ul>
         </div>
