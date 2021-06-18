@@ -1,12 +1,14 @@
-import { COTPropertiesToSelect } from '../constants/COTPropertiesToSelect'
+import { propertiesToSelect } from '../data/propertiesToSelect'
 import { traderCategories } from './traderCategories'
 
 export type TraderCategory = typeof traderCategories[number]
 
-export type CSVData = Record<typeof COTPropertiesToSelect[number], string>
+export type TraderCategories = readonly TraderCategory[]
+
+export type CSVData = Record<typeof propertiesToSelect[number], string>
 
 export interface FormattedCSVData extends CSVData {
-  market: string,
+  market: string
   exchange: string
 }
 

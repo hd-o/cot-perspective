@@ -1,11 +1,12 @@
 {
-  "name": "cotperspective",
+  "name": "cot-perspective",
   "version": "1.0.0",
   "main": "source/index.tsx",
   "repository": "https://github.com/hd-o/cotperspective.git",
   "author": "Hadrian de Oliveira",
   "license": "MIT",
   "scripts": {
+    "start": "serve build",
     "dev": "ts-node-dev --respawn source/index.tsx useTestData",
     "build": "ts-node source/index.tsx",
     "type-check": "tsc --noEmit -p ./tsconfig.json",
@@ -29,7 +30,7 @@
     "@types/unzipper": "^0.10.3",
     "clean-css": "^4.2.3",
     "csv-parse": "^4.10.1",
-    "lodash": "^4.17.21",    
+    "lodash": "^4.17.21",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "request": "^2.88.2",
@@ -43,8 +44,8 @@
     "@types/jest": "^26.0.13",
     "@types/jsdom": "^16.2.4",
     "@types/react-test-renderer": "^16.9.3",
-    "@typescript-eslint/parser": "^3.3.0",
     "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
     "enzyme-to-json": "^3.5.0",
@@ -61,7 +62,10 @@
     "jsdom": "^16.4.0",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.13.1",
+    "serve": "^12.0.0",
     "ts-jest": "^26.3.0",
     "ts-node-dev": "^1.0.0-pre.62"
-  }
+  },
+  "keywords": [],
+  "description": ""
 }

@@ -1,4 +1,4 @@
-export const COTPropertiesToSelect = [
+export const propertiesToSelect = [
   'Market and Exchange Names',
   'As of Date in Form YYYY-MM-DD',
   'Open Interest (All)',

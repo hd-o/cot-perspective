@@ -1,6 +1,12 @@
-import { COTData } from './COTTypes'
+import { GetDataConfig } from '../functions/getData'
+import { COTData } from '../data/types'
 
-export const testData: COTData = {
+const testConfig: GetDataConfig = {
+  minimumEntries: 5,
+  year: 2020
+}
+
+export const getTestData = async (_ = testConfig): Promise<COTData> => ({
   'ICE FUTURES U.S.': {
     'U.S. DOLLAR INDEX': [
       {
@@ -523,7 +529,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-07-07',
         'Open Interest (All)': '150966',
         'Noncommercial Positions-Long (All)': '12144',
@@ -542,7 +549,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-30',
         'Open Interest (All)': '151268',
         'Noncommercial Positions-Long (All)': '11761',
@@ -561,7 +569,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-23',
         'Open Interest (All)': '151211',
         'Noncommercial Positions-Long (All)': '11730',
@@ -580,7 +589,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-16',
         'Open Interest (All)': '180222',
         'Noncommercial Positions-Long (All)': '23010',
@@ -599,7 +609,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-09',
         'Open Interest (All)': '173349',
         'Noncommercial Positions-Long (All)': '25381',
@@ -618,7 +629,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-02',
         'Open Interest (All)': '173054',
         'Noncommercial Positions-Long (All)': '32100',
@@ -637,7 +649,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-26',
         'Open Interest (All)': '169611',
         'Noncommercial Positions-Long (All)': '31968',
@@ -656,7 +669,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-19',
         'Open Interest (All)': '173568',
         'Noncommercial Positions-Long (All)': '35356',
@@ -675,7 +689,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-12',
         'Open Interest (All)': '168701',
         'Noncommercial Positions-Long (All)': '35970',
@@ -694,7 +709,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-05',
         'Open Interest (All)': '160883',
         'Noncommercial Positions-Long (All)': '38632',
@@ -713,7 +729,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-28',
         'Open Interest (All)': '157285',
         'Noncommercial Positions-Long (All)': '36353',
@@ -732,7 +749,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-21',
         'Open Interest (All)': '156127',
         'Noncommercial Positions-Long (All)': '37553',
@@ -751,7 +769,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-14',
         'Open Interest (All)': '157137',
         'Noncommercial Positions-Long (All)': '36584',
@@ -770,7 +789,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-07',
         'Open Interest (All)': '159135',
         'Noncommercial Positions-Long (All)': '35257',
@@ -789,7 +809,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-31',
         'Open Interest (All)': '165708',
         'Noncommercial Positions-Long (All)': '36738',
@@ -808,7 +829,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-24',
         'Open Interest (All)': '171829',
         'Noncommercial Positions-Long (All)': '30543',
@@ -827,7 +849,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-17',
         'Open Interest (All)': '245220',
         'Noncommercial Positions-Long (All)': '36096',
@@ -846,7 +869,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-10',
         'Open Interest (All)': '232729',
         'Noncommercial Positions-Long (All)': '29966',
@@ -865,7 +889,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-03',
         'Open Interest (All)': '209600',
         'Noncommercial Positions-Long (All)': '37275',
@@ -884,7 +909,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-25',
         'Open Interest (All)': '177626',
         'Noncommercial Positions-Long (All)': '20720',
@@ -903,7 +929,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-18',
         'Open Interest (All)': '170487',
         'Noncommercial Positions-Long (All)': '16780',
@@ -922,7 +949,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-11',
         'Open Interest (All)': '167664',
         'Noncommercial Positions-Long (All)': '16491',
@@ -941,7 +969,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-04',
         'Open Interest (All)': '153153',
         'Noncommercial Positions-Long (All)': '24480',
@@ -960,7 +989,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-28',
         'Open Interest (All)': '154537',
         'Noncommercial Positions-Long (All)': '27617',
@@ -979,7 +1009,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-21',
         'Open Interest (All)': '141412',
         'Noncommercial Positions-Long (All)': '27607',
@@ -998,7 +1029,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-14',
         'Open Interest (All)': '135911',
         'Noncommercial Positions-Long (All)': '28147',
@@ -1017,7 +1049,8 @@ export const testData: COTData = {
       {
         market: '3-MONTH SOFR',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-07',
         'Open Interest (All)': '131481',
         'Noncommercial Positions-Long (All)': '28614',
@@ -1553,7 +1586,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-07-07',
         'Open Interest (All)': '23701',
         'Noncommercial Positions-Long (All)': '3357',
@@ -1572,7 +1606,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-30',
         'Open Interest (All)': '24041',
         'Noncommercial Positions-Long (All)': '4276',
@@ -1591,7 +1626,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-23',
         'Open Interest (All)': '23511',
         'Noncommercial Positions-Long (All)': '3523',
@@ -1610,7 +1646,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-16',
         'Open Interest (All)': '23236',
         'Noncommercial Positions-Long (All)': '3446',
@@ -1629,7 +1666,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-09',
         'Open Interest (All)': '25066',
         'Noncommercial Positions-Long (All)': '2952',
@@ -1648,7 +1686,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-02',
         'Open Interest (All)': '23212',
         'Noncommercial Positions-Long (All)': '3257',
@@ -1667,7 +1706,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-26',
         'Open Interest (All)': '22871',
         'Noncommercial Positions-Long (All)': '2922',
@@ -1686,7 +1726,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-28',
         'Open Interest (All)': '22091',
         'Noncommercial Positions-Long (All)': '3274',
@@ -1705,7 +1746,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-21',
         'Open Interest (All)': '22171',
         'Noncommercial Positions-Long (All)': '3341',
@@ -1724,7 +1766,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-14',
         'Open Interest (All)': '21205',
         'Noncommercial Positions-Long (All)': '3452',
@@ -1743,7 +1786,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-07',
         'Open Interest (All)': '21364',
         'Noncommercial Positions-Long (All)': '3373',
@@ -1762,7 +1806,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-10',
         'Open Interest (All)': '23628',
         'Noncommercial Positions-Long (All)': '3549',
@@ -1781,7 +1826,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-25',
         'Open Interest (All)': '23419',
         'Noncommercial Positions-Long (All)': '3343',
@@ -1800,7 +1846,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-18',
         'Open Interest (All)': '23860',
         'Noncommercial Positions-Long (All)': '3358',
@@ -1819,7 +1866,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-11',
         'Open Interest (All)': '23488',
         'Noncommercial Positions-Long (All)': '3350',
@@ -1838,7 +1886,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-04',
         'Open Interest (All)': '23841',
         'Noncommercial Positions-Long (All)': '3642',
@@ -1857,7 +1906,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-28',
         'Open Interest (All)': '23569',
         'Noncommercial Positions-Long (All)': '3675',
@@ -1876,7 +1926,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-21',
         'Open Interest (All)': '23148',
         'Noncommercial Positions-Long (All)': '3613',
@@ -1895,7 +1946,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-14',
         'Open Interest (All)': '22585',
         'Noncommercial Positions-Long (All)': '3537',
@@ -1914,7 +1966,8 @@ export const testData: COTData = {
       {
         market: 'EURO FX/BRITISH POUND XRATE',
         exchange: 'CHICAGO MERCANTILE EXCHANGE',
-        'Market and Exchange Names': 'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
+        'Market and Exchange Names':
+          'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-07',
         'Open Interest (All)': '22493',
         'Noncommercial Positions-Long (All)': '3495',
@@ -1932,4 +1985,4 @@ export const testData: COTData = {
       }
     ]
   }
-}
+})

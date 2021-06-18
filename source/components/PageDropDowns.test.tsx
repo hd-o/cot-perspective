@@ -1,55 +1,61 @@
 import React from 'react'
-import { PageDropDowns, pageSelectScript } from './PageDropDowns'
-import { testData } from '../constants/testData'
-import { getSortedKeys } from '../functions/getSortedKeys'
-import { traderCategories } from '../constants/traderCategories'
-import { selectedExchange, selectedMarket, selectedTraderCategory } from '../constants/defaultSelections'
 import { shallow, mount } from 'enzyme'
 import { JSDOM } from 'jsdom'
+import * as DropDowns from './PageDropDowns'
+import { getTestData } from '../functions/getTestData'
+import { getSortedKeys } from '../functions/getSortedKeys'
+import { traderCategories } from '../data/traderCategories'
+import { defaultSelections as selections } from '../data/defaultSelections'
+import { COTData } from '../data/types'
 
-const renderPageDropDowns = () => <PageDropDowns
-  data={testData}
-  exchanges={getSortedKeys(testData)}
-  markets={getSortedKeys(testData[selectedExchange])}
-  selectedExchange={selectedExchange}
-  selectedMarket={selectedMarket}
-  selectedTraderCategory={selectedTraderCategory}
-  traderCategories={traderCategories} />
+const renderPageDropDowns = (testData: COTData) => (
+  <DropDowns.PageDropDowns
+    data={testData}
+    exchanges={getSortedKeys(testData)}
+    markets={getSortedKeys(testData[selections.exchange])}
+    exchange={selections.exchange}
+    market={selections.market}
+    traderCategory={selections.traderCategory}
+    traderCategories={traderCategories}
+  />
+)
 
-/**
- * Verify correct PageDropDowns rendering of test data
- */
-test('PageDropDowns snapshot', () => {
-  expect(shallow(renderPageDropDowns())).toMatchSnapshot()
+/** Verify correct PageDropDowns rendering of test data */
+test('PageDropDowns snapshot', async () => {
+  const dropdowns = renderPageDropDowns(await getTestData())
+  expect(shallow(dropdowns)).toMatchSnapshot()
 })
 
-/**
- * Verify correct PageDropDowns navigation to selected page
- */
-test('PageDropDowns navigation', () => {
+/** Verify correct PageDropDowns navigation to selected page */
+test('PageDropDowns navigation', async () => {
   // Component's <script> tag does not execute.
   // A new JSDOM instance is created to allow script execution
-  const { window } = new JSDOM(
+  const {
+    window: { cotperspective, document, Event }
+  } = new JSDOM(
     `<body>
       <div id='cotperspective'></div>
-      <script>${pageSelectScript}</script>
+      <script>${DropDowns.pageSelectScript}</script>
     </body>`,
     {
       runScripts: 'dangerously',
       url: 'https://cotperspective.com'
     }
   )
-
-  mount(renderPageDropDowns(), {
-    attachTo: window.document.getElementById('cotperspective')
+  mount(renderPageDropDowns(await getTestData()), {
+    attachTo: document.getElementById('cotperspective')
   })
-
-  window.cotperspective.assignLocation = jest.fn()
-
-  const traderCategorySelect = window.document.getElementsByClassName('js-page-dropdown-select')[2] as HTMLSelectElement
-  traderCategorySelect.value = 'chicagomercantileexchangeeurofxcommercial'
-  traderCategorySelect.dispatchEvent(new window.Event('change', { bubbles: true }))
-
-  expect(window.cotperspective.assignLocation)
-    .toHaveBeenLastCalledWith(traderCategorySelect.value + '.html')
+  // Stub function that will be called on dropdown select
+  cotperspective.assignLocation = jest.fn()
+  // Get third dropdown, Trader Category
+  const dropdowns = document.getElementsByClassName(DropDowns.$dropdown)
+  const traderCategory = dropdowns[2] as HTMLSelectElement
+  // Set trader category to EuroFX Commercial
+  traderCategory.value = 'chicagomercantileexchangeeurofxcommercial'
+  // Emit change event for page load
+  traderCategory.dispatchEvent(new Event('change', { bubbles: true }))
+  // Test if stub was called with page path
+  expect(cotperspective.assignLocation).toHaveBeenLastCalledWith(
+    DropDowns.pagePath(traderCategory.value)
+  )
 })

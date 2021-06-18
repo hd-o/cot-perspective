@@ -16,5 +16,8 @@
   },
   "env": {
     "jest/globals": true
+  },
+  "globals": {
+    "JSX": "readonly"
   }
 }

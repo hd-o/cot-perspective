@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
-import { COTData } from '../constants/COTTypes'
-import { traderCategories } from '../constants/traderCategories'
+import { COTData, TraderCategories, TraderCategory } from '../data/types'
 import { getPagePath } from '../functions/getFileName'
 
 interface SelectProps {
@@ -8,23 +7,27 @@ interface SelectProps {
   defaultValue: string
 }
 
+export const $dropdown = 'js-page-dropdown-select'
+
 const Select = ({ children, defaultValue }: SelectProps) => (
   <select
     defaultValue={defaultValue}
-    className='custom-select form-control js-page-dropdown-select'
-  >
+    className={`custom-select form-control ${$dropdown}`}>
     {children}
   </select>
 )
 
-export interface PageDropDownsProps {
-  data: COTData,
-  markets: string[],
-  exchanges: string[],
-  traderCategories: typeof traderCategories,
-  selectedExchange: string,
-  selectedMarket: string,
-  selectedTraderCategory: string
+export interface DropDownSelections {
+  exchange: string
+  market: string
+  traderCategory: TraderCategory
+}
+
+export interface PageDropDownsProps extends DropDownSelections {
+  data: COTData
+  markets: string[]
+  exchanges: string[]
+  traderCategories: TraderCategories
 }
 
 declare global {
@@ -36,6 +39,8 @@ declare global {
   }
 }
 
+export const pagePath = (selectValue: string) => selectValue + '.html'
+
 /**
  * Handles page navigation after a dropdown option is selected.
  * Note: Might be refactored in the future if the site needs to
@@ -46,9 +51,10 @@ export const pageSelectScript = `
   window.cotperspective = {
     assignLocation: window.location.assign.bind(window.location)
   }
+  const pagePath = ${pagePath}
   document.getElementById('cotperspective').addEventListener('change', (event) => {
     if (event.target.className.includes('js-page-dropdown-select')) {
-      window.cotperspective.assignLocation(event.target.value + '.html')
+      window.cotperspective.assignLocation(pagePath(event.target.value))
     }
   })
 `
@@ -58,77 +64,80 @@ export const PageDropDowns = ({
   markets,
   exchanges,
   traderCategories,
-  selectedExchange,
-  selectedMarket,
-  selectedTraderCategory
+  exchange: selectedExchange,
+  market: selectedMarket,
+  traderCategory: selectedTraderCategory
 }: PageDropDownsProps): JSX.Element => {
   const defaultExchangeValue = getPagePath({
-    selectedExchange,
-    selectedMarket: Object.keys(data[selectedExchange])[0],
-    selectedTraderCategory
+    exchange: selectedExchange,
+    market: Object.keys(data[selectedExchange])[0],
+    traderCategory: selectedTraderCategory
   })
   const defaultSelectValue = getPagePath({
-    selectedExchange,
-    selectedMarket,
-    selectedTraderCategory
+    exchange: selectedExchange,
+    market: selectedMarket,
+    traderCategory: selectedTraderCategory
   })
   return (
     <form style={{ marginTop: 20 }}>
-      <div className='row'>
-        <div className='col'>
-          <div className='form-group'>
+      <div className="row">
+        <div className="col">
+          <div className="form-group">
             <label>Exchange</label>
             <Select defaultValue={defaultExchangeValue}>
-              {exchanges.map(exchange =>
+              {exchanges.map((exchange) => (
                 <option
                   key={exchange}
                   value={`${getPagePath({
-                    selectedExchange: exchange,
-                    selectedMarket: Object.keys(data[exchange])[0],
-                    selectedTraderCategory
-                  })}`}
-                >{exchange}</option>
-              )}
+                    exchange: exchange,
+                    market: Object.keys(data[exchange])[0],
+                    traderCategory: selectedTraderCategory
+                  })}`}>
+                  {exchange}
+                </option>
+              ))}
             </Select>
           </div>
         </div>
-        <div className='col'>
-          <div className='form-group'>
+        <div className="col">
+          <div className="form-group">
             <label>Market</label>
             <Select defaultValue={defaultSelectValue}>
-              {markets.map(market =>
+              {markets.map((market) => (
                 <option
                   key={market}
                   value={`${getPagePath({
-                    selectedExchange: selectedExchange,
-                    selectedMarket: market,
-                    selectedTraderCategory
-                  })}`}
-                >{market}</option>
-              )}
+                    exchange: selectedExchange,
+                    market: market,
+                    traderCategory: selectedTraderCategory
+                  })}`}>
+                  {market}
+                </option>
+              ))}
             </Select>
           </div>
         </div>
-        <div className='col'>
-          <div className='form-group'>
+        <div className="col">
+          <div className="form-group">
             <label>Trader</label>
             <Select defaultValue={defaultSelectValue}>
-              {traderCategories.map(traderCategory =>
+              {traderCategories.map((traderCategory) => (
                 <option
                   key={traderCategory}
                   value={`${getPagePath({
-                    selectedExchange: selectedExchange,
-                    selectedMarket: selectedMarket,
-                    selectedTraderCategory: traderCategory
-                  })}`}
-                >{traderCategory}</option>
-              )}
+                    exchange: selectedExchange,
+                    market: selectedMarket,
+                    traderCategory: traderCategory
+                  })}`}>
+                  {traderCategory}
+                </option>
+              ))}
             </Select>
           </div>
         </div>
       </div>
       {/* Enable page navigation after selecting a dropdown option */}
-      <script dangerouslySetInnerHTML={{ __html: pageSelectScript }}/>
+      <script dangerouslySetInnerHTML={{ __html: pageSelectScript }} />
     </form>
   )
 }

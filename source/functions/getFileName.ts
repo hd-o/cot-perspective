@@ -1,9 +1,9 @@
 import memoize from 'lodash/memoize'
 
 interface Props {
-  selectedExchange: string,
-  selectedMarket: string,
-  selectedTraderCategory: string
+  exchange: string
+  market: string
+  traderCategory: string
 }
 
 /**
@@ -12,8 +12,9 @@ interface Props {
  */
 const _getPagePath = (_: Props) =>
   encodeURIComponent(
-    `${_.selectedExchange}-${_.selectedMarket}-${_.selectedTraderCategory}`
+    `${_.exchange}-${_.market}-${_.traderCategory}`
       .toLocaleLowerCase()
-      .replace(/[^\w]/gi, ''))
+      .replace(/[^\w]/gi, '')
+  )
 
 export const getPagePath = memoize(_getPagePath)
