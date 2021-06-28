@@ -49,7 +49,7 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
     <html lang='en'>
       <head>
         <meta charSet='utf-8' />
-        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
         <title>COT Perspective • Delightful COT Reports</title>
         <meta name='description' content='Delightful COT Reports' />
         <meta name='author' content='Hadrian de Oliveira' />
