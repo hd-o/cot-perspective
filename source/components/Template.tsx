@@ -57,8 +57,8 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
         <meta property="og:site_name" content="COT Perspective" />
         <meta property="og:title" content="COT Perspective • Delightful COT Reports" />
         <meta property="og:description" content="Delightful COT Reports" />
-        <meta property="og:image" content="https://cotperspective.com/preview.png" />
-        <meta property="og:url" content="https://cotperspective.com" />
+        <meta property="og:image" content="assets/preview.png" />
+        <meta property="og:url" content="https://cotperspective.com/" />
         <link rel='stylesheet' href='https://bootswatch.com/4/cosmo/bootstrap.min.css' />
         <link rel='stylesheet' href='assets/styles.css' />
       </head>
