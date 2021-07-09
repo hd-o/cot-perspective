@@ -9,5 +9,5 @@ export const processAssets = () => {
   const minStyles = new CleanCSS().minify(styles).styles
   fs.writeFileSync(`${buildPath}/styles.css`, minStyles)
   console.log('• Copying assets')
-  execSync(`cp -r ./source/assets ${buildPath}/assets`)
+  execSync(`cp -r ./source/assets ${buildPath}/assets`, { stdio: 'inherit' })
 }
