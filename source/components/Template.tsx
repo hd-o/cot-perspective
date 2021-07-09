@@ -49,7 +49,7 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
     <html lang='en'>
       <head>
         <meta charSet='utf-8' />
-        <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <title>COT Perspective • Delightful COT Reports</title>
         <meta name='description' content='Delightful COT Reports' />
         <meta name='author' content='Hadrian de Oliveira' />
@@ -57,10 +57,10 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
         <meta property="og:site_name" content="COT Perspective" />
         <meta property="og:title" content="COT Perspective • Delightful COT Reports" />
         <meta property="og:description" content="Delightful COT Reports" />
-        <meta property="og:image" content="assets/preview.png" />
-        <meta property="og:url" content="https://cotperspective.com/" />
+        <meta property="og:image" content="https://cotperspective.com/preview.png" />
+        <meta property="og:url" content="https://cotperspective.com" />
         <link rel='stylesheet' href='https://bootswatch.com/4/cosmo/bootstrap.min.css' />
-        <link rel='stylesheet' href='assets/styles.css' />
+        <link rel='stylesheet' href='styles.css' />
       </head>
       <body>
         <div id='cotperspective' className='container'>
