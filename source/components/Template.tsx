@@ -60,7 +60,7 @@ export const Template = ({ tableData, dropDownsData }: TemplateProps): JSX.Eleme
         <meta property="og:image" content="https://cotperspective.com/preview.png" />
         <meta property="og:url" content="https://cotperspective.com" />
         <link rel='stylesheet' href='https://bootswatch.com/4/cosmo/bootstrap.min.css' />
-        <link rel='stylesheet' href='./styles.css' />
+        <link rel='stylesheet' href='assets/styles.css' />
       </head>
       <body>
         <div id='cotperspective' className='container'>
