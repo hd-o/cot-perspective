@@ -2,6 +2,7 @@
 
 🐍 v1.1 Python Rewrite
 - Development in progress at [branch v1.1][branch1_1]
+- Documentation updates with full _About_ section
 - UI layout is maintained, internal code will change
 - [Staging][stagingSite] branch will be re-enabled after v1.1 launch
 
