@@ -1,28 +1,15 @@
 # COT Perspective
 
-🐍 v1.1 Python Rewrite
-- Development in progress at [branch v1.1][branch1_1]
-- Documentation updates with full _About_ section
-- UI layout is maintained, internal code will change
-- [Staging][stagingSite] branch will be re-enabled after v1.1 launch
-
----
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b4a03d51-90a1-4789-b88b-4c49dad945db/deploy-status)](https://app.netlify.com/sites/cotperspective/deploys)
 
 A pleasant way to view [COT][cot] data
 
-**Production (master):** https://cotperspective.com
-
-**Staging (staging):** https://cotperspective-staging.netlify.app/
-
 - Site is statically rendered
-- Push to branches automatically start Netlify deploy
-- See _package.json_ for available dev commands
-- License: [MIT][mit]
+- Push to master automatically starts [Netlify deploy][netlify_deploy]
+- See [package.json][package] for available dev commands
 
-[branch1_1]: https://github.com/hd-o/cotperspective/tree/v1.1-python-rewrite
-[stagingSite]: https://cotperspective-staging.netlify.app/
+[package]: https://github.com/hd-o/cotperspective/blob/master/package.json
+[netlify_deploy]: https://app.netlify.com/sites/cotperspective/deploys
 [cot]: https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm
 [mit]: ./LICENSE
 
