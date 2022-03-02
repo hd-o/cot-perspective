@@ -6,13 +6,13 @@ import { processData } from './process-data'
 const zipBaseURL = 'https://www.cftc.gov/sites/default/files/files/dea/history/'
 
 export interface GetDataConfig {
-  /** The latest year of which to load historical data */
-  year: number
   /**
    * Minimum entries the current year should have,
    * otherwise load more data from previous year
    */
   minimumEntries: number
+  /** The latest year of which to load historical data */
+  year: number
 }
 
 /** Fetch, and parse historical data from CFTC */
@@ -27,7 +27,7 @@ export const getData = async (config: GetDataConfig): Promise<COTData> => {
   console.log('• Extracting data file')
   const file = directory.files.find((d) => d.path === 'annualof.txt')
   const contentBuffer = await file?.buffer()
-  if (!contentBuffer) throw new Error('CSV content buffer undefined')
+  if (contentBuffer == null) throw new Error('CSV content buffer undefined')
 
   console.log('• Reading data file content')
   const data = processData(contentBuffer.toString())
@@ -42,12 +42,13 @@ export const getData = async (config: GetDataConfig): Promise<COTData> => {
     console.log('• Fetching data for previous year')
     const previousYearData = await getData({
       ...config,
-      year: config.year - 1
+      year: config.year - 1,
     })
     for (const exchange in data) {
       for (const market in data[exchange]) {
         const previousData = previousYearData[exchange][market]
-        if (previousData) data[exchange][market].push(...previousData)
+        if (previousData === undefined) continue
+        data[exchange][market].push(...previousData)
       }
     }
   }

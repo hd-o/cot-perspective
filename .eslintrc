@@ -20,6 +20,8 @@
     "react"
   ],
   "rules": {
+    "no-redeclare": "error",
+    "@typescript-eslint/no-redeclare": "off",
     "@typescript-eslint/member-ordering": [
       "error",
       {

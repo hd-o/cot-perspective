@@ -1,83 +1,32 @@
-import React, { ReactNode } from 'react'
-import { COTData, TraderCategories, TraderCategory } from '../model/types'
+import React, { createContext, FC, useContext } from 'react'
+import { DropDownSelections } from '../model/default-selections'
+import { COTData, TraderCategories } from '../model/types'
 import { getPagePath } from '../util/get-file-name'
+import { pageSelectScript } from '../util/page-select-script'
+import { DropdownSelectCtx } from './dropdown-select'
 
-interface SelectProps {
-  children: ReactNode
-  defaultValue: string
-}
-
-export const $dropdown = 'js-page-dropdown-select'
-
-const Select = ({ children, defaultValue }: SelectProps) => (
-  <select
-    defaultValue={defaultValue}
-    className={`custom-select form-control ${$dropdown}`}>
-    {children}
-  </select>
-)
-
-export interface DropDownSelections {
-  exchange: string
-  market: string
-  traderCategory: TraderCategory
-}
-
-export interface PageDropDownsProps extends DropDownSelections {
+export interface PageDropdownsProps extends DropDownSelections {
   data: COTData
-  markets: string[]
   exchanges: string[]
+  markets: string[]
   traderCategories: TraderCategories
 }
 
-declare global {
-  interface Window {
-    // Separate namespace to facilitate testing (using mocks)
-    cotperspective: {
-      assignLocation: typeof window.location.assign
-    }
-  }
-}
+const PageDropdowns: FC<PageDropdownsProps> = (props) => {
+  const Select = useContext(DropdownSelectCtx)
 
-export const pagePath = (selectValue: string) => selectValue + '.html'
-
-/**
- * Handles page navigation after a dropdown option is selected.
- * Note: Might be refactored in the future if the site needs to
- * run React for more complex components, but at the moment this
- * fulfills the requirement while being a statically rendered site.
- */
-export const pageSelectScript = `
-  window.cotperspective = {
-    assignLocation: window.location.assign.bind(window.location)
-  }
-  const pagePath = ${pagePath}
-  document.getElementById('cotperspective').addEventListener('change', (event) => {
-    if (event.target.className.includes('js-page-dropdown-select')) {
-      window.cotperspective.assignLocation(pagePath(event.target.value))
-    }
-  })
-`
-
-export const PageDropDowns = ({
-  data,
-  markets,
-  exchanges,
-  traderCategories,
-  exchange: selectedExchange,
-  market: selectedMarket,
-  traderCategory: selectedTraderCategory
-}: PageDropDownsProps): JSX.Element => {
   const defaultExchangeValue = getPagePath({
-    exchange: selectedExchange,
-    market: Object.keys(data[selectedExchange])[0],
-    traderCategory: selectedTraderCategory
+    exchange: props.exchange,
+    market: Object.keys(props.data[props.exchange])[0],
+    traderCategory: props.traderCategory,
   })
+
   const defaultSelectValue = getPagePath({
-    exchange: selectedExchange,
-    market: selectedMarket,
-    traderCategory: selectedTraderCategory
+    exchange: props.exchange,
+    market: props.market,
+    traderCategory: props.traderCategory,
   })
+
   return (
     <form style={{ marginTop: 20 }}>
       <div className="row">
@@ -85,13 +34,13 @@ export const PageDropDowns = ({
           <div className="form-group">
             <label>Exchange</label>
             <Select defaultValue={defaultExchangeValue}>
-              {exchanges.map((exchange) => (
+              {props.exchanges.map((exchange) => (
                 <option
                   key={exchange}
                   value={`${getPagePath({
                     exchange: exchange,
-                    market: Object.keys(data[exchange])[0],
-                    traderCategory: selectedTraderCategory
+                    market: Object.keys(props.data[exchange])[0],
+                    traderCategory: props.traderCategory,
                   })}`}>
                   {exchange}
                 </option>
@@ -103,13 +52,13 @@ export const PageDropDowns = ({
           <div className="form-group">
             <label>Market</label>
             <Select defaultValue={defaultSelectValue}>
-              {markets.map((market) => (
+              {props.markets.map((market) => (
                 <option
                   key={market}
                   value={`${getPagePath({
-                    exchange: selectedExchange,
+                    exchange: props.exchange,
                     market: market,
-                    traderCategory: selectedTraderCategory
+                    traderCategory: props.traderCategory,
                   })}`}>
                   {market}
                 </option>
@@ -121,13 +70,13 @@ export const PageDropDowns = ({
           <div className="form-group">
             <label>Trader</label>
             <Select defaultValue={defaultSelectValue}>
-              {traderCategories.map((traderCategory) => (
+              {props.traderCategories.map((traderCategory) => (
                 <option
                   key={traderCategory}
                   value={`${getPagePath({
-                    exchange: selectedExchange,
-                    market: selectedMarket,
-                    traderCategory: traderCategory
+                    exchange: props.exchange,
+                    market: props.market,
+                    traderCategory: traderCategory,
                   })}`}>
                   {traderCategory}
                 </option>
@@ -141,3 +90,5 @@ export const PageDropDowns = ({
     </form>
   )
 }
+
+export const PageDropdownsCtx = createContext(PageDropdowns)

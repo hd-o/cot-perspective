@@ -1,18 +1,22 @@
-import { execSync } from 'child_process'
 import CleanCSS from 'clean-css'
 import fs from 'fs'
 import { buildPath } from '../model/build-path'
 
-const assetsPath = './source/assets'
+const assetsPath = './src/assets'
 
-const copyAssets = (files: string[]) => files.forEach(file =>
-  fs.copyFileSync(`${assetsPath}/${file}`, `${buildPath}/${file}`))
+type CopyAssets = (f: string[]) => void
 
-export const processAssets = () => {
+const copyAssets: CopyAssets = (files) => {
+  files.forEach(file => {
+    fs.copyFileSync(`${assetsPath}/${file}`, `${buildPath}/${file}`)
+  })
+}
+
+export const processAssets = (): void => {
   console.log('• Copying assets')
-  copyAssets(['favicon.ico', 'preview.png'])  
+  copyAssets(['favicon.ico', 'preview.png'])
   console.log('• Processing styles')
-  const styles = '' + fs.readFileSync('./source/assets/styles.css')
+  const styles = fs.readFileSync(`${assetsPath}/styles.css`).toString()
   const minStyles = new CleanCSS().minify(styles).styles
   fs.writeFileSync(`${buildPath}/styles.css`, minStyles)
 }

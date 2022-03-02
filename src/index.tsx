@@ -8,9 +8,9 @@ import { processAssets } from './util/process-assets'
 import { renderPages } from './util/render-pages'
 
 /** Fetch and render HTML page for COT market contract */
-const main = async () => {
+const main = async (): Promise<void> => {
   console.log('• Starting build')
-  const useTestData = process.argv.includes('useTestData')
+  const useTestData = process.argv.includes('use-test-data')
   const buildType = useTestData ? '(dev)' : '(prod)'
 
   console.log('• Build started ' + buildType)

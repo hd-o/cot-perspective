@@ -3,10 +3,12 @@ import { GetDataConfig } from './get-data'
 
 const testConfig: GetDataConfig = {
   minimumEntries: 5,
-  year: 2020
+  year: 2020,
 }
 
-export const getTestData = async (_ = testConfig): Promise<COTData> => ({
+type GetTestData = (data?: GetDataConfig) => Promise<COTData>
+
+export const getTestData: GetTestData = async (_ = testConfig) => ({
   'ICE FUTURES U.S.': {
     'U.S. DOLLAR INDEX': [
       {
@@ -26,7 +28,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '53.1',
         '% of OI-Noncommercial-Short (All)': '74.6',
         '% of OI-Commercial-Long (All)': '27.6',
-        '% of OI-Commercial-Short (All)': '3.7'
+        '% of OI-Commercial-Short (All)': '3.7',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -45,7 +47,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '50.5',
         '% of OI-Noncommercial-Short (All)': '75.9',
         '% of OI-Commercial-Long (All)': '30.5',
-        '% of OI-Commercial-Short (All)': '4.8'
+        '% of OI-Commercial-Short (All)': '4.8',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -64,7 +66,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '53.9',
         '% of OI-Noncommercial-Short (All)': '78.4',
         '% of OI-Commercial-Long (All)': '30.8',
-        '% of OI-Commercial-Short (All)': '4.0'
+        '% of OI-Commercial-Short (All)': '4.0',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -83,7 +85,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '54.3',
         '% of OI-Noncommercial-Short (All)': '81.1',
         '% of OI-Commercial-Long (All)': '28.3',
-        '% of OI-Commercial-Short (All)': '2.4'
+        '% of OI-Commercial-Short (All)': '2.4',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -102,7 +104,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '61.5',
         '% of OI-Noncommercial-Short (All)': '47.7',
         '% of OI-Commercial-Long (All)': '21.6',
-        '% of OI-Commercial-Short (All)': '37.2'
+        '% of OI-Commercial-Short (All)': '37.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -121,7 +123,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '68.7',
         '% of OI-Noncommercial-Short (All)': '36.9',
         '% of OI-Commercial-Long (All)': '14.0',
-        '% of OI-Commercial-Short (All)': '48.1'
+        '% of OI-Commercial-Short (All)': '48.1',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -140,7 +142,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '74.3',
         '% of OI-Noncommercial-Short (All)': '22.0',
         '% of OI-Commercial-Long (All)': '9.8',
-        '% of OI-Commercial-Short (All)': '67.8'
+        '% of OI-Commercial-Short (All)': '67.8',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -159,7 +161,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '77.8',
         '% of OI-Noncommercial-Short (All)': '22.9',
         '% of OI-Commercial-Long (All)': '9.1',
-        '% of OI-Commercial-Short (All)': '67.5'
+        '% of OI-Commercial-Short (All)': '67.5',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -178,7 +180,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '76.9',
         '% of OI-Noncommercial-Short (All)': '24.1',
         '% of OI-Commercial-Long (All)': '8.5',
-        '% of OI-Commercial-Short (All)': '67.5'
+        '% of OI-Commercial-Short (All)': '67.5',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -197,7 +199,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '78.2',
         '% of OI-Noncommercial-Short (All)': '26.2',
         '% of OI-Commercial-Long (All)': '7.6',
-        '% of OI-Commercial-Short (All)': '66.2'
+        '% of OI-Commercial-Short (All)': '66.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -216,7 +218,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '80.5',
         '% of OI-Noncommercial-Short (All)': '31.2',
         '% of OI-Commercial-Long (All)': '7.9',
-        '% of OI-Commercial-Short (All)': '61.0'
+        '% of OI-Commercial-Short (All)': '61.0',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -235,7 +237,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '79.1',
         '% of OI-Noncommercial-Short (All)': '29.4',
         '% of OI-Commercial-Long (All)': '7.4',
-        '% of OI-Commercial-Short (All)': '63.2'
+        '% of OI-Commercial-Short (All)': '63.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -254,7 +256,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '80.4',
         '% of OI-Noncommercial-Short (All)': '28.6',
         '% of OI-Commercial-Long (All)': '7.9',
-        '% of OI-Commercial-Short (All)': '62.2'
+        '% of OI-Commercial-Short (All)': '62.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -273,7 +275,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '79.4',
         '% of OI-Noncommercial-Short (All)': '27.1',
         '% of OI-Commercial-Long (All)': '7.2',
-        '% of OI-Commercial-Short (All)': '63.7'
+        '% of OI-Commercial-Short (All)': '63.7',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -292,7 +294,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '79.1',
         '% of OI-Noncommercial-Short (All)': '30.6',
         '% of OI-Commercial-Long (All)': '7.2',
-        '% of OI-Commercial-Short (All)': '61.2'
+        '% of OI-Commercial-Short (All)': '61.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -311,7 +313,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '79.2',
         '% of OI-Noncommercial-Short (All)': '35.1',
         '% of OI-Commercial-Long (All)': '7.2',
-        '% of OI-Commercial-Short (All)': '55.1'
+        '% of OI-Commercial-Short (All)': '55.1',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -330,7 +332,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '77.1',
         '% of OI-Noncommercial-Short (All)': '48.9',
         '% of OI-Commercial-Long (All)': '7.4',
-        '% of OI-Commercial-Short (All)': '43.0'
+        '% of OI-Commercial-Short (All)': '43.0',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -349,7 +351,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '56.9',
         '% of OI-Noncommercial-Short (All)': '29.3',
         '% of OI-Commercial-Long (All)': '23.5',
-        '% of OI-Commercial-Short (All)': '56.5'
+        '% of OI-Commercial-Short (All)': '56.5',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -368,7 +370,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '80.0',
         '% of OI-Noncommercial-Short (All)': '23.7',
         '% of OI-Commercial-Long (All)': '9.2',
-        '% of OI-Commercial-Short (All)': '69.2'
+        '% of OI-Commercial-Short (All)': '69.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -387,7 +389,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '83.0',
         '% of OI-Noncommercial-Short (All)': '30.7',
         '% of OI-Commercial-Long (All)': '6.6',
-        '% of OI-Commercial-Short (All)': '62.6'
+        '% of OI-Commercial-Short (All)': '62.6',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -406,7 +408,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '83.3',
         '% of OI-Noncommercial-Short (All)': '33.4',
         '% of OI-Commercial-Long (All)': '6.5',
-        '% of OI-Commercial-Short (All)': '59.7'
+        '% of OI-Commercial-Short (All)': '59.7',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -425,7 +427,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '84.0',
         '% of OI-Noncommercial-Short (All)': '44.8',
         '% of OI-Commercial-Long (All)': '6.6',
-        '% of OI-Commercial-Short (All)': '48.8'
+        '% of OI-Commercial-Short (All)': '48.8',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -444,7 +446,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '81.2',
         '% of OI-Noncommercial-Short (All)': '34.8',
         '% of OI-Commercial-Long (All)': '7.1',
-        '% of OI-Commercial-Short (All)': '57.2'
+        '% of OI-Commercial-Short (All)': '57.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -463,7 +465,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '78.6',
         '% of OI-Noncommercial-Short (All)': '33.0',
         '% of OI-Commercial-Long (All)': '5.6',
-        '% of OI-Commercial-Short (All)': '55.7'
+        '% of OI-Commercial-Short (All)': '55.7',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -482,7 +484,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '70.6',
         '% of OI-Noncommercial-Short (All)': '34.5',
         '% of OI-Commercial-Long (All)': '12.8',
-        '% of OI-Commercial-Short (All)': '51.8'
+        '% of OI-Commercial-Short (All)': '51.8',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -501,7 +503,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '70.7',
         '% of OI-Noncommercial-Short (All)': '34.1',
         '% of OI-Commercial-Long (All)': '13.4',
-        '% of OI-Commercial-Short (All)': '51.2'
+        '% of OI-Commercial-Short (All)': '51.2',
       },
       {
         market: 'U.S. DOLLAR INDEX',
@@ -520,9 +522,9 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '67.7',
         '% of OI-Noncommercial-Short (All)': '32.3',
         '% of OI-Commercial-Long (All)': '15.3',
-        '% of OI-Commercial-Short (All)': '52.5'
-      }
-    ]
+        '% of OI-Commercial-Short (All)': '52.5',
+      },
+    ],
   },
   'CHICAGO MERCANTILE EXCHANGE': {
     '3-MONTH SOFR': [
@@ -544,7 +546,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '8.0',
         '% of OI-Noncommercial-Short (All)': '26.5',
         '% of OI-Commercial-Long (All)': '75.6',
-        '% of OI-Commercial-Short (All)': '57.2'
+        '% of OI-Commercial-Short (All)': '57.2',
       },
       {
         market: '3-MONTH SOFR',
@@ -564,7 +566,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '7.8',
         '% of OI-Noncommercial-Short (All)': '26.8',
         '% of OI-Commercial-Long (All)': '75.5',
-        '% of OI-Commercial-Short (All)': '56.4'
+        '% of OI-Commercial-Short (All)': '56.4',
       },
       {
         market: '3-MONTH SOFR',
@@ -584,7 +586,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '7.8',
         '% of OI-Noncommercial-Short (All)': '25.6',
         '% of OI-Commercial-Long (All)': '74.1',
-        '% of OI-Commercial-Short (All)': '56.3'
+        '% of OI-Commercial-Short (All)': '56.3',
       },
       {
         market: '3-MONTH SOFR',
@@ -604,7 +606,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '12.8',
         '% of OI-Noncommercial-Short (All)': '21.7',
         '% of OI-Commercial-Long (All)': '70.1',
-        '% of OI-Commercial-Short (All)': '61.3'
+        '% of OI-Commercial-Short (All)': '61.3',
       },
       {
         market: '3-MONTH SOFR',
@@ -624,7 +626,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.6',
         '% of OI-Noncommercial-Short (All)': '21.1',
         '% of OI-Commercial-Long (All)': '68.1',
-        '% of OI-Commercial-Short (All)': '61.7'
+        '% of OI-Commercial-Short (All)': '61.7',
       },
       {
         market: '3-MONTH SOFR',
@@ -644,7 +646,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '18.5',
         '% of OI-Noncommercial-Short (All)': '20.6',
         '% of OI-Commercial-Long (All)': '63.9',
-        '% of OI-Commercial-Short (All)': '61.9'
+        '% of OI-Commercial-Short (All)': '61.9',
       },
       {
         market: '3-MONTH SOFR',
@@ -664,7 +666,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '18.8',
         '% of OI-Noncommercial-Short (All)': '17.0',
         '% of OI-Commercial-Long (All)': '63.9',
-        '% of OI-Commercial-Short (All)': '62.7'
+        '% of OI-Commercial-Short (All)': '62.7',
       },
       {
         market: '3-MONTH SOFR',
@@ -684,7 +686,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '20.4',
         '% of OI-Noncommercial-Short (All)': '15.5',
         '% of OI-Commercial-Long (All)': '61.3',
-        '% of OI-Commercial-Short (All)': '63.5'
+        '% of OI-Commercial-Short (All)': '63.5',
       },
       {
         market: '3-MONTH SOFR',
@@ -704,7 +706,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '21.3',
         '% of OI-Noncommercial-Short (All)': '16.5',
         '% of OI-Commercial-Long (All)': '60.8',
-        '% of OI-Commercial-Short (All)': '63.5'
+        '% of OI-Commercial-Short (All)': '63.5',
       },
       {
         market: '3-MONTH SOFR',
@@ -724,7 +726,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '24.0',
         '% of OI-Noncommercial-Short (All)': '17.2',
         '% of OI-Commercial-Long (All)': '58.9',
-        '% of OI-Commercial-Short (All)': '63.1'
+        '% of OI-Commercial-Short (All)': '63.1',
       },
       {
         market: '3-MONTH SOFR',
@@ -744,7 +746,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '23.1',
         '% of OI-Noncommercial-Short (All)': '16.9',
         '% of OI-Commercial-Long (All)': '59.4',
-        '% of OI-Commercial-Short (All)': '63.0'
+        '% of OI-Commercial-Short (All)': '63.0',
       },
       {
         market: '3-MONTH SOFR',
@@ -764,7 +766,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '24.1',
         '% of OI-Noncommercial-Short (All)': '17.2',
         '% of OI-Commercial-Long (All)': '60.4',
-        '% of OI-Commercial-Short (All)': '64.6'
+        '% of OI-Commercial-Short (All)': '64.6',
       },
       {
         market: '3-MONTH SOFR',
@@ -784,7 +786,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '23.3',
         '% of OI-Noncommercial-Short (All)': '18.2',
         '% of OI-Commercial-Long (All)': '60.9',
-        '% of OI-Commercial-Short (All)': '64.3'
+        '% of OI-Commercial-Short (All)': '64.3',
       },
       {
         market: '3-MONTH SOFR',
@@ -804,7 +806,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '22.2',
         '% of OI-Noncommercial-Short (All)': '17.6',
         '% of OI-Commercial-Long (All)': '62.0',
-        '% of OI-Commercial-Short (All)': '65.1'
+        '% of OI-Commercial-Short (All)': '65.1',
       },
       {
         market: '3-MONTH SOFR',
@@ -824,7 +826,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '22.2',
         '% of OI-Noncommercial-Short (All)': '18.6',
         '% of OI-Commercial-Long (All)': '60.7',
-        '% of OI-Commercial-Short (All)': '62.8'
+        '% of OI-Commercial-Short (All)': '62.8',
       },
       {
         market: '3-MONTH SOFR',
@@ -844,7 +846,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '17.8',
         '% of OI-Noncommercial-Short (All)': '20.5',
         '% of OI-Commercial-Long (All)': '60.6',
-        '% of OI-Commercial-Short (All)': '57.4'
+        '% of OI-Commercial-Short (All)': '57.4',
       },
       {
         market: '3-MONTH SOFR',
@@ -864,7 +866,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.7',
         '% of OI-Noncommercial-Short (All)': '27.5',
         '% of OI-Commercial-Long (All)': '69.1',
-        '% of OI-Commercial-Short (All)': '55.3'
+        '% of OI-Commercial-Short (All)': '55.3',
       },
       {
         market: '3-MONTH SOFR',
@@ -884,7 +886,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '12.9',
         '% of OI-Noncommercial-Short (All)': '23.0',
         '% of OI-Commercial-Long (All)': '68.8',
-        '% of OI-Commercial-Short (All)': '57.4'
+        '% of OI-Commercial-Short (All)': '57.4',
       },
       {
         market: '3-MONTH SOFR',
@@ -904,7 +906,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '17.8',
         '% of OI-Noncommercial-Short (All)': '23.0',
         '% of OI-Commercial-Long (All)': '61.9',
-        '% of OI-Commercial-Short (All)': '55.8'
+        '% of OI-Commercial-Short (All)': '55.8',
       },
       {
         market: '3-MONTH SOFR',
@@ -924,7 +926,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '11.7',
         '% of OI-Noncommercial-Short (All)': '18.8',
         '% of OI-Commercial-Long (All)': '67.9',
-        '% of OI-Commercial-Short (All)': '59.6'
+        '% of OI-Commercial-Short (All)': '59.6',
       },
       {
         market: '3-MONTH SOFR',
@@ -944,7 +946,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '9.8',
         '% of OI-Noncommercial-Short (All)': '11.4',
         '% of OI-Commercial-Long (All)': '65.0',
-        '% of OI-Commercial-Short (All)': '62.4'
+        '% of OI-Commercial-Short (All)': '62.4',
       },
       {
         market: '3-MONTH SOFR',
@@ -964,7 +966,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '9.8',
         '% of OI-Noncommercial-Short (All)': '11.3',
         '% of OI-Commercial-Long (All)': '65.4',
-        '% of OI-Commercial-Short (All)': '63.8'
+        '% of OI-Commercial-Short (All)': '63.8',
       },
       {
         market: '3-MONTH SOFR',
@@ -984,7 +986,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '16.0',
         '% of OI-Noncommercial-Short (All)': '13.8',
         '% of OI-Commercial-Long (All)': '64.8',
-        '% of OI-Commercial-Short (All)': '66.8'
+        '% of OI-Commercial-Short (All)': '66.8',
       },
       {
         market: '3-MONTH SOFR',
@@ -1004,7 +1006,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '17.9',
         '% of OI-Noncommercial-Short (All)': '12.9',
         '% of OI-Commercial-Long (All)': '60.3',
-        '% of OI-Commercial-Short (All)': '65.2'
+        '% of OI-Commercial-Short (All)': '65.2',
       },
       {
         market: '3-MONTH SOFR',
@@ -1024,7 +1026,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '19.5',
         '% of OI-Noncommercial-Short (All)': '11.9',
         '% of OI-Commercial-Long (All)': '57.9',
-        '% of OI-Commercial-Short (All)': '65.5'
+        '% of OI-Commercial-Short (All)': '65.5',
       },
       {
         market: '3-MONTH SOFR',
@@ -1044,7 +1046,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '20.7',
         '% of OI-Noncommercial-Short (All)': '10.2',
         '% of OI-Commercial-Long (All)': '54.1',
-        '% of OI-Commercial-Short (All)': '64.7'
+        '% of OI-Commercial-Short (All)': '64.7',
       },
       {
         market: '3-MONTH SOFR',
@@ -1064,8 +1066,8 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '21.8',
         '% of OI-Noncommercial-Short (All)': '9.3',
         '% of OI-Commercial-Long (All)': '53.9',
-        '% of OI-Commercial-Short (All)': '67.3'
-      }
+        '% of OI-Commercial-Short (All)': '67.3',
+      },
     ],
     'EURO FX': [
       {
@@ -1085,7 +1087,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '28.8',
         '% of OI-Noncommercial-Short (All)': '12.4',
         '% of OI-Commercial-Long (All)': '51.3',
-        '% of OI-Commercial-Short (All)': '75.7'
+        '% of OI-Commercial-Short (All)': '75.7',
       },
       {
         market: 'EURO FX',
@@ -1104,7 +1106,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '28.0',
         '% of OI-Noncommercial-Short (All)': '12.2',
         '% of OI-Commercial-Long (All)': '51.4',
-        '% of OI-Commercial-Short (All)': '74.9'
+        '% of OI-Commercial-Short (All)': '74.9',
       },
       {
         market: 'EURO FX',
@@ -1123,7 +1125,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '29.5',
         '% of OI-Noncommercial-Short (All)': '11.1',
         '% of OI-Commercial-Long (All)': '50.8',
-        '% of OI-Commercial-Short (All)': '76.0'
+        '% of OI-Commercial-Short (All)': '76.0',
       },
       {
         market: 'EURO FX',
@@ -1142,7 +1144,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '29.5',
         '% of OI-Noncommercial-Short (All)': '11.0',
         '% of OI-Commercial-Long (All)': '51.3',
-        '% of OI-Commercial-Short (All)': '75.7'
+        '% of OI-Commercial-Short (All)': '75.7',
       },
       {
         market: 'EURO FX',
@@ -1161,7 +1163,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '28.5',
         '% of OI-Noncommercial-Short (All)': '13.6',
         '% of OI-Commercial-Long (All)': '51.8',
-        '% of OI-Commercial-Short (All)': '72.4'
+        '% of OI-Commercial-Short (All)': '72.4',
       },
       {
         market: 'EURO FX',
@@ -1180,7 +1182,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '26.9',
         '% of OI-Noncommercial-Short (All)': '14.2',
         '% of OI-Commercial-Long (All)': '51.7',
-        '% of OI-Commercial-Short (All)': '70.0'
+        '% of OI-Commercial-Short (All)': '70.0',
       },
       {
         market: 'EURO FX',
@@ -1199,7 +1201,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '28.6',
         '% of OI-Noncommercial-Short (All)': '16.0',
         '% of OI-Commercial-Long (All)': '51.8',
-        '% of OI-Commercial-Short (All)': '69.5'
+        '% of OI-Commercial-Short (All)': '69.5',
       },
       {
         market: 'EURO FX',
@@ -1218,7 +1220,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.7',
         '% of OI-Noncommercial-Short (All)': '15.6',
         '% of OI-Commercial-Long (All)': '52.3',
-        '% of OI-Commercial-Short (All)': '69.4'
+        '% of OI-Commercial-Short (All)': '69.4',
       },
       {
         market: 'EURO FX',
@@ -1237,7 +1239,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '28.4',
         '% of OI-Noncommercial-Short (All)': '15.5',
         '% of OI-Commercial-Long (All)': '52.3',
-        '% of OI-Commercial-Short (All)': '70.0'
+        '% of OI-Commercial-Short (All)': '70.0',
       },
       {
         market: 'EURO FX',
@@ -1256,7 +1258,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.4',
         '% of OI-Noncommercial-Short (All)': '15.1',
         '% of OI-Commercial-Long (All)': '52.0',
-        '% of OI-Commercial-Short (All)': '68.7'
+        '% of OI-Commercial-Short (All)': '68.7',
       },
       {
         market: 'EURO FX',
@@ -1275,7 +1277,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.1',
         '% of OI-Noncommercial-Short (All)': '14.1',
         '% of OI-Commercial-Long (All)': '51.7',
-        '% of OI-Commercial-Short (All)': '69.5'
+        '% of OI-Commercial-Short (All)': '69.5',
       },
       {
         market: 'EURO FX',
@@ -1294,7 +1296,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.8',
         '% of OI-Noncommercial-Short (All)': '13.6',
         '% of OI-Commercial-Long (All)': '52.7',
-        '% of OI-Commercial-Short (All)': '71.6'
+        '% of OI-Commercial-Short (All)': '71.6',
       },
       {
         market: 'EURO FX',
@@ -1313,7 +1315,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.2',
         '% of OI-Noncommercial-Short (All)': '13.1',
         '% of OI-Commercial-Long (All)': '53.1',
-        '% of OI-Commercial-Short (All)': '73.1'
+        '% of OI-Commercial-Short (All)': '73.1',
       },
       {
         market: 'EURO FX',
@@ -1332,7 +1334,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '26.2',
         '% of OI-Noncommercial-Short (All)': '13.5',
         '% of OI-Commercial-Long (All)': '53.2',
-        '% of OI-Commercial-Short (All)': '72.2'
+        '% of OI-Commercial-Short (All)': '72.2',
       },
       {
         market: 'EURO FX',
@@ -1351,7 +1353,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '24.4',
         '% of OI-Noncommercial-Short (All)': '13.0',
         '% of OI-Commercial-Long (All)': '55.1',
-        '% of OI-Commercial-Short (All)': '70.9'
+        '% of OI-Commercial-Short (All)': '70.9',
       },
       {
         market: 'EURO FX',
@@ -1370,7 +1372,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '22.5',
         '% of OI-Noncommercial-Short (All)': '14.1',
         '% of OI-Commercial-Long (All)': '55.4',
-        '% of OI-Commercial-Short (All)': '68.0'
+        '% of OI-Commercial-Short (All)': '68.0',
       },
       {
         market: 'EURO FX',
@@ -1389,7 +1391,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '21.8',
         '% of OI-Noncommercial-Short (All)': '17.2',
         '% of OI-Commercial-Long (All)': '57.8',
-        '% of OI-Commercial-Short (All)': '67.6'
+        '% of OI-Commercial-Short (All)': '67.6',
       },
       {
         market: 'EURO FX',
@@ -1408,7 +1410,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '20.2',
         '% of OI-Noncommercial-Short (All)': '21.8',
         '% of OI-Commercial-Long (All)': '58.6',
-        '% of OI-Commercial-Short (All)': '62.4'
+        '% of OI-Commercial-Short (All)': '62.4',
       },
       {
         market: 'EURO FX',
@@ -1427,7 +1429,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '20.4',
         '% of OI-Noncommercial-Short (All)': '31.5',
         '% of OI-Commercial-Long (All)': '58.4',
-        '% of OI-Commercial-Short (All)': '50.8'
+        '% of OI-Commercial-Short (All)': '50.8',
       },
       {
         market: 'EURO FX',
@@ -1446,7 +1448,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '21.6',
         '% of OI-Noncommercial-Short (All)': '39.0',
         '% of OI-Commercial-Long (All)': '56.1',
-        '% of OI-Commercial-Short (All)': '43.1'
+        '% of OI-Commercial-Short (All)': '43.1',
       },
       {
         market: 'EURO FX',
@@ -1465,7 +1467,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '24.2',
         '% of OI-Noncommercial-Short (All)': '38.8',
         '% of OI-Commercial-Long (All)': '54.4',
-        '% of OI-Commercial-Short (All)': '45.2'
+        '% of OI-Commercial-Short (All)': '45.2',
       },
       {
         market: 'EURO FX',
@@ -1484,7 +1486,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '25.0',
         '% of OI-Noncommercial-Short (All)': '38.6',
         '% of OI-Commercial-Long (All)': '54.5',
-        '% of OI-Commercial-Short (All)': '45.7'
+        '% of OI-Commercial-Short (All)': '45.7',
       },
       {
         market: 'EURO FX',
@@ -1503,7 +1505,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '25.7',
         '% of OI-Noncommercial-Short (All)': '38.0',
         '% of OI-Commercial-Long (All)': '53.1',
-        '% of OI-Commercial-Short (All)': '46.8'
+        '% of OI-Commercial-Short (All)': '46.8',
       },
       {
         market: 'EURO FX',
@@ -1522,7 +1524,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.2',
         '% of OI-Noncommercial-Short (All)': '37.2',
         '% of OI-Commercial-Long (All)': '51.5',
-        '% of OI-Commercial-Short (All)': '47.6'
+        '% of OI-Commercial-Short (All)': '47.6',
       },
       {
         market: 'EURO FX',
@@ -1541,7 +1543,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '26.3',
         '% of OI-Noncommercial-Short (All)': '34.6',
         '% of OI-Commercial-Long (All)': '51.4',
-        '% of OI-Commercial-Short (All)': '49.7'
+        '% of OI-Commercial-Short (All)': '49.7',
       },
       {
         market: 'EURO FX',
@@ -1560,7 +1562,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '26.3',
         '% of OI-Noncommercial-Short (All)': '34.9',
         '% of OI-Commercial-Long (All)': '51.6',
-        '% of OI-Commercial-Short (All)': '49.7'
+        '% of OI-Commercial-Short (All)': '49.7',
       },
       {
         market: 'EURO FX',
@@ -1579,8 +1581,8 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '27.5',
         '% of OI-Noncommercial-Short (All)': '38.3',
         '% of OI-Commercial-Long (All)': '51.2',
-        '% of OI-Commercial-Short (All)': '46.6'
-      }
+        '% of OI-Commercial-Short (All)': '46.6',
+      },
     ],
     'EURO FX/BRITISH POUND XRATE': [
       {
@@ -1601,7 +1603,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.2',
         '% of OI-Noncommercial-Short (All)': '14.8',
         '% of OI-Commercial-Long (All)': '31.9',
-        '% of OI-Commercial-Short (All)': '63.8'
+        '% of OI-Commercial-Short (All)': '63.8',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1621,7 +1623,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '17.8',
         '% of OI-Noncommercial-Short (All)': '20.9',
         '% of OI-Commercial-Long (All)': '30.4',
-        '% of OI-Commercial-Short (All)': '59.9'
+        '% of OI-Commercial-Short (All)': '59.9',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1641,7 +1643,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.0',
         '% of OI-Noncommercial-Short (All)': '21.8',
         '% of OI-Commercial-Long (All)': '31.2',
-        '% of OI-Commercial-Short (All)': '59.4'
+        '% of OI-Commercial-Short (All)': '59.4',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1661,7 +1663,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.8',
         '% of OI-Noncommercial-Short (All)': '20.1',
         '% of OI-Commercial-Long (All)': '31.0',
-        '% of OI-Commercial-Short (All)': '59.9'
+        '% of OI-Commercial-Short (All)': '59.9',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1681,7 +1683,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '11.8',
         '% of OI-Noncommercial-Short (All)': '17.3',
         '% of OI-Commercial-Long (All)': '28.6',
-        '% of OI-Commercial-Short (All)': '59.0'
+        '% of OI-Commercial-Short (All)': '59.0',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1701,7 +1703,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.0',
         '% of OI-Noncommercial-Short (All)': '16.1',
         '% of OI-Commercial-Long (All)': '31.1',
-        '% of OI-Commercial-Short (All)': '63.9'
+        '% of OI-Commercial-Short (All)': '63.9',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1721,7 +1723,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '12.8',
         '% of OI-Noncommercial-Short (All)': '16.0',
         '% of OI-Commercial-Long (All)': '30.9',
-        '% of OI-Commercial-Short (All)': '64.2'
+        '% of OI-Commercial-Short (All)': '64.2',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1741,7 +1743,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.8',
         '% of OI-Noncommercial-Short (All)': '11.6',
         '% of OI-Commercial-Long (All)': '31.3',
-        '% of OI-Commercial-Short (All)': '68.9'
+        '% of OI-Commercial-Short (All)': '68.9',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1761,7 +1763,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.1',
         '% of OI-Noncommercial-Short (All)': '13.1',
         '% of OI-Commercial-Long (All)': '28.2',
-        '% of OI-Commercial-Short (All)': '68.7'
+        '% of OI-Commercial-Short (All)': '68.7',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1781,7 +1783,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '16.3',
         '% of OI-Noncommercial-Short (All)': '9.9',
         '% of OI-Commercial-Long (All)': '29.0',
-        '% of OI-Commercial-Short (All)': '71.8'
+        '% of OI-Commercial-Short (All)': '71.8',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1801,7 +1803,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.8',
         '% of OI-Noncommercial-Short (All)': '11.6',
         '% of OI-Commercial-Long (All)': '28.6',
-        '% of OI-Commercial-Short (All)': '71.3'
+        '% of OI-Commercial-Short (All)': '71.3',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1821,7 +1823,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.0',
         '% of OI-Noncommercial-Short (All)': '23.2',
         '% of OI-Commercial-Long (All)': '27.1',
-        '% of OI-Commercial-Short (All)': '50.6'
+        '% of OI-Commercial-Short (All)': '50.6',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1841,7 +1843,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.3',
         '% of OI-Noncommercial-Short (All)': '15.6',
         '% of OI-Commercial-Long (All)': '27.8',
-        '% of OI-Commercial-Short (All)': '51.3'
+        '% of OI-Commercial-Short (All)': '51.3',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1861,7 +1863,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.1',
         '% of OI-Noncommercial-Short (All)': '16.0',
         '% of OI-Commercial-Long (All)': '29.6',
-        '% of OI-Commercial-Short (All)': '50.8'
+        '% of OI-Commercial-Short (All)': '50.8',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1881,7 +1883,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '14.3',
         '% of OI-Noncommercial-Short (All)': '17.2',
         '% of OI-Commercial-Long (All)': '31.1',
-        '% of OI-Commercial-Short (All)': '51.3'
+        '% of OI-Commercial-Short (All)': '51.3',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1901,7 +1903,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.3',
         '% of OI-Noncommercial-Short (All)': '17.3',
         '% of OI-Commercial-Long (All)': '30.3',
-        '% of OI-Commercial-Short (All)': '50.6'
+        '% of OI-Commercial-Short (All)': '50.6',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1921,7 +1923,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.6',
         '% of OI-Noncommercial-Short (All)': '17.4',
         '% of OI-Commercial-Long (All)': '30.6',
-        '% of OI-Commercial-Short (All)': '50.6'
+        '% of OI-Commercial-Short (All)': '50.6',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1941,7 +1943,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.6',
         '% of OI-Noncommercial-Short (All)': '17.3',
         '% of OI-Commercial-Long (All)': '31.7',
-        '% of OI-Commercial-Short (All)': '51.2'
+        '% of OI-Commercial-Short (All)': '51.2',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1961,7 +1963,7 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.7',
         '% of OI-Noncommercial-Short (All)': '11.9',
         '% of OI-Commercial-Long (All)': '31.3',
-        '% of OI-Commercial-Short (All)': '54.7'
+        '% of OI-Commercial-Short (All)': '54.7',
       },
       {
         market: 'EURO FX/BRITISH POUND XRATE',
@@ -1981,8 +1983,8 @@ export const getTestData = async (_ = testConfig): Promise<COTData> => ({
         '% of OI-Noncommercial-Long (All)': '15.5',
         '% of OI-Noncommercial-Short (All)': '11.2',
         '% of OI-Commercial-Long (All)': '31.4',
-        '% of OI-Commercial-Short (All)': '54.5'
-      }
-    ]
-  }
+        '% of OI-Commercial-Short (All)': '54.5',
+      },
+    ],
+  },
 })

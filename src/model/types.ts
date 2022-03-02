@@ -8,8 +8,8 @@ export type TraderCategories = readonly TraderCategory[]
 export type CSVData = Record<typeof propertiesToSelect[number], string>
 
 export interface FormattedCSVData extends CSVData {
-  market: string
   exchange: string
+  market: string
 }
 
 export type MarketsData = Record<string, FormattedCSVData[]>

@@ -1,32 +1,21 @@
-import React from 'react'
+import React, { createContext, FC } from 'react'
+import { getAverage } from '../util/get-average'
+
+type TableValues = Array<(string | number)>
 
 export interface DataTableProps {
   averagePeriod: number
-  values: (string | number)[][]
+  values: TableValues[]
 }
 
-/**
- * Returns function that calculates average, and returns
- * formatted value in locale string, for the chosen row.
- * See test in DataTable.test.tsx
- */
-export const getAverage = (period: number, values: DataTableProps['values']) => (rowIndex: number): string => {
-  const sum = values
-    .slice(0, period)
-    .reduce((total, row) => total + Number(row[rowIndex]), 0)
-  return Math.trunc(sum / period).toLocaleString()
-}
+const DataTable: FC<DataTableProps> = (props) => {
+  const getAverageWithIndex = getAverage(props.averagePeriod, props.values)
+  const longAverage = getAverageWithIndex(1)
+  const shortAverage = getAverageWithIndex(2)
+  const longPercentageAverage = getAverageWithIndex(5)
+  const shortPercentageAverage = getAverageWithIndex(6)
+  const netAverage = getAverageWithIndex(7)
 
-export const DataTable = ({
-  averagePeriod,
-  values
-}: DataTableProps): React.ReactElement => {
-  const _getAverage = getAverage(averagePeriod, values)
-  const longAverage = _getAverage(1)
-  const shortAverage = _getAverage(2)
-  const longPercentageAverage = _getAverage(5)
-  const shortPercentageAverage = _getAverage(6)
-  const netAverage = _getAverage(7)
   return (
     <table
       className="table table-bordered text-center"
@@ -44,10 +33,10 @@ export const DataTable = ({
         </tr>
       </thead>
       <tbody>
-        {values.length >= averagePeriod && (
+        {props.values.length >= props.averagePeriod && (
           <tr className="bg-light">
-            <td title={`${averagePeriod} Period Simple Average`}>
-              Average({averagePeriod})
+            <td title={`${props.averagePeriod} Period Simple Average`}>
+              Average({props.averagePeriod})
             </td>
             <td>{longAverage}</td>
             <td>{shortAverage}</td>
@@ -57,7 +46,7 @@ export const DataTable = ({
             <td>{netAverage}</td>
           </tr>
         )}
-        {values.map((row, valueIndex) => (
+        {props.values.map((row, valueIndex) => (
           <tr key={valueIndex}>
             {row.map((column, index) => {
               // Add classname to make table cell red/green
@@ -65,10 +54,10 @@ export const DataTable = ({
               let className = ''
 
               if (
-                values[valueIndex + 1] &&
+                props.values[valueIndex + 1] !== undefined &&
                 (index === 1 || index === 2 || index === 7)
               ) {
-                const previousColumn = values[valueIndex + 1][index]
+                const previousColumn = props.values[valueIndex + 1][index]
                 if (previousColumn > column) className = 'column-negative'
                 if (previousColumn < column) className = 'column-positive'
               }
@@ -77,9 +66,8 @@ export const DataTable = ({
               let text = Number.isNaN(column) ? 'Not Available' : column
 
               // Format numbers for better readability
-              if (index >= 1 || index <= 4 || index === 7)
-                text = text.toLocaleString()
-              if (index === 5 || index === 6) text = text + ' %'
+              if (index >= 1 || index <= 4 || index === 7) { text = text.toLocaleString() }
+              if (index === 5 || index === 6) text = `${text} %`
 
               return (
                 <td className={className} key={index}>
@@ -93,3 +81,5 @@ export const DataTable = ({
     </table>
   )
 }
+
+export const DataTableCtx = createContext(DataTable)

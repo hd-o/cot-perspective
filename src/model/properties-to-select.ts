@@ -13,5 +13,5 @@ export const propertiesToSelect = [
   '% of OI-Noncommercial-Long (All)',
   '% of OI-Noncommercial-Short (All)',
   '% of OI-Commercial-Long (All)',
-  '% of OI-Commercial-Short (All)'
+  '% of OI-Commercial-Short (All)',
 ] as const

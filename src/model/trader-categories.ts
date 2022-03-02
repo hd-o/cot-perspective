@@ -1,2 +1,5 @@
 /** COT categories */
-export const traderCategories = ['Commercial', 'Noncommercial'] as const
+export const traderCategories = [
+  'Commercial',
+  'Noncommercial',
+] as const

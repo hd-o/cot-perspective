@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme'
-import React from 'react'
 import { averagePeriod } from '../src/model/average-period'
 import { defaultSelections } from '../src/model/default-selections'
 import { traderCategories } from '../src/model/trader-categories'
@@ -20,13 +19,13 @@ test('Template snapshot', async () => {
         exchanges: getSortedKeys(testData),
         markets: getSortedKeys(testData[defaultSelections.exchange]),
         traderCategories,
-        ...defaultSelections
+        ...defaultSelections,
       }}
       tableData={{
         averagePeriod,
         values: marketData.map(
           processTableData(defaultSelections.traderCategory)
-        )
+        ),
       }}
     />
   )
