@@ -1,9 +1,4 @@
 import { propertiesToSelect } from './properties-to-select'
-import { traderCategories } from './trader-categories'
-
-export type TraderCategory = typeof traderCategories[number]
-
-export type TraderCategories = readonly TraderCategory[]
 
 export type CSVData = Record<typeof propertiesToSelect[number], string>
 

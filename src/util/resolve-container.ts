@@ -1,6 +1,5 @@
 import { Container } from 'inversify'
-
-export const container = new Container()
+import { container } from './container'
 
 export type Use <V> = (r: ReturnType<Resolve>, c: Container) => V
 

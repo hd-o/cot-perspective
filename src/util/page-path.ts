@@ -1,3 +1,7 @@
+import { Use } from './resolve-container'
+
 type PagePath = (p: string) => string
 
-export const pagePath: PagePath = (page) => page + '.html'
+export const useGetPagePath: Use<PagePath> = () => {
+  return (page) => page + '.html'
+}

@@ -10,7 +10,7 @@
     "dev:build": "ts-node-dev --respawn src/index.tsx use-test-data",
     "dev:serve": "pnpm start",
     "build": "ts-node src/index.tsx",
-    "lint": "run-p run-tsc run:eslint",
+    "lint": "run-p run:tsc run:eslint",
     "postinstall": "husky install",
     "git:prepush": "run-p lint test",
     "run:eslint": "eslint -c .eslintrc .",

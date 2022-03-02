@@ -8,14 +8,12 @@ interface UsefulLinkProps {
 }
 
 const UsefulLink: FC<UsefulLinkProps> = (props) => {
-  const { link, title, channel } = props
-
   const Link = useContext(LinkCtx)
 
   return (
     <li className='useful-link'>
-      <Link href={link} title={`${channel} - ${title}`}>
-        <strong>{channel}</strong> - {title}
+      <Link href={props.link} title={`${props.channel} - ${props.title}`}>
+        <strong>{props.channel}</strong> - {props.title}
       </Link>
     </li>
   )

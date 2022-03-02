@@ -6,12 +6,11 @@ interface Props {
 }
 
 const DropdownSelect: FC<Props> = (props) => {
-  const { children, defaultValue } = props
   return (
     <select
-      defaultValue={defaultValue}
+      defaultValue={props.defaultValue}
       className={`custom-select form-control ${dropdownClass}`}>
-      {children}
+      {props.children}
     </select>
   )
 }

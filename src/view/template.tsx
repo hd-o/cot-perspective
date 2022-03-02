@@ -1,11 +1,11 @@
-import fs from 'fs'
+import { readFileSync } from 'node:fs'
 import { FC, StrictMode, useContext } from 'react'
 import { DataTableCtx, DataTableProps } from './data-table'
 import { HeaderCtx } from './header'
 import { PageDropdownsCtx, PageDropdownsProps } from './page-dropdowns'
 import { UsefulLinkCtx } from './useful-link'
 
-const license = fs.readFileSync('./LICENSE').toString()
+const license = readFileSync('./LICENSE').toString()
 
 interface Props {
   dropDownsData: PageDropdownsProps

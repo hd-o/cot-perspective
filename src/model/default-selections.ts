@@ -1,5 +1,4 @@
-import { traderCategories } from './trader-categories'
-import { TraderCategory } from './types'
+import { traderCategories, TraderCategory } from './trader-categories'
 
 export interface DropDownSelections {
   exchange: string

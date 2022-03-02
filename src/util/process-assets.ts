@@ -1,22 +1,21 @@
 import CleanCSS from 'clean-css'
-import fs from 'fs'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { assetsPath } from '../model/assets-path'
 import { buildPath } from '../model/build-path'
+import { useCopyAssets } from './copy-assets'
+import { Use } from './resolve-container'
 
-const assetsPath = './src/assets'
+type ProcessAssets = () => void
 
-type CopyAssets = (f: string[]) => void
+export const useProcessAssets: Use<ProcessAssets> = (resolve) => {
+  const copyAssets = resolve(useCopyAssets)
 
-const copyAssets: CopyAssets = (files) => {
-  files.forEach(file => {
-    fs.copyFileSync(`${assetsPath}/${file}`, `${buildPath}/${file}`)
-  })
-}
-
-export const processAssets = (): void => {
-  console.log('• Copying assets')
-  copyAssets(['favicon.ico', 'preview.png'])
-  console.log('• Processing styles')
-  const styles = fs.readFileSync(`${assetsPath}/styles.css`).toString()
-  const minStyles = new CleanCSS().minify(styles).styles
-  fs.writeFileSync(`${buildPath}/styles.css`, minStyles)
+  return (): void => {
+    console.log('• Copying assets')
+    copyAssets(['favicon.ico', 'preview.png'])
+    console.log('• Processing styles')
+    const styles = readFileSync(`${assetsPath}/styles.css`).toString()
+    const minStyles = new CleanCSS().minify(styles).styles
+    writeFileSync(`${buildPath}/styles.css`, minStyles)
+  }
 }

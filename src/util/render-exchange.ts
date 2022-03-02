@@ -1,6 +1,7 @@
 import { COTData } from '../model/types'
-import { getSortedKeys } from './get-sorted-keys'
-import { renderMarket } from './render-market'
+import { useGetSortedKeys } from './get-sorted-keys'
+import { useRenderMarket } from './render-market'
+import { Use } from './resolve-container'
 
 interface Props {
   data: COTData
@@ -9,13 +10,18 @@ interface Props {
 
 type RenderExchange = (p: Props) => (e: string) => void
 
-export const renderExchange: RenderExchange = (props) => (exchange) => {
-  const marketsData = props.data[exchange]
-  const markets = getSortedKeys(marketsData)
-  markets.forEach(renderMarket({
-    ...props,
-    exchange,
-    markets,
-    marketsData,
-  }))
+export const useRenderExchange: Use<RenderExchange> = (resolve) => {
+  const getSortedKeys = resolve(useGetSortedKeys)
+  const renderMarket = resolve(useRenderMarket)
+
+  return (props) => (exchange) => {
+    const marketsData = props.data[exchange]
+    const markets = getSortedKeys(marketsData)
+    markets.forEach(renderMarket({
+      ...props,
+      exchange,
+      markets,
+      marketsData,
+    }))
+  }
 }
