@@ -1,5 +1,5 @@
-import { DropDownSelections } from '../components/PageDropDowns'
-import { traderCategories } from './traderCategories'
+import { DropDownSelections } from '../view/page-dropdowns'
+import { traderCategories } from './trader-categories'
 
 /** Index pages, or test default page selection */
 export const defaultSelections: DropDownSelections = {

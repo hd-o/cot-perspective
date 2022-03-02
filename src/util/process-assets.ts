@@ -1,7 +1,7 @@
+import { execSync } from 'child_process'
 import CleanCSS from 'clean-css'
 import fs from 'fs'
-import { buildPath } from '../data/buildPath'
-import { execSync } from 'child_process'
+import { buildPath } from '../model/build-path'
 
 const assetsPath = './source/assets'
 

@@ -1,7 +1,7 @@
 import csv from 'csv-parse/lib/sync'
 import pick from 'lodash/pick'
-import { propertiesToSelect } from '../data/propertiesToSelect'
-import { COTData, CSVData } from '../data/types'
+import { propertiesToSelect } from '../model/properties-to-select'
+import { COTData, CSVData } from '../model/types'
 
 /**
  * Transforms csv string into js object, grouped first by exchange, then by market name.

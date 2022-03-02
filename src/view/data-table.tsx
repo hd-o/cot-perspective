@@ -10,10 +10,7 @@ export interface DataTableProps {
  * formatted value in locale string, for the chosen row.
  * See test in DataTable.test.tsx
  */
-export const getAverage = (
-  period: number,
-  values: DataTableProps['values']
-) => (rowIndex: number): string => {
+export const getAverage = (period: number, values: DataTableProps['values']) => (rowIndex: number): string => {
   const sum = values
     .slice(0, period)
     .reduce((total, row) => total + Number(row[rowIndex]), 0)

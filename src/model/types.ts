@@ -1,5 +1,5 @@
-import { propertiesToSelect } from '../data/propertiesToSelect'
-import { traderCategories } from './traderCategories'
+import { propertiesToSelect } from './properties-to-select'
+import { traderCategories } from './trader-categories'
 
 export type TraderCategory = typeof traderCategories[number]
 

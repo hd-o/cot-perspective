@@ -1,0 +1,6 @@
+#!/bin/sh
+dir=$(dirname "$0")
+# Init husky
+. "$dir/_/husky.sh"
+# Run commitlint
+pnpm git:prepush

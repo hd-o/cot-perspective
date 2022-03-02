@@ -1,14 +1,14 @@
-import React from 'react'
 import fs from 'fs'
+import React from 'react'
 import { renderToString } from 'react-dom/server'
-import { averagePeriod } from '../data/averagePeriod'
-import { buildPath } from '../data/buildPath'
-import { traderCategories } from '../data/traderCategories'
-import { Template } from '../components/Template'
-import { processTableData } from './processTableData'
-import { getSortedKeys } from './getSortedKeys'
-import { getPagePath } from './getFileName'
-import { GetData } from './getData'
+import { averagePeriod } from '../model/average-period'
+import { buildPath } from '../model/build-path'
+import { traderCategories } from '../model/trader-categories'
+import { Template } from '../view/template'
+import { GetData } from './get-data'
+import { getPagePath } from './get-file-name'
+import { getSortedKeys } from './get-sorted-keys'
+import { processTableData } from './process-table-data'
 
 export const renderPages = async (getData: GetData) => {
   const data = await getData({

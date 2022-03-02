@@ -1,4 +1,4 @@
-import { CSVData, FormattedCSVData, TraderCategory } from '../data/types'
+import { CSVData, FormattedCSVData, TraderCategory } from '../model/types'
 
 /**
  * For a given trader category, return a function that prepares

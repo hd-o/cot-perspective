@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import { COTData, TraderCategories, TraderCategory } from '../data/types'
-import { getPagePath } from '../functions/getFileName'
+import { COTData, TraderCategories, TraderCategory } from '../model/types'
+import { getPagePath } from '../util/get-file-name'
 
 interface SelectProps {
   children: ReactNode

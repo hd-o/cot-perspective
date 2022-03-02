@@ -1,0 +1,19 @@
+{
+  "globals": {
+    "ts-jest": {
+      "isolatedModules": true
+    }
+  },
+  "maxWorkers": 4,
+  "moduleNameMapper": {
+    "^/(.*)$": "<rootDir>/$1"
+  },
+  "preset": "ts-jest",
+  "testEnvironment": "jsdom",
+  "testMatch": [
+    "**/spec/**/*.test.t(s|sx)"
+  ],
+  "setupFilesAfterEnv": [
+    "./spec/.setup.ts"
+  ]
+}

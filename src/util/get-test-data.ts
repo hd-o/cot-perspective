@@ -1,5 +1,5 @@
-import { GetDataConfig } from '../functions/getData'
-import { COTData } from '../data/types'
+import { COTData } from '../model/types'
+import { GetDataConfig } from './get-data'
 
 const testConfig: GetDataConfig = {
   minimumEntries: 5,

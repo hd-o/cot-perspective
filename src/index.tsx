@@ -1,11 +1,11 @@
 import fs from 'fs'
-import { getPagePath } from './functions/getFileName'
-import { getData } from './functions/getData'
-import { defaultSelections } from './data/defaultSelections'
-import { buildPath } from './data/buildPath'
-import { getTestData } from './functions/getTestData'
-import { processAssets } from './functions/processAssets'
-import { renderPages } from './functions/renderPages'
+import { buildPath } from './model/build-path'
+import { defaultSelections } from './model/default-selections'
+import { getData } from './util/get-data'
+import { getPagePath } from './util/get-file-name'
+import { getTestData } from './util/get-test-data'
+import { processAssets } from './util/process-assets'
+import { renderPages } from './util/render-pages'
 
 /** Fetch and render HTML page for COT market contract */
 const main = async () => {

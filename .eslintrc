@@ -1,23 +1,66 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "jest"],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
   "extends": [
-    "standard",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "standard-with-typescript",
+    "plugin:jest/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jest",
+    "unused-imports",
+    "react"
   ],
   "rules": {
-    "react/jsx-uses-vars": 1
+    "@typescript-eslint/member-ordering": [
+      "error",
+      {
+        "default": {
+          "memberTypes": [
+            "signature",
+            "constructor",
+            "field",
+            "method"
+          ],
+          "order": "alphabetically"
+        }
+      }
+    ],
+    "@typescript-eslint/promise-function-async": 0,
+    "comma-dangle": [
+      "error",
+      {
+        "arrays": "always-multiline",
+        "objects": "always-multiline",
+        "imports": "ignore",
+        "exports": "always-multiline",
+        "functions": "ignore"
+      }
+    ],
+    "jest/expect-expect": 0,
+    "import/no-absolute-path": 0,
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "args": "after-used",
+        "argsIgnorePattern": "^_",
+        "vars": "all",
+        "varsIgnorePattern": "^_"
+      }
+    ]
   },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
-  "env": {
-    "jest/globals": true
-  },
-  "globals": {
-    "JSX": "readonly"
-  }
+  "ignorePatterns": [
+    ".vscode/",
+    ".cache/",
+    "dist/"
+  ]
 }

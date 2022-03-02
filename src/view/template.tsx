@@ -1,7 +1,7 @@
-import React, { ReactNode } from 'react'
 import fs from 'fs'
-import { PageDropDowns, PageDropDownsProps } from './PageDropDowns'
-import { DataTable, DataTableProps } from './DataTable'
+import React, { ReactNode } from 'react'
+import { DataTable, DataTableProps } from './data-table'
+import { PageDropDowns, PageDropDownsProps } from './page-dropdowns'
 
 const license = fs.readFileSync('./LICENSE').toString()
 
