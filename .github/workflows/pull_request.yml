@@ -9,8 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: Install PNPM
+        run: npm install -g pnpm
+
       - name: Setup dependencies
-        run: yarn
+        run: pnpm
 
       - name: Run checks
-        run: yarn check-all
+        run: pnpm lint
