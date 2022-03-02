@@ -12,7 +12,6 @@
     "build": "ts-node src/index.tsx",
     "lint": "run-p run:tsc run:eslint",
     "postinstall": "husky install",
-    "prebuild": "npx pnpm install -r --store=node_modules/.pnpm-store",
     "git:prepush": "run-p lint test",
     "run:eslint": "eslint -c .eslintrc .",
     "run:jest": "DEBUG_PRINT_LIMIT=0 jest",
