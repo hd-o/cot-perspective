@@ -1,4 +1,4 @@
-# COT Perspective
+# 📅 COT Perspective
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b4a03d51-90a1-4789-b88b-4c49dad945db/deploy-status)](https://app.netlify.com/sites/cotperspective/deploys)
 
