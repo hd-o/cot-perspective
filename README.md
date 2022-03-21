@@ -5,6 +5,7 @@
 A pleasant way to view [COT][cot] data
 
 - Site is statically rendered
+- Live at [cotperspective.com](https://cotperspective.com/)
 - Push to master automatically starts [Netlify deploy][netlify_deploy]
 - See [package.json][package] for available dev commands
 
