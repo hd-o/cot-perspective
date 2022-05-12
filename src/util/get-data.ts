@@ -1,10 +1,7 @@
-import request from 'request'
 import unzipper from 'unzipper'
 import { COTData } from '../model/types'
 import { useProcessData } from './process-data'
 import { Use } from './resolve-container'
-
-const zipBaseURL = 'https://www.cftc.gov/sites/default/files/files/dea/history/'
 
 export interface GetDataConfig {
   /**
@@ -18,25 +15,19 @@ export interface GetDataConfig {
 
 export type GetData = (c: GetDataConfig) => Promise<COTData>
 
-/** Fetch, and parse historical data from CFTC */
+/** Parse historical data from CFTC */
 export const useGetData: Use<GetData> = (resolve) => {
   const processData = resolve(useProcessData)
 
   const getData: GetData = async (config) => {
-    console.log(`• Fetching COT data for year: ${config.year}`)
-    const zipURL = `${zipBaseURL}deahistfo${config.year}.zip`
-
-    // Current types for unzipper seem to be incorrect
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const directory = await unzipper.Open.url(request as any, zipURL)
-
-    console.log('• Extracting data file')
+    console.log('• Extracting data')
+    const directory = await unzipper.Open.file(`./data/deahistfo${config.year}.zip`)
     const file = directory.files.find((d) => d.path === 'annualof.txt')
-    const contentBuffer = await file?.buffer()
-    if (contentBuffer == null) throw new Error('CSV content buffer undefined')
+    const content = await file?.buffer().then(b => b.toString())
+    if (content === undefined) throw new Error('Data content undefined')
 
-    console.log('• Reading data file content')
-    const data = processData(contentBuffer.toString())
+    console.log('• Reading data content')
+    const data = processData(content)
 
     // If not enough entries in current year,
     // load previous year, and join the data for each market
