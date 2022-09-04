@@ -14,9 +14,12 @@ type ProcessData = (csv: string) => COTData
  */
 export const useProcessData: Use<ProcessData> = () => {
   const reduceCSV: ReduceCSV = (data, csvData) => {
-    const marketNameSplit = csvData['Market and Exchange Names'].split(' - ')
-    const market = marketNameSplit[0].trim()
-    const exchange = marketNameSplit[1].trim()
+    // console.log("csvData['Market and Exchange Names']")
+    // console.log(csvData['Market and Exchange Names'])
+    const [marketText = '', exchangeText = ''] = csvData['Market and Exchange Names'].split(' - ')
+    const market = marketText.trim()
+    const exchange = exchangeText.trim()
+    if (market.length === 0 || exchange.length === 0) return data
     // Set initial values
     if (data[exchange] === undefined) data[exchange] = {}
     if (data[exchange][market] === undefined) data[exchange][market] = []

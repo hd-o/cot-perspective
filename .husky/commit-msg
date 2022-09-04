@@ -2,5 +2,5 @@
 dir=$(dirname "$0")
 # Init husky
 . "$dir/_/husky.sh"
-# Run commitlint
-pnpm commitlint --edit $1
+
+yarn commitlint --edit $1

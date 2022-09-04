@@ -4,7 +4,7 @@ import { defaultSelections } from './model/default-selections'
 import { container } from './util/container'
 import { useGetData } from './util/get-data'
 import { useGetPagePath } from './util/get-file-name'
-import { useGetTestData } from './util/get-test-data'
+// import { useGetTestData } from './util/get-test-data'
 import { useProcessAssets } from './util/process-assets'
 import { useRenderPages } from './util/render-pages'
 import { resolve, Use } from './util/resolve-container'
@@ -15,16 +15,14 @@ type Main = () => Promise<void>
 const useMain: Use<Main> = (resolve) => {
   const getPagePath = resolve(useGetPagePath)
   const getData = resolve(useGetData)
-  const getTestData = resolve(useGetTestData)
+  // const getTestData = resolve(useGetTestData)
   const processAssets = resolve(useProcessAssets)
   const renderPages = resolve(useRenderPages)
 
   const main: Main = async () => {
-    console.log('• Starting build')
-    const useTestData = process.argv.includes('use-test-data')
-    const buildType = useTestData ? '(dev)' : '(prod)'
+    // const useTestData = process.argv.includes('use-test-data')
+    // console.log(`• Build started ${useTestData ? '(dev)' : '(prod)'}`)
 
-    console.log('• Build started ' + buildType)
     console.log('• Creating output directory')
     if (!existsSync(buildPath)) mkdirSync(buildPath)
 
@@ -32,7 +30,7 @@ const useMain: Use<Main> = (resolve) => {
     processAssets()
 
     console.log('• Rendering HTML pages')
-    await renderPages(useTestData ? getTestData : getData)
+    await renderPages(getData) // (useTestData ? getTestData : getData)
 
     console.log('• Creating index page')
     const indexPath = getPagePath(defaultSelections)

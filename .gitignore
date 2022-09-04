@@ -6,34 +6,44 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Diagnostic reports (https://nodejs.org/api/report.html)
+# Diagnostic
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
-# Runtime data
+# Runtime
 pids
 *.pid
 *.seed
 *.pid.lock
 
-# Dependency directories
+# Dependencies
 node_modules/
 
-# TypeScript cache
+# TypeScript
 *.tsbuildinfo
 
-# Optional npm cache directory
+# NPM
 .npm
 
-# Optional eslint cache
+# Eslint
 .eslintcache
 
-# dotenv environment variables file
+# Dotenv
 .env
 .env.test
 
 # Builds
-build/
 .cache
+build
+data
 
-# VS Code files
+# VS Code
 .vscode
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
