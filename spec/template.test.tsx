@@ -1,12 +1,12 @@
-import { container } from '/src/util/container'
-import { resolve as resolveWith } from '/src/util/resolve-container'
+import { container } from '../src/controller/container'
+import { resolve as resolveWith } from '../src/controller/resolve-container'
 import { shallow } from 'enzyme'
 import { averagePeriod } from '../src/model/average-period'
 import { defaultSelections } from '../src/model/default-selections'
 import { traderCategories } from '../src/model/trader-categories'
-import { useGetSortedKeys } from '../src/util/get-sorted-keys'
-import { useGetTestData } from '../src/util/get-test-data'
-import { useProcessTableData } from '../src/util/process-table-data'
+import { useGetSortedKeys } from '../src/controller/get-sorted-keys'
+import { useGetTestData } from '../src/controller/get-test-data'
+import { useProcessTableData } from '../src/controller/process-table-data'
 import { Template } from '../src/view/template'
 
 const resolve = resolveWith(container)

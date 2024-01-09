@@ -2,9 +2,9 @@ import React, { createContext, FC, useContext } from 'react'
 import { DropDownSelections } from '../model/default-selections'
 import { TraderCategories } from '../model/trader-categories'
 import { COTData } from '../model/types'
-import { useGetPagePath } from '../util/get-file-name'
-import { usePageSelectScript } from '../util/page-select-script'
-import { useResolve } from '../util/use-resolve'
+import { useGetPagePath } from '../controller/get-file-name'
+import { usePageSelectScript } from '../controller/page-select-script'
+import { useResolve } from '../controller/use-resolve'
 import { DropdownSelectCtx } from './dropdown-select'
 
 export interface PageDropdownsProps extends DropDownSelections {

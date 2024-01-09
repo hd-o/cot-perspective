@@ -16,6 +16,7 @@ export const useRenderPages: Use<RenderPages> = (resolve) => {
       minimumEntries: averagePeriod,
     })
     const exchanges = getSortedKeys(data)
+    console.log(`• Rendering pages for ${exchanges.length} exchanges`)
     exchanges.forEach(renderExchange({ data, exchanges }))
   }
 }

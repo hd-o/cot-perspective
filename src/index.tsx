@@ -1,13 +1,13 @@
 import { copyFileSync, existsSync, mkdirSync } from 'node:fs'
 import { buildPath } from './model/build-path'
 import { defaultSelections } from './model/default-selections'
-import { container } from './util/container'
-import { useGetData } from './util/get-data'
-import { useGetPagePath } from './util/get-file-name'
+import { container } from './controller/container'
+import { useGetData } from './controller/get-data'
+import { useGetPagePath } from './controller/get-file-name'
 // import { useGetTestData } from './util/get-test-data'
-import { useProcessAssets } from './util/process-assets'
-import { useRenderPages } from './util/render-pages'
-import { resolve, Use } from './util/resolve-container'
+import { useProcessAssets } from './controller/process-assets'
+import { useRenderPages } from './controller/render-pages'
+import { resolve, Use } from './controller/resolve-container'
 
 type Main = () => Promise<void>
 

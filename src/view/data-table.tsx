@@ -1,6 +1,6 @@
 import React, { createContext, FC } from 'react'
-import { useGetAverage } from '../util/get-average'
-import { useResolve } from '../util/use-resolve'
+import { useGetAverage } from '../controller/get-average'
+import { useResolve } from '../controller/use-resolve'
 
 type TableValues = Array<(string | number)>
 
