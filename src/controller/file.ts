@@ -1,5 +1,3 @@
-import { execSync } from 'child_process'
-import unzipper from 'unzipper'
 import { Controller } from '@/controller'
 
 interface DownloadFileProps {
@@ -23,8 +21,7 @@ export class FileController {
     return this.ctrl.pkg.node.fs
   }
 
-  constructor (private readonly ctrl: Controller) {
-  }
+  constructor (private readonly ctrl: Controller) {}
 
   copyAssets = (fileNames: string[]) => {
     fileNames.forEach(file => {
@@ -34,7 +31,8 @@ export class FileController {
 
   downloadFile = (props: DownloadFileProps) => {
     const { destinationDir, fileName, sourceUrl } = props
-    if (!this._fs.existsSync(`${destinationDir}/${fileName}`)) execSync(`wget -P data ${sourceUrl}`)
+    if (this._fs.existsSync(`${destinationDir}/${fileName}`)) return
+    this.ctrl.pkg.childProcess.execSync(`wget -P data ${sourceUrl}`)
   }
 
   /** Used for HTML file names, and page links */
@@ -46,7 +44,7 @@ export class FileController {
   })
 
   getZipContent = async (filePath: string) => {
-    const directory = await unzipper.Open.file(filePath)
+    const directory = await this.ctrl.pkg.unzipper.Open.file(filePath)
     const file = directory.files.find((d) => d.path === 'annualof.txt')
     return await file?.buffer().then(b => b.toString())
   }

@@ -20,8 +20,7 @@ export class DataController {
     return this.ctrl.model.constants
   }
 
-  constructor (private readonly ctrl: Controller) {
-  }
+  constructor (private readonly ctrl: Controller) {}
 
   fetchData = async (props: FetchDataProps) => {
     try {

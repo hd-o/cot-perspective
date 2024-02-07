@@ -32,8 +32,7 @@ export class ViewController {
     return this.ctrl.model.constants
   }
 
-  constructor (private readonly ctrl: Controller) {
-  }
+  constructor (private readonly ctrl: Controller) {}
 
   renderExchange = (props: RenderExchangeProps) => {
     return (exchange: string) => {
