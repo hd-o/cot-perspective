@@ -1,5 +1,5 @@
-import { createContext, FC, useContext } from 'react'
-import { LinkCtx } from './link'
+import { FC } from 'react'
+import { Link } from './link'
 
 interface UsefulLinkProps {
   channel: string
@@ -7,9 +7,7 @@ interface UsefulLinkProps {
   title: string
 }
 
-const UsefulLink: FC<UsefulLinkProps> = (props) => {
-  const Link = useContext(LinkCtx)
-
+export const UsefulLink: FC<UsefulLinkProps> = (props) => {
   return (
     <li className='useful-link'>
       <Link href={props.link} title={`${props.channel} - ${props.title}`}>
@@ -18,5 +16,3 @@ const UsefulLink: FC<UsefulLinkProps> = (props) => {
     </li>
   )
 }
-
-export const UsefulLinkCtx = createContext(UsefulLink)

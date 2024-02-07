@@ -1,11 +1,8 @@
-import React, { createContext, FC, useContext } from 'react'
-import { DropDownSelections } from '../model/default-selections'
-import { TraderCategories } from '../model/trader-categories'
-import { COTData } from '../model/types'
-import { useGetPagePath } from '../controller/get-file-name'
-import { usePageSelectScript } from '../controller/page-select-script'
-import { useResolve } from '../controller/use-resolve'
-import { DropdownSelectCtx } from './dropdown-select'
+import { FC } from 'react'
+import { useController } from '@/controller'
+import { COTData, DropDownSelections, TraderCategories } from '@/model/types'
+import { DropdownSelect } from './dropdown-select'
+import { pageSelectScript } from './page-select-script'
 
 export interface PageDropdownsProps extends DropDownSelections {
   data: COTData
@@ -14,29 +11,27 @@ export interface PageDropdownsProps extends DropDownSelections {
   traderCategories: TraderCategories
 }
 
-const PageDropdowns: FC<PageDropdownsProps> = (props) => {
-  const getPagePath = useResolve(useGetPagePath)
-  const pageSelectScript = useResolve(usePageSelectScript)
-  const Select = useContext(DropdownSelectCtx)
+export const PageDropdowns: FC<PageDropdownsProps> = (props) => {
+  const { getPageId } = useController().file
 
-  const defaultExchangeValue = getPagePath({
+  const defaultExchangeValue = getPageId({
     exchange: props.exchange,
     market: Object.keys(props.data[props.exchange])[0],
     traderCategory: props.traderCategory,
   })
 
-  const defaultSelectValue = getPagePath({
+  const defaultSelectValue = getPageId({
     exchange: props.exchange,
     market: props.market,
     traderCategory: props.traderCategory,
   })
 
   const exchangesDropdown = (
-    <Select defaultValue={defaultExchangeValue}>
+    <DropdownSelect defaultValue={defaultExchangeValue}>
       {props.exchanges.map((exchange) => (
         <option
           key={exchange}
-          value={`${getPagePath({
+          value={`${getPageId({
             exchange: exchange,
             market: Object.keys(props.data[exchange])[0],
             traderCategory: props.traderCategory,
@@ -44,15 +39,15 @@ const PageDropdowns: FC<PageDropdownsProps> = (props) => {
           {exchange}
         </option>
       ))}
-    </Select>
+    </DropdownSelect>
   )
 
   const marketsDropdown = (
-    <Select defaultValue={defaultSelectValue}>
+    <DropdownSelect defaultValue={defaultSelectValue}>
       {props.markets.map((market) => (
         <option
           key={market}
-          value={`${getPagePath({
+          value={`${getPageId({
             exchange: props.exchange,
             market: market,
             traderCategory: props.traderCategory,
@@ -60,15 +55,15 @@ const PageDropdowns: FC<PageDropdownsProps> = (props) => {
           {market}
         </option>
       ))}
-    </Select>
+    </DropdownSelect>
   )
 
   const tradersDropdown = (
-    <Select defaultValue={defaultSelectValue}>
+    <DropdownSelect defaultValue={defaultSelectValue}>
       {props.traderCategories.map((traderCategory) => (
         <option
           key={traderCategory}
-          value={`${getPagePath({
+          value={`${getPageId({
             exchange: props.exchange,
             market: props.market,
             traderCategory: traderCategory,
@@ -76,7 +71,7 @@ const PageDropdowns: FC<PageDropdownsProps> = (props) => {
           {traderCategory}
         </option>
       ))}
-    </Select>
+    </DropdownSelect>
   )
 
   return (
@@ -106,5 +101,3 @@ const PageDropdowns: FC<PageDropdownsProps> = (props) => {
     </form>
   )
 }
-
-export const PageDropdownsCtx = createContext(PageDropdowns)

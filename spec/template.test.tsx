@@ -1,42 +1,29 @@
-import { container } from '../src/controller/container'
-import { resolve as resolveWith } from '../src/controller/resolve-container'
-import { shallow } from 'enzyme'
-import { averagePeriod } from '../src/model/average-period'
-import { defaultSelections } from '../src/model/default-selections'
-import { traderCategories } from '../src/model/trader-categories'
-import { useGetSortedKeys } from '../src/controller/get-sorted-keys'
-import { useGetTestData } from '../src/controller/get-test-data'
-import { useProcessTableData } from '../src/controller/process-table-data'
+import renderer from 'react-test-renderer'
+import { controller as ctrl } from '@/controller'
+import { constants } from '@/model/constants'
 import { Template } from '../src/view/template'
+import { testData } from './test-data'
 
-const resolve = resolveWith(container)
-
-/** Verify correct Template rendering of test data */
-test('Template snapshot', async () => {
-  const getSortedKeys = resolve(useGetSortedKeys)
-  const processTableData = resolve(useProcessTableData)
-  const testData = await resolve(useGetTestData)()
-
-  const marketsData = testData[defaultSelections.exchange]
-  const marketData = marketsData[defaultSelections.market]
-
+test('template snapshot', async () => {
+  const { getSortedKeys, processTableData } = ctrl.data
+  const marketsData = testData[constants.defaultSelections.exchange]
+  const marketData = marketsData[constants.defaultSelections.market]
   const template = (
     <Template
       dropDownsData={{
         data: testData,
         exchanges: getSortedKeys(testData),
-        markets: getSortedKeys(testData[defaultSelections.exchange]),
-        traderCategories,
-        ...defaultSelections,
+        markets: getSortedKeys(testData[constants.defaultSelections.exchange]),
+        traderCategories: constants.traderCategories,
+        ...constants.defaultSelections,
       }}
       tableData={{
-        averagePeriod,
+        averagePeriod: constants.averagePeriod,
         values: marketData.map(
-          processTableData(defaultSelections.traderCategory)
+          processTableData(constants.defaultSelections.traderCategory)
         ),
       }}
     />
   )
-
-  expect(shallow(template)).toMatchSnapshot()
+  expect(renderer.create(template).toJSON()).toMatchSnapshot()
 })

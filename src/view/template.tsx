@@ -1,9 +1,9 @@
 import { readFileSync } from 'node:fs'
-import { FC, StrictMode, useContext } from 'react'
-import { DataTableCtx, DataTableProps } from './data-table'
-import { HeaderCtx } from './header'
-import { PageDropdownsCtx, PageDropdownsProps } from './page-dropdowns'
-import { UsefulLinkCtx } from './useful-link'
+import { FC, StrictMode } from 'react'
+import { DataTable, DataTableProps } from './data-table'
+import { Header } from './header'
+import { PageDropdowns, PageDropdownsProps } from './page-dropdowns'
+import { UsefulLink } from './useful-link'
 
 const license = readFileSync('./LICENSE').toString()
 
@@ -13,11 +13,6 @@ interface Props {
 }
 
 export const Template: FC<Props> = (props) => {
-  const Header = useContext(HeaderCtx)
-  const UsefulLink = useContext(UsefulLinkCtx)
-  const PageDropDowns = useContext(PageDropdownsCtx)
-  const DataTable = useContext(DataTableCtx)
-
   return (
     <StrictMode>
       <html lang='en'>
@@ -45,7 +40,7 @@ export const Template: FC<Props> = (props) => {
               </div>
               <div className='col-4 d-flex justify-content-end align-items-center' />
             </Header>
-            <PageDropDowns {...props.dropDownsData} />
+            <PageDropdowns {...props.dropDownsData} />
             <DataTable {...props.tableData} />
             <Header>
               <div className='col-12'>

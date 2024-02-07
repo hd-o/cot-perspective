@@ -1,6 +1,5 @@
-import React, { createContext, FC } from 'react'
-import { useGetAverage } from '../controller/get-average'
-import { useResolve } from '../controller/use-resolve'
+import { FC } from 'react'
+import { useController } from '@/controller'
 
 type TableValues = Array<(string | number)>
 
@@ -9,8 +8,8 @@ export interface DataTableProps {
   values: TableValues[]
 }
 
-const DataTable: FC<DataTableProps> = (props) => {
-  const getAverage = useResolve(useGetAverage)
+export const DataTable: FC<DataTableProps> = (props) => {
+  const { getAverage } = useController().data
 
   const getAverageWithIndex = getAverage(props.averagePeriod, props.values)
   const longAverage = getAverageWithIndex(1)
@@ -84,5 +83,3 @@ const DataTable: FC<DataTableProps> = (props) => {
     </table>
   )
 }
-
-export const DataTableCtx = createContext(DataTable)

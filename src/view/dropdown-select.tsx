@@ -1,18 +1,16 @@
-import { createContext, FC } from 'react'
-import { dropdownClass } from '../model/dropdown-classname'
+import { FC } from 'react'
+import { constants } from '@/model/constants'
 
 interface Props {
   defaultValue: string
 }
 
-const DropdownSelect: FC<Props> = (props) => {
+export const DropdownSelect: FC<Props> = (props) => {
   return (
     <select
       defaultValue={props.defaultValue}
-      className={`custom-select form-control ${dropdownClass}`}>
+      className={`custom-select form-control ${constants.dropdownClass}`}>
       {props.children}
     </select>
   )
 }
-
-export const DropdownSelectCtx = createContext(DropdownSelect)

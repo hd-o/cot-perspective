@@ -1,0 +1,60 @@
+env:
+  browser: true
+  es6: true
+  jest: true
+
+extends:
+  - standard-with-typescript
+  - plugin:jest/recommended
+  - plugin:react-hooks/recommended
+
+parser: "@typescript-eslint/parser"
+
+parserOptions:
+  project: "./tsconfig.json"
+
+plugins:
+  - "@typescript-eslint"
+  - jest
+  - unused-imports
+  - react
+
+rules:
+  # Improve diffs by always having trailing commas
+  comma-dangle:
+    - error
+    - arrays: always-multiline
+      objects: always-multiline
+      imports: ignore
+      exports: always-multiline
+      functions: ignore
+  # Allow assertion with getters only
+  jest/expect-expect: off
+  unused-imports/no-unused-imports: error
+  unused-imports/no-unused-vars:
+    - warn
+    - args: after-used
+      argsIgnorePattern: "^_"
+      vars: all
+      varsIgnorePattern: "^_"
+  
+  "@typescript-eslint/explicit-function-return-type":
+    - error
+    - allowFunctionsWithoutTypeParameters: true
+  "@typescript-eslint/member-ordering":
+    - error
+    - default:
+        memberTypes:
+          - signature
+          - private-field
+          - constructor
+          - field
+          - method
+        order: alphabetically
+
+ignorePatterns:
+  - ".cache/"
+  - ".vscode/"
+  - "*.yml"
+  - "*.json"
+  - dist/

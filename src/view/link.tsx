@@ -1,6 +1,6 @@
-import { createContext, FC, HTMLProps } from 'react'
+import { FC, HTMLProps } from 'react'
 
-const Link: FC<HTMLProps<HTMLAnchorElement>> = (props) => (
+export const Link: FC<HTMLProps<HTMLAnchorElement>> = (props) => (
   <a
     href={props.href}
     title={props.title}
@@ -11,5 +11,3 @@ const Link: FC<HTMLProps<HTMLAnchorElement>> = (props) => (
     {props.children}
   </a>
 )
-
-export const LinkCtx = createContext(Link)
