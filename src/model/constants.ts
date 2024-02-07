@@ -1,6 +1,6 @@
 import { DropDownSelections, PropertiesToSelect, TraderCategory } from './types'
 
-export const constants = {
+export const constants = Object.freeze({
   assetsPath: './src/assets',
 
   /** Quantity of periods to calculate the average of COT values */
@@ -41,4 +41,4 @@ export const constants = {
     'Commercial',
     'Noncommercial',
   ] satisfies TraderCategory[],
-}
+})

@@ -1,6 +1,6 @@
+import { Controller } from '@/controller'
 import { COTData, CSVData, FormattedCSVData, TraderCategory } from '@/model/types'
 import { DataTableProps } from '@/view/data-table'
-import { Controller } from '../controller'
 
 export interface FetchDataProps {
   /** The latest year of which to load historical data */
