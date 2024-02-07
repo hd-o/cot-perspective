@@ -20,7 +20,7 @@ export class FileController {
   }
 
   private get _fs () {
-    return this.ctrl.node.fs
+    return this.ctrl.pkg.node.fs
   }
 
   constructor (private readonly ctrl: Controller) {
@@ -39,7 +39,7 @@ export class FileController {
 
   /** Used for HTML file names, and page links */
   // eslint-disable-next-line @typescript-eslint/member-ordering -- is method
-  getPageId = this.ctrl.lodash.memoize((props: GetPageIdProps) => {
+  getPageId = this.ctrl.pkg.lodash.memoize((props: GetPageIdProps) => {
     const path = `${props.exchange}-${props.market}-${props.traderCategory}`
     const formattedPath = path.toLocaleLowerCase().replace(/[^\w]/gi, '')
     return encodeURIComponent(formattedPath)
@@ -60,7 +60,7 @@ export class FileController {
     this.copyAssets(['favicon.ico', 'preview.png'])
     console.log('• Processing styles')
     const styles = this._fs.readFileSync(`${this._constants.assetsPath}/styles.css`).toString()
-    const minStyles = this.ctrl.cleanCss.minify(styles).styles
+    const minStyles = this.ctrl.pkg.cleanCss.minify(styles).styles
     this._fs.writeFileSync(`${this._constants.buildPath}/styles.css`, minStyles)
   }
 }

@@ -94,9 +94,9 @@ export class ViewController {
         }}
       />
     )
-    this.ctrl.node.fs.writeFileSync(
+    this.ctrl.pkg.node.fs.writeFileSync(
       `${this._constants.buildPath}/${this.ctrl.file.getPageId(props.selections)}.html`,
-      `<!doctype html> \n${this.ctrl.reactDom.renderToString(template)}`,
+      `<!doctype html> \n${this.ctrl.pkg.reactDom.renderToString(template)}`,
     )
   }
 }

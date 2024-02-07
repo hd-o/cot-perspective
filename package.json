@@ -12,7 +12,7 @@
     "lint": "concurrently yarn:run:tsc yarn:run:eslint",
     "postinstall": "husky install",
     "git:prepush": "concurrently yarn:lint yarn:test",
-    "run:eslint": "eslint -c .eslintrc .",
+    "run:eslint": "eslint -c .eslintrc.yml .",
     "run:jest": "DEBUG_PRINT_LIMIT=0 jest",
     "run:tsc": "tsc --noEmit -p ./tsconfig.json",
     "start": "serve build",

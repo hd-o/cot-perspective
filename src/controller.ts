@@ -9,56 +9,36 @@ import { FileController } from './controller/file'
 import { ModelController } from './controller/model'
 import { ViewController } from './controller/view'
 
-const controllerDependencies = Object.freeze({
+class Packages {
+  cleanCss = new CleanCSS()
+  csv = { parse }
+  lodash = { memoize, pick }
+  node = { fs }
+  reactDom = { renderToString }
+}
+
+const defaultDependencies = Object.freeze({
   DataController,
   FileController,
   ModelController,
+  Packages,
   ViewController,
 })
 
 export class Controller {
-  private _data?: DataController
-  private _file?: FileController
-  private _model?: ModelController
-  private _view?: ViewController
-
-  constructor (readonly dependencies = controllerDependencies) {
+  constructor (dependencies = defaultDependencies) {
+    this.pkg = new dependencies.Packages()
+    this.data = new dependencies.DataController(this)
+    this.file = new dependencies.FileController(this)
+    this.model = new dependencies.ModelController()
+    this.view = new dependencies.ViewController(this)
   }
 
-  get data () {
-    return (this._data ??= new this.dependencies.DataController(this))
-  }
-
-  get file () {
-    return (this._file ??= new this.dependencies.FileController(this))
-  }
-
-  get model () {
-    return (this._model ??= new this.dependencies.ModelController())
-  }
-
-  get view () {
-    return (this._view ??= new this.dependencies.ViewController(this))
-  }
-
-  cleanCss = new CleanCSS()
-
-  csv = {
-    parseSync: parse,
-  }
-
-  lodash = {
-    memoize,
-    pick,
-  }
-
-  node = {
-    fs,
-  }
-
-  reactDom = {
-    renderToString,
-  }
+  data: DataController
+  file: FileController
+  model: ModelController
+  pkg: Packages
+  view: ViewController
 }
 
 export const controller = new Controller()

@@ -86,7 +86,7 @@ export class DataController {
   }
 
   processData = (csv: string): COTData => {
-    const records = this.ctrl.csv.parseSync(csv, { trim: true, columns: true, skip_empty_lines: true })
+    const records = this.ctrl.pkg.csv.parse(csv, { trim: true, columns: true, skip_empty_lines: true })
     return records.reduce(
       (data: COTData, csvData: CSVData) => {
         const [marketText = '', exchangeText = ''] = csvData['Market and Exchange Names'].split(' - ')
@@ -98,7 +98,7 @@ export class DataController {
         data[exchange][market].push({
           market,
           exchange,
-          ...this.ctrl.lodash.pick(csvData, this._constants.propertiesToSelect),
+          ...this.ctrl.pkg.lodash.pick(csvData, this._constants.propertiesToSelect),
         })
         return data
       },

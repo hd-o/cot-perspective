@@ -10,7 +10,7 @@ const main = async () => {
   await ctrl.view.renderPages()
   console.log('• Creating index page')
   const indexPath = ctrl.file.getPageId(constants.defaultSelections)
-  ctrl.node.fs.copyFileSync(
+  ctrl.pkg.node.fs.copyFileSync(
     `${constants.buildPath}/${indexPath}.html`,
     `${constants.buildPath}/index.html`,
   )
