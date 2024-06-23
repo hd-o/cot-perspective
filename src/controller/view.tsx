@@ -34,7 +34,7 @@ export class ViewController {
 
   constructor (private readonly ctrl: Controller) {}
 
-  renderExchange = (props: RenderExchangeProps) => {
+  renderExchange (props: RenderExchangeProps) {
     return (exchange: string) => {
       const marketsData = props.data[exchange]
       const markets = this.ctrl.data.getSortedKeys(marketsData)
@@ -47,7 +47,7 @@ export class ViewController {
     }
   }
 
-  renderMarket = (props: RenderMarketProps) => {
+  renderMarket (props: RenderMarketProps) {
     return (market: string) => {
       const marketData = props.marketsData[market]
       for (const traderCategory of this._constants.traderCategories) {
@@ -64,7 +64,7 @@ export class ViewController {
     }
   }
 
-  renderPages = async () => {
+  async renderPages () {
     const data = await this.ctrl.data.getData({
       year: new Date().getFullYear(),
       minimumEntries: this._constants.averagePeriod,
@@ -74,7 +74,7 @@ export class ViewController {
     exchanges.forEach(this.renderExchange({ data, exchanges }))
   }
 
-  renderTemplate = (props: RenderTemplateProps) => {
+  renderTemplate (props: RenderTemplateProps) {
     console.log('• Processing template data for ', props.selections)
     const template = (
       <Template

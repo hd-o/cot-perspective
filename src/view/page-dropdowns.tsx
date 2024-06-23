@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { useController } from '@/controller'
 import { COTData, DropDownSelections, TraderCategories } from '@/model/types'
+import { useController } from './controller-context'
 import { DropdownSelect } from './dropdown-select'
 import { pageSelectScript } from './page-select-script'
 
@@ -11,16 +11,16 @@ export interface PageDropdownsProps extends DropDownSelections {
   traderCategories: TraderCategories
 }
 
-export const PageDropdowns: FC<PageDropdownsProps> = (props) => {
-  const { getPageId } = useController().file
+export const PageDropdowns: FC<PageDropdownsProps> = function (props) {
+  const { file } = useController()
 
-  const defaultExchangeValue = getPageId({
+  const defaultExchangeValue = file.getPageId({
     exchange: props.exchange,
     market: Object.keys(props.data[props.exchange])[0],
     traderCategory: props.traderCategory,
   })
 
-  const defaultSelectValue = getPageId({
+  const defaultSelectValue = file.getPageId({
     exchange: props.exchange,
     market: props.market,
     traderCategory: props.traderCategory,
@@ -31,7 +31,7 @@ export const PageDropdowns: FC<PageDropdownsProps> = (props) => {
       {props.exchanges.map((exchange) => (
         <option
           key={exchange}
-          value={`${getPageId({
+          value={`${file.getPageId({
             exchange: exchange,
             market: Object.keys(props.data[exchange])[0],
             traderCategory: props.traderCategory,
@@ -47,7 +47,7 @@ export const PageDropdowns: FC<PageDropdownsProps> = (props) => {
       {props.markets.map((market) => (
         <option
           key={market}
-          value={`${getPageId({
+          value={`${file.getPageId({
             exchange: props.exchange,
             market: market,
             traderCategory: props.traderCategory,
@@ -63,7 +63,7 @@ export const PageDropdowns: FC<PageDropdownsProps> = (props) => {
       {props.traderCategories.map((traderCategory) => (
         <option
           key={traderCategory}
-          value={`${getPageId({
+          value={`${file.getPageId({
             exchange: props.exchange,
             market: props.market,
             traderCategory: traderCategory,

@@ -7,7 +7,7 @@ interface UsefulLinkProps {
   title: string
 }
 
-export const UsefulLink: FC<UsefulLinkProps> = (props) => {
+export const UsefulLink: FC<UsefulLinkProps> = function (props) {
   return (
     <li className='useful-link'>
       <Link href={props.link} title={`${props.channel} - ${props.title}`}>

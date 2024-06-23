@@ -3,7 +3,6 @@ import CleanCSS from 'clean-css'
 import { parse } from 'csv-parse/sync'
 import { memoize, pick } from 'lodash'
 import fs from 'node:fs'
-import { createContext, useContext } from 'react'
 import { renderToString } from 'react-dom/server'
 import unzipper from 'unzipper'
 import { DataController } from './controller/data'
@@ -46,7 +45,3 @@ export class Controller {
 }
 
 export const controller = new Controller()
-
-const ControllerContext = createContext(controller)
-
-export const useController = () => useContext(ControllerContext)

@@ -1,4 +1,4 @@
-import { constants } from '@/model/constants'
+import { config } from '@/model/config'
 
 declare global {
   interface Window {
@@ -20,7 +20,7 @@ export const pageSelectScript = `
     assignLocation: window.location.assign.bind(window.location)
   }
   document.getElementById('cotperspective').addEventListener('change', (event) => {
-    if (event.target.className.includes('${constants.dropdownClass}')) {
+    if (event.target.className.includes('${config.dropdownClass}')) {
       window.cotperspective.assignLocation(event.target.value + '.html')
     }
   })

@@ -12,7 +12,7 @@ interface Props {
   tableData: DataTableProps
 }
 
-export const Template: FC<Props> = (props) => {
+export const Template: FC<Props> = function (props) {
   return (
     <StrictMode>
       <html lang='en'>

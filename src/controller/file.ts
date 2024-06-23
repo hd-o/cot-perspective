@@ -23,13 +23,13 @@ export class FileController {
 
   constructor (private readonly ctrl: Controller) {}
 
-  copyAssets = (fileNames: string[]) => {
+  copyAssets (fileNames: string[]) {
     fileNames.forEach(file => {
       this._fs.copyFileSync(`${this._constants.assetsPath}/${file}`, `${this._constants.buildPath}/${file}`)
     })
   }
 
-  downloadFile = (props: DownloadFileProps) => {
+  downloadFile (props: DownloadFileProps) {
     const { destinationDir, fileName, sourceUrl } = props
     if (this._fs.existsSync(`${destinationDir}/${fileName}`)) return
     this.ctrl.pkg.childProcess.execSync(`wget -P data ${sourceUrl}`)
@@ -43,17 +43,17 @@ export class FileController {
     return encodeURIComponent(formattedPath)
   })
 
-  getZipContent = async (filePath: string) => {
+  async getZipContent (filePath: string) {
     const directory = await this.ctrl.pkg.unzipper.Open.file(filePath)
     const file = directory.files.find((d) => d.path === 'annualof.txt')
     return await file?.buffer().then(b => b.toString())
   }
 
-  makeDir = (name: string) => {
+  makeDir (name: string) {
     if (!this._fs.existsSync(name)) this._fs.mkdirSync(name)
   }
 
-  processAssets = (): void => {
+  processAssets (): void {
     console.log('• Copying assets')
     this.copyAssets(['favicon.ico', 'preview.png'])
     console.log('• Processing styles')

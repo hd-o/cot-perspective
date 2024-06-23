@@ -22,7 +22,7 @@ export class DataController {
 
   constructor (private readonly ctrl: Controller) {}
 
-  fetchData = async (props: FetchDataProps) => {
+  async fetchData (props: FetchDataProps) {
     try {
       console.log('• Making data dir')
       const destinationDir = 'data'
@@ -45,7 +45,7 @@ export class DataController {
     }
   }
 
-  getAverage = (periodDays: number, values: DataTableProps['values']) => {
+  getAverage (periodDays: number, values: DataTableProps['values']) {
     return (rowIndex: number) => {
       const sum = values
         .slice(0, periodDays)
@@ -54,7 +54,7 @@ export class DataController {
     }
   }
 
-  getData = async (props: GetDataProps) => {
+  async getData (props: GetDataProps) {
     const data = await this.fetchData(props)
     // If not enough entries in current year,
     // load previous year and join data for each market
@@ -80,11 +80,11 @@ export class DataController {
     return data
   }
 
-  getSortedKeys = <D extends {[k: string]: any}> (data: D): Array<keyof D> => {
+  getSortedKeys <D extends {[k: string]: any}> (data: D): Array<keyof D> {
     return Object.keys(data).sort()
   }
 
-  processData = (csv: string): COTData => {
+  processData (csv: string): COTData {
     const records = this.ctrl.pkg.csv.parse(csv, { trim: true, columns: true, skip_empty_lines: true })
     return records.reduce(
       (data: COTData, csvData: CSVData) => {
@@ -106,7 +106,7 @@ export class DataController {
   }
 
   /** @returns Table view rendering data */
-  processTableData = (category: TraderCategory) => {
+  processTableData (category: TraderCategory) {
     return (data: FormattedCSVData) => {
       const longs = Number(data[`${category} Positions-Long (All)` as keyof CSVData])
       const shorts = Number(data[`${category} Positions-Short (All)` as keyof CSVData])

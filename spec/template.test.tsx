@@ -1,26 +1,26 @@
 import renderer from 'react-test-renderer'
 import { controller as ctrl } from '@/controller'
-import { constants } from '@/model/constants'
+import { config } from '@/model/config'
 import { Template } from '../src/view/template'
 import { testData } from './test-data'
 
 test('template snapshot', async () => {
-  const { getSortedKeys, processTableData } = ctrl.data
-  const marketsData = testData[constants.defaultSelections.exchange]
-  const marketData = marketsData[constants.defaultSelections.market]
+  const { data } = ctrl
+  const marketsData = testData[config.defaultSelections.exchange]
+  const marketData = marketsData[config.defaultSelections.market]
   const template = (
     <Template
       dropDownsData={{
         data: testData,
-        exchanges: getSortedKeys(testData),
-        markets: getSortedKeys(testData[constants.defaultSelections.exchange]),
-        traderCategories: constants.traderCategories,
-        ...constants.defaultSelections,
+        exchanges: data.getSortedKeys(testData),
+        markets: data.getSortedKeys(testData[config.defaultSelections.exchange]),
+        traderCategories: config.traderCategories,
+        ...config.defaultSelections,
       }}
       tableData={{
-        averagePeriod: constants.averagePeriod,
+        averagePeriod: config.averagePeriod,
         values: marketData.map(
-          processTableData(constants.defaultSelections.traderCategory)
+          data.processTableData(config.defaultSelections.traderCategory)
         ),
       }}
     />

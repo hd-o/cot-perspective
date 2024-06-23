@@ -1,24 +1,18 @@
 import { DropDownSelections, PropertiesToSelect, TraderCategory } from './types'
 
-export const constants = Object.freeze({
+export const config = {
   assetsPath: './src/assets',
-
   /** Quantity of periods to calculate the average of COT values */
   averagePeriod: 12,
-
   buildPath: './build',
-
   /** Index pages, or test default page selection */
   defaultSelections: {
     exchange: 'CHICAGO MERCANTILE EXCHANGE',
     market: 'EURO FX',
     traderCategory: 'Noncommercial',
   } satisfies DropDownSelections,
-
   dropdownClass: 'js-page-dropdown-select',
-
   historyPath: 'https://www.cftc.gov/sites/default/files/files/dea/history/',
-
   propertiesToSelect: [
     'Market and Exchange Names',
     'As of Date in Form YYYY-MM-DD',
@@ -36,9 +30,8 @@ export const constants = Object.freeze({
     '% of OI-Commercial-Long (All)',
     '% of OI-Commercial-Short (All)',
   ] satisfies PropertiesToSelect[],
-
   traderCategories: [
     'Commercial',
     'Noncommercial',
   ] satisfies TraderCategory[],
-})
+} as const

@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useController } from '@/controller'
+import { useController } from './controller-context'
 
 type TableValues = Array<(string | number)>
 
@@ -8,10 +8,10 @@ export interface DataTableProps {
   values: TableValues[]
 }
 
-export const DataTable: FC<DataTableProps> = (props) => {
-  const { getAverage } = useController().data
+export const DataTable: FC<DataTableProps> = function (props) {
+  const { data } = useController()
 
-  const getAverageWithIndex = getAverage(props.averagePeriod, props.values)
+  const getAverageWithIndex = data.getAverage(props.averagePeriod, props.values)
   const longAverage = getAverageWithIndex(1)
   const shortAverage = getAverageWithIndex(2)
   const longPercentageAverage = getAverageWithIndex(5)

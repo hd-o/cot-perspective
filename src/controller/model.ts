@@ -1,5 +1,5 @@
-import { constants } from '@/model/constants'
+import { config } from '@/model/config'
 
 export class ModelController {
-  constants = constants
+  constants = config
 }
