@@ -2,12 +2,10 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b4a03d51-90a1-4789-b88b-4c49dad945db/deploy-status)](https://app.netlify.com/sites/cotperspective/deploys)
 
-A pleasant way to view [COT][cot] data
+![cot-perspective](https://github.com/hd-o/cot-perspective/assets/58871222/dfe7941f-e094-40f2-8ffc-dd27c6594c44)
 
-- Site is statically rendered
 - Live at [cotperspective.com](https://cotperspective.com/)
-- Push to master automatically starts [Netlify deploy][netlify_deploy]
-- See [package.json][package] for available dev commands
+- Push to main starts [Netlify deploy][netlify_deploy]
 
 [package]: https://github.com/hd-o/cotperspective/blob/master/package.json
 [netlify_deploy]: https://app.netlify.com/sites/cotperspective/deploys
