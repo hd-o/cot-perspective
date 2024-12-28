@@ -1,6 +1,6 @@
 import type { JestConfigWithTsJest } from 'ts-jest'
 
-const config: JestConfigWithTsJest = {
+export default <JestConfigWithTsJest> {
   maxWorkers: 4,
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
@@ -19,5 +19,3 @@ const config: JestConfigWithTsJest = {
     ],
   },
 }
-
-export default config

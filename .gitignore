@@ -68,7 +68,8 @@ build
 data
 
 # VS Code
-.vscode
+.vscode/*
+!.vscode/extensions.json
 
 # Yarn
 .yarn/*

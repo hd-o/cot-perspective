@@ -1,19 +1,14 @@
-name: Pull Request
-
-on: [pull_request]
-
+name: Merge Checks
+on: pull_request
 jobs:  
-  test:
+  lint:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@master
-
-      - name: Install PNPM
-        run: npm install -g pnpm
-
-      - name: Setup dependencies
-        run: pnpm
-
-      - name: Run checks
-        run: pnpm lint
+      - name: Checkout
+        uses: actions/checkout@master
+      
+      - name: Install
+        run: npm install
+      
+      - name: Lint
+        run: npm run lint

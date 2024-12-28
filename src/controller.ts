@@ -42,6 +42,19 @@ export class Controller {
   model: ModelController
   pkg: Packages
   view: ViewController
-}
 
-export const controller = new Controller()
+  async build() {
+    console.log('• Creating output directory')
+    this.file.makeDir(this.model.constants.buildPath)
+    console.log('• Processing assets')
+    this.file.processAssets()
+    console.log('• Rendering HTML pages')
+    await this.view.renderPages()
+    console.log('• Creating index page')
+    const indexPath = this.file.getPageId(this.model.constants.defaultSelections)
+    this.pkg.node.fs.copyFileSync(
+      `${this.model.constants.buildPath}/${indexPath}.html`,
+      `${this.model.constants.buildPath}/index.html`,
+    )
+  }
+}
