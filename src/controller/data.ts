@@ -1,4 +1,4 @@
-import type { Files } from '@/controller/files'
+import type { FileController } from '@/controller/file'
 import type { COTData, CSVData, FormattedCSVData, TraderCategory } from '@/model/types'
 import { config } from '@/common/config'
 import { Logger } from '@/common/logger'
@@ -28,27 +28,27 @@ export type AverageInput = {
   values: Array<PeriodValues>
 }
 
-export class Data {
-  files: Files
+export class DataController {
+  file: FileController
 
-  constructor(dependencies: { files: Files }) {
-    this.files = dependencies.files
+  constructor(dependencies: { file: FileController }) {
+    this.file = dependencies.file
   }
 
   async fetchData(input: DataFetchInput) {
     try {
       logger.info('making data dir')
       const destinationDir = 'data'
-      this.files.makeDir(destinationDir)
+      this.file.makeDir(destinationDir)
       logger.info('fetching data')
       const fileName = `deahistfo${input.year}.zip`
-      this.files.downloadFile({
+      this.file.downloadFile({
         destinationDir,
         fileName,
         sourceURL: `${config.historyPath}${fileName}`,
       })
       logger.info('extracting data')
-      const content = await this.files.getZipContent(`data/deahistfo${input.year}.zip`)
+      const content = await this.file.getZipContent(`data/deahistfo${input.year}.zip`)
       if (content === undefined) {
         throw new Error('UndefinedDataContent')
       }

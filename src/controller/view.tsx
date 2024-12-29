@@ -1,5 +1,5 @@
-import type { Data } from '@/controller/data'
-import type { Files } from '@/controller/files'
+import type { DataController } from '@/controller/data'
+import type { FileController } from '@/controller/file'
 import type { COTData, FormattedCSVData, MarketsData, TraderCategory } from '@/model/types'
 import { writeFileSync } from 'node:fs'
 import { config } from '@/common/config'
@@ -9,13 +9,13 @@ import { renderToString } from 'react-dom/server'
 
 const logger = new Logger(import.meta.filename)
 
-export class View {
-  data: Data
-  files: Files
+export class ViewController {
+  data: DataController
+  file: FileController
 
-  constructor(dependencies: { data: Data, files: Files }) {
+  constructor(dependencies: { data: DataController, file: FileController }) {
     this.data = dependencies.data
-    this.files = dependencies.files
+    this.file = dependencies.file
   }
 
   renderExchange(input: { data: COTData, exchanges: string[] }) {
@@ -94,7 +94,7 @@ export class View {
       />
     )
     writeFileSync(
-      `${config.buildPath}/${this.files.getPageId(input.selections)}.html`,
+      `${config.buildPath}/${this.file.getPageId(input.selections)}.html`,
       `<!doctype html> \n${renderToString(template)}`,
     )
   }

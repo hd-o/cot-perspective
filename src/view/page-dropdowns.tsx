@@ -12,7 +12,7 @@ export type PageDropdownsProps = DropDownSelections & {
 }
 
 export function PageDropdowns(props: PageDropdownsProps): ReactNode {
-  const { files: file } = useController()
+  const { file: file } = useController()
 
   const defaultExchangeValue = file.getPageId({
     exchange: props.exchange,

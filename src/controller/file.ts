@@ -8,7 +8,7 @@ import { Open } from 'unzipper'
 
 const logger = new Logger(import.meta.filename)
 
-export class Files {
+export class FileController {
   createIndexPage() {
     const indexPath = this.getPageId(config.defaultSelections)
     copyFileSync(
