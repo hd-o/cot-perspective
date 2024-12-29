@@ -1,19 +1,18 @@
-import { DropDownSelections, PropertiesToSelect, TraderCategory } from './types'
+import type { DropDownSelections, PropertiesToSelect, TraderCategory } from '../model/types'
 
 export const config = {
   assetsPath: './src/assets',
   /** Quantity of periods to calculate the average of COT values */
   averagePeriod: 12,
   buildPath: './build',
-  /** Index pages, or test default page selection */
-  defaultSelections: {
+  defaultSelections: <DropDownSelections>{
     exchange: 'CHICAGO MERCANTILE EXCHANGE',
     market: 'EURO FX',
     traderCategory: 'Noncommercial',
-  } satisfies DropDownSelections,
+  },
   dropdownClass: 'js-page-dropdown-select',
   historyPath: 'https://www.cftc.gov/sites/default/files/files/dea/history/',
-  propertiesToSelect: [
+  propertiesToSelect: <PropertiesToSelect[]>[
     'Market and Exchange Names',
     'As of Date in Form YYYY-MM-DD',
     'Open Interest (All)',
@@ -29,9 +28,9 @@ export const config = {
     '% of OI-Noncommercial-Short (All)',
     '% of OI-Commercial-Long (All)',
     '% of OI-Commercial-Short (All)',
-  ] satisfies PropertiesToSelect[],
-  traderCategories: [
+  ],
+  traderCategories: <TraderCategory[]>[
     'Commercial',
     'Noncommercial',
-  ] satisfies TraderCategory[],
-} as const
+  ],
+}

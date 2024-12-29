@@ -1,17 +1,11 @@
-import { FC } from 'react'
+import type { AverageInput } from '@/controller/data'
+import type { ReactNode } from 'react'
 import { useController } from './controller-context'
 
-type TableValues = Array<(string | number)>
-
-export interface DataTableProps {
-  averagePeriod: number
-  values: TableValues[]
-}
-
-export const DataTable: FC<DataTableProps> = function (props) {
+export function DataTable(props: AverageInput): ReactNode {
   const { data } = useController()
 
-  const getAverageWithIndex = data.getAverage(props.averagePeriod, props.values)
+  const getAverageWithIndex = data.getAverage(props)
   const longAverage = getAverageWithIndex(1)
   const shortAverage = getAverageWithIndex(2)
   const longPercentageAverage = getAverageWithIndex(5)
@@ -21,7 +15,8 @@ export const DataTable: FC<DataTableProps> = function (props) {
   return (
     <table
       className="table table-bordered text-center"
-      style={{ marginTop: 10 }}>
+      style={{ marginTop: 10 }}
+    >
       <thead className="thead-dark">
         <tr>
           <th scope="col">DATE</th>
@@ -38,13 +33,23 @@ export const DataTable: FC<DataTableProps> = function (props) {
         {props.values.length >= props.averagePeriod && (
           <tr className="bg-light">
             <td title={`${props.averagePeriod} Period Simple Average`}>
-              Average({props.averagePeriod})
+              Average(
+              {props.averagePeriod}
+              )
             </td>
             <td>{longAverage}</td>
             <td>{shortAverage}</td>
             <td colSpan={2}></td>
-            <td>{longPercentageAverage} %</td>
-            <td>{shortPercentageAverage} %</td>
+            <td>
+              {longPercentageAverage}
+              {' '}
+              %
+            </td>
+            <td>
+              {shortPercentageAverage}
+              {' '}
+              %
+            </td>
             <td>{netAverage}</td>
           </tr>
         )}
@@ -56,20 +61,26 @@ export const DataTable: FC<DataTableProps> = function (props) {
               let className = ''
 
               if (
-                props.values[valueIndex + 1] !== undefined &&
-                (index === 1 || index === 2 || index === 7)
+                props.values[valueIndex + 1] !== undefined
+                && (index === 1 || index === 2 || index === 7)
               ) {
                 const previousColumn = props.values[valueIndex + 1][index]
-                if (previousColumn > column) className = 'column-negative'
-                if (previousColumn < column) className = 'column-positive'
+                if (previousColumn > column)
+                  className = 'column-negative'
+                if (previousColumn < column)
+                  className = 'column-positive'
               }
 
               // Some values are blank (not available) in COT's CSV
               let text = Number.isNaN(column) ? 'Not Available' : column
 
               // Format numbers for better readability
-              if (index >= 1 || index <= 4 || index === 7) { text = text.toLocaleString() }
-              if (index === 5 || index === 6) text = `${text} %`
+              if (index >= 1 || index <= 4 || index === 7) {
+                text = text.toLocaleString()
+              }
+              if (index === 5 || index === 6) {
+                text = `${text} %`
+              }
 
               return (
                 <td className={className} key={index}>

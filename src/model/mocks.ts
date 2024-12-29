@@ -1,11 +1,11 @@
-import { COTData } from '@/model/types'
+import type { COTData } from '@/model/types'
 
-export const testData: COTData = {
+export const cotData: COTData = {
   'ICE FUTURES U.S.': {
     'U.S. DOLLAR INDEX': [
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-07-07',
         'Open Interest (All)': '22898',
@@ -23,8 +23,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '3.7',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-06-30',
         'Open Interest (All)': '19470',
@@ -42,8 +42,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '4.8',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-06-23',
         'Open Interest (All)': '21629',
@@ -61,8 +61,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '4.0',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-06-16',
         'Open Interest (All)': '19897',
@@ -80,8 +80,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '2.4',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-06-09',
         'Open Interest (All)': '33959',
@@ -99,8 +99,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '37.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-06-02',
         'Open Interest (All)': '26044',
@@ -118,8 +118,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '48.1',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-05-26',
         'Open Interest (All)': '28329',
@@ -137,8 +137,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '67.8',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-05-19',
         'Open Interest (All)': '31509',
@@ -156,8 +156,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '67.5',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-05-12',
         'Open Interest (All)': '31156',
@@ -175,8 +175,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '67.5',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-05-05',
         'Open Interest (All)': '31600',
@@ -194,8 +194,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '66.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-04-28',
         'Open Interest (All)': '32665',
@@ -213,8 +213,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '61.0',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-04-21',
         'Open Interest (All)': '31439',
@@ -232,8 +232,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-04-14',
         'Open Interest (All)': '29702',
@@ -251,8 +251,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '62.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-04-07',
         'Open Interest (All)': '28737',
@@ -270,8 +270,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.7',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-03-31',
         'Open Interest (All)': '29015',
@@ -289,8 +289,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '61.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-03-24',
         'Open Interest (All)': '28353',
@@ -308,8 +308,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '55.1',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-03-17',
         'Open Interest (All)': '25344',
@@ -327,8 +327,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '43.0',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-03-10',
         'Open Interest (All)': '44967',
@@ -346,8 +346,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '56.5',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-03-03',
         'Open Interest (All)': '39834',
@@ -365,8 +365,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '69.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-02-25',
         'Open Interest (All)': '47901',
@@ -384,8 +384,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '62.6',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-02-18',
         'Open Interest (All)': '48475',
@@ -403,8 +403,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '59.7',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-02-11',
         'Open Interest (All)': '49644',
@@ -422,8 +422,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '48.8',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-02-04',
         'Open Interest (All)': '36883',
@@ -441,8 +441,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '57.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-01-28',
         'Open Interest (All)': '36008',
@@ -460,8 +460,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '55.7',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-01-21',
         'Open Interest (All)': '35887',
@@ -479,8 +479,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '51.8',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-01-14',
         'Open Interest (All)': '36196',
@@ -498,8 +498,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '51.2',
       },
       {
-        market: 'U.S. DOLLAR INDEX',
-        exchange: 'ICE FUTURES U.S.',
+        'market': 'U.S. DOLLAR INDEX',
+        'exchange': 'ICE FUTURES U.S.',
         'Market and Exchange Names': 'U.S. DOLLAR INDEX - ICE FUTURES U.S.',
         'As of Date in Form YYYY-MM-DD': '2020-01-07',
         'Open Interest (All)': '35185',
@@ -521,8 +521,8 @@ export const testData: COTData = {
   'CHICAGO MERCANTILE EXCHANGE': {
     '3-MONTH SOFR': [
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-07-07',
@@ -541,8 +541,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '57.2',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-30',
@@ -561,8 +561,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '56.4',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-23',
@@ -581,8 +581,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '56.3',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-16',
@@ -601,8 +601,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '61.3',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-09',
@@ -621,8 +621,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '61.7',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-02',
@@ -641,8 +641,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '61.9',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-26',
@@ -661,8 +661,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '62.7',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-19',
@@ -681,8 +681,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.5',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-12',
@@ -701,8 +701,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.5',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-05',
@@ -721,8 +721,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.1',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-28',
@@ -741,8 +741,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.0',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-21',
@@ -761,8 +761,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '64.6',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-14',
@@ -781,8 +781,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '64.3',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-07',
@@ -801,8 +801,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '65.1',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-31',
@@ -821,8 +821,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '62.8',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-24',
@@ -841,8 +841,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '57.4',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-17',
@@ -861,8 +861,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '55.3',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-10',
@@ -881,8 +881,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '57.4',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-03',
@@ -901,8 +901,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '55.8',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-25',
@@ -921,8 +921,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '59.6',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-18',
@@ -941,8 +941,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '62.4',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-11',
@@ -961,8 +961,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.8',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-04',
@@ -981,8 +981,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '66.8',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-28',
@@ -1001,8 +1001,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '65.2',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-21',
@@ -1021,8 +1021,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '65.5',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-14',
@@ -1041,8 +1041,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '64.7',
       },
       {
-        market: '3-MONTH SOFR',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': '3-MONTH SOFR',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           '3-MONTH SOFR - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-07',
@@ -1063,8 +1063,8 @@ export const testData: COTData = {
     ],
     'EURO FX': [
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-07-07',
         'Open Interest (All)': '646323',
@@ -1082,8 +1082,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '75.7',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-30',
         'Open Interest (All)': '643597',
@@ -1101,8 +1101,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '74.9',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-23',
         'Open Interest (All)': '648743',
@@ -1120,8 +1120,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '76.0',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-16',
         'Open Interest (All)': '637313',
@@ -1139,8 +1139,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '75.7',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-09',
         'Open Interest (All)': '655042',
@@ -1158,8 +1158,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '72.4',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-02',
         'Open Interest (All)': '648551',
@@ -1177,8 +1177,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '70.0',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-26',
         'Open Interest (All)': '609350',
@@ -1196,8 +1196,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '69.5',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-19',
         'Open Interest (All)': '601044',
@@ -1215,8 +1215,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '69.4',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-12',
         'Open Interest (All)': '598612',
@@ -1234,8 +1234,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '70.0',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-05',
         'Open Interest (All)': '605228',
@@ -1253,8 +1253,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '68.7',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-28',
         'Open Interest (All)': '608104',
@@ -1272,8 +1272,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '69.5',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-21',
         'Open Interest (All)': '608534',
@@ -1291,8 +1291,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '71.6',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-14',
         'Open Interest (All)': '600593',
@@ -1310,8 +1310,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '73.1',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-07',
         'Open Interest (All)': '615155',
@@ -1329,8 +1329,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '72.2',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-31',
         'Open Interest (All)': '634755',
@@ -1348,8 +1348,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '70.9',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-24',
         'Open Interest (All)': '666348',
@@ -1367,8 +1367,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '68.0',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-17',
         'Open Interest (All)': '680940',
@@ -1386,8 +1386,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '67.6',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-10',
         'Open Interest (All)': '754022',
@@ -1405,8 +1405,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '62.4',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-03',
         'Open Interest (All)': '752287',
@@ -1424,8 +1424,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '50.8',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-25',
         'Open Interest (All)': '710390',
@@ -1443,8 +1443,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '43.1',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-18',
         'Open Interest (All)': '696623',
@@ -1462,8 +1462,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '45.2',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-11',
         'Open Interest (All)': '672682',
@@ -1481,8 +1481,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '45.7',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-04',
         'Open Interest (All)': '651676',
@@ -1500,8 +1500,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '46.8',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-28',
         'Open Interest (All)': '655157',
@@ -1519,8 +1519,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '47.6',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-21',
         'Open Interest (All)': '627893',
@@ -1538,8 +1538,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '49.7',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-14',
         'Open Interest (All)': '614421',
@@ -1557,8 +1557,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '49.7',
       },
       {
-        market: 'EURO FX',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names': 'EURO FX - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-07',
         'Open Interest (All)': '597223',
@@ -1578,8 +1578,8 @@ export const testData: COTData = {
     ],
     'EURO FX/BRITISH POUND XRATE': [
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-07-07',
@@ -1598,8 +1598,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.8',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-30',
@@ -1618,8 +1618,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '59.9',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-23',
@@ -1638,8 +1638,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '59.4',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-16',
@@ -1658,8 +1658,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '59.9',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-09',
@@ -1678,8 +1678,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '59.0',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-06-02',
@@ -1698,8 +1698,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '63.9',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-05-26',
@@ -1718,8 +1718,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '64.2',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-28',
@@ -1738,8 +1738,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '68.9',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-21',
@@ -1758,8 +1758,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '68.7',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-14',
@@ -1778,8 +1778,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '71.8',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-04-07',
@@ -1798,8 +1798,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '71.3',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-03-10',
@@ -1818,8 +1818,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '50.6',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-25',
@@ -1838,8 +1838,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '51.3',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-18',
@@ -1858,8 +1858,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '50.8',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-11',
@@ -1878,8 +1878,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '51.3',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-02-04',
@@ -1898,8 +1898,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '50.6',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-28',
@@ -1918,8 +1918,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '50.6',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-21',
@@ -1938,8 +1938,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '51.2',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-14',
@@ -1958,8 +1958,8 @@ export const testData: COTData = {
         '% of OI-Commercial-Short (All)': '54.7',
       },
       {
-        market: 'EURO FX/BRITISH POUND XRATE',
-        exchange: 'CHICAGO MERCANTILE EXCHANGE',
+        'market': 'EURO FX/BRITISH POUND XRATE',
+        'exchange': 'CHICAGO MERCANTILE EXCHANGE',
         'Market and Exchange Names':
           'EURO FX/BRITISH POUND XRATE - CHICAGO MERCANTILE EXCHANGE',
         'As of Date in Form YYYY-MM-DD': '2020-01-07',

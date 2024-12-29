@@ -8,7 +8,7 @@ export default <JestConfigWithTsJest> {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   testMatch: [
-    '**/spec/**/*.test.t(s|sx)',
+    '**/view/**/*.test.t(s|sx)',
   ],
   transform: {
     '^.+\\.tsx?$': [

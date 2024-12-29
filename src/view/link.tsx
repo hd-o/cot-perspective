@@ -1,13 +1,13 @@
-import { FC, HTMLProps } from 'react'
+import type { HTMLProps, ReactNode } from 'react'
 
-export const Link: FC<HTMLProps<HTMLAnchorElement>> = function (props) {
+export function Link(props: HTMLProps<HTMLAnchorElement>): ReactNode {
   return (
     <a
       href={props.href}
       title={props.title}
-      className='text-dark'
-      target='_blank'
-      rel='noopener noreferrer'
+      className="text-dark"
+      target="_blank"
+      rel="noopener noreferrer"
     >
       {props.children}
     </a>

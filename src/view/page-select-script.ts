@@ -1,6 +1,7 @@
-import { config } from '@/model/config'
+import { config } from '@/common/config'
 
 declare global {
+  // eslint-disable-next-line ts/consistent-type-definitions
   interface Window {
     // Separate namespace to facilitate testing (using mocks)
     cotperspective: {

@@ -1,18 +1,18 @@
-import { FC } from 'react'
-import { COTData, DropDownSelections, TraderCategories } from '@/model/types'
+import type { COTData, DropDownSelections, TraderCategories } from '@/model/types'
+import type { ReactNode } from 'react'
 import { useController } from './controller-context'
 import { DropdownSelect } from './dropdown-select'
 import { pageSelectScript } from './page-select-script'
 
-export interface PageDropdownsProps extends DropDownSelections {
+export type PageDropdownsProps = DropDownSelections & {
   data: COTData
   exchanges: string[]
   markets: string[]
   traderCategories: TraderCategories
 }
 
-export const PageDropdowns: FC<PageDropdownsProps> = function (props) {
-  const { file } = useController()
+export function PageDropdowns(props: PageDropdownsProps): ReactNode {
+  const { files: file } = useController()
 
   const defaultExchangeValue = file.getPageId({
     exchange: props.exchange,
@@ -28,14 +28,15 @@ export const PageDropdowns: FC<PageDropdownsProps> = function (props) {
 
   const exchangesDropdown = (
     <DropdownSelect defaultValue={defaultExchangeValue}>
-      {props.exchanges.map((exchange) => (
+      {props.exchanges.map(exchange => (
         <option
           key={exchange}
           value={`${file.getPageId({
-            exchange: exchange,
+            exchange,
             market: Object.keys(props.data[exchange])[0],
             traderCategory: props.traderCategory,
-          })}`}>
+          })}`}
+        >
           {exchange}
         </option>
       ))}
@@ -44,14 +45,15 @@ export const PageDropdowns: FC<PageDropdownsProps> = function (props) {
 
   const marketsDropdown = (
     <DropdownSelect defaultValue={defaultSelectValue}>
-      {props.markets.map((market) => (
+      {props.markets.map(market => (
         <option
           key={market}
           value={`${file.getPageId({
             exchange: props.exchange,
-            market: market,
+            market,
             traderCategory: props.traderCategory,
-          })}`}>
+          })}`}
+        >
           {market}
         </option>
       ))}
@@ -60,14 +62,15 @@ export const PageDropdowns: FC<PageDropdownsProps> = function (props) {
 
   const tradersDropdown = (
     <DropdownSelect defaultValue={defaultSelectValue}>
-      {props.traderCategories.map((traderCategory) => (
+      {props.traderCategories.map(traderCategory => (
         <option
           key={traderCategory}
           value={`${file.getPageId({
             exchange: props.exchange,
             market: props.market,
-            traderCategory: traderCategory,
-          })}`}>
+            traderCategory,
+          })}`}
+        >
           {traderCategory}
         </option>
       ))}

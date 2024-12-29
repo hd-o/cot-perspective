@@ -1,45 +1,27 @@
-import { Controller } from '@/controller'
-import { COTData, FormattedCSVData, MarketsData, TraderCategory } from '@/model/types'
+import type { Data } from '@/controller/data'
+import type { Files } from '@/controller/files'
+import type { COTData, FormattedCSVData, MarketsData, TraderCategory } from '@/model/types'
+import { writeFileSync } from 'node:fs'
+import { config } from '@/common/config'
+import { logger } from '@/common/logger'
 import { Template } from '@/view/template'
+import { renderToString } from 'react-dom/server'
 
-interface RenderExchangeProps {
-  data: COTData
-  exchanges: string[]
-}
+export class View {
+  data: Data
+  files: Files
 
-interface RenderMarketProps {
-  data: COTData
-  exchange: string
-  exchanges: string[]
-  markets: string[]
-  marketsData: MarketsData
-}
-
-interface RenderTemplateProps {
-  data: COTData
-  exchanges: string[]
-  marketData: FormattedCSVData[]
-  markets: string[]
-  selections: {
-    exchange: string
-    market: string
-    traderCategory: TraderCategory
-  }
-}
-
-export class ViewController {
-  private get _constants () {
-    return this.ctrl.model.constants
+  constructor(i: { data: Data, files: Files }) {
+    this.data = i.data
+    this.files = i.files
   }
 
-  constructor (private readonly ctrl: Controller) {}
-
-  renderExchange (props: RenderExchangeProps) {
+  renderExchange(i: { data: COTData, exchanges: string[] }) {
     return (exchange: string) => {
-      const marketsData = props.data[exchange]
-      const markets = this.ctrl.data.getSortedKeys(marketsData)
+      const marketsData = i.data[exchange]
+      const markets = this.data.getSortedKeys(marketsData)
       markets.forEach(this.renderMarket({
-        ...props,
+        ...i,
         exchange,
         markets,
         marketsData,
@@ -47,15 +29,21 @@ export class ViewController {
     }
   }
 
-  renderMarket (props: RenderMarketProps) {
+  renderMarket(i: {
+    data: COTData
+    exchange: string
+    exchanges: string[]
+    markets: string[]
+    marketsData: MarketsData
+  }) {
     return (market: string) => {
-      const marketData = props.marketsData[market]
-      for (const traderCategory of this._constants.traderCategories) {
+      const marketData = i.marketsData[market]
+      for (const traderCategory of config.traderCategories) {
         this.renderTemplate({
-          ...props,
+          ...i,
           marketData,
           selections: {
-            exchange: props.exchange,
+            exchange: i.exchange,
             market,
             traderCategory,
           },
@@ -64,38 +52,48 @@ export class ViewController {
     }
   }
 
-  async renderPages () {
-    const data = await this.ctrl.data.getData({
+  async renderPages() {
+    const data = await this.data.getData({
       year: new Date().getFullYear(),
-      minimumEntries: this._constants.averagePeriod,
+      minimumEntries: config.averagePeriod,
     })
-    const exchanges = this.ctrl.data.getSortedKeys(data)
-    console.log(`• Rendering pages for ${exchanges.length} exchanges`)
+    const exchanges = this.data.getSortedKeys(data)
+    logger.log(`Rendering pages for ${exchanges.length} exchanges`)
     exchanges.forEach(this.renderExchange({ data, exchanges }))
   }
 
-  renderTemplate (props: RenderTemplateProps) {
-    console.log('• Processing template data for ', props.selections)
+  renderTemplate(i: {
+    data: COTData
+    exchanges: string[]
+    marketData: FormattedCSVData[]
+    markets: string[]
+    selections: {
+      exchange: string
+      market: string
+      traderCategory: TraderCategory
+    }
+  }) {
+    logger.log('processing template data', { selections: i.selections })
     const template = (
       <Template
         dropDownsData={{
-          data: props.data,
-          markets: props.markets,
-          exchanges: props.exchanges,
-          traderCategories: this._constants.traderCategories,
-          ...props.selections,
+          data: i.data,
+          markets: i.markets,
+          exchanges: i.exchanges,
+          traderCategories: config.traderCategories,
+          ...i.selections,
         }}
         tableData={{
-          averagePeriod: this._constants.averagePeriod,
-          values: props.marketData.map(
-            this.ctrl.data.processTableData(props.selections.traderCategory),
+          averagePeriod: config.averagePeriod,
+          values: i.marketData.map(
+            this.data.processTableData(i.selections.traderCategory),
           ),
         }}
       />
     )
-    this.ctrl.pkg.node.fs.writeFileSync(
-      `${this._constants.buildPath}/${this.ctrl.file.getPageId(props.selections)}.html`,
-      `<!doctype html> \n${this.ctrl.pkg.reactDom.renderToString(template)}`,
+    writeFileSync(
+      `${config.buildPath}/${this.files.getPageId(i.selections)}.html`,
+      `<!doctype html> \n${renderToString(template)}`,
     )
   }
 }
