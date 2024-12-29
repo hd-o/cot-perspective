@@ -1,15 +1,15 @@
+import type { FileController } from '@/controller/file'
+import type { ViewController } from '@/controller/view'
 import { config } from '@/common/config'
 import { Logger } from '@/common/logger'
-import { DataController } from '@/controller/data'
-import { FileController } from '@/controller/file'
-import { ViewController } from '@/controller/view'
 
 const logger = new Logger(import.meta.filename)
 
 export class Controller {
-  readonly data = new DataController(this)
-  readonly file = new FileController()
-  readonly view = new ViewController(this)
+  constructor(
+    readonly file: FileController,
+    readonly view: ViewController,
+  ) {}
 
   async build() {
     logger.info('creating output directory')

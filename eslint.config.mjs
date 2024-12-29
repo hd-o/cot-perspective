@@ -3,6 +3,7 @@ import antfu from '@antfu/eslint-config'
 export default antfu({}, {
   files: ['**/*.mjs', '**/*.ts', '**/*.tsx'],
   rules: {
+    'accessor-pairs': 'off',
     'curly': 'error',
     'style/max-len': [
       'error',

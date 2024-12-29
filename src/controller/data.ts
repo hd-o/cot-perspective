@@ -29,11 +29,7 @@ export type AverageInput = {
 }
 
 export class DataController {
-  file: FileController
-
-  constructor(dependencies: { file: FileController }) {
-    this.file = dependencies.file
-  }
+  constructor(readonly file: FileController) {}
 
   async fetchData(input: DataFetchInput) {
     try {

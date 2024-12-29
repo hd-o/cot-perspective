@@ -10,13 +10,10 @@ import { renderToString } from 'react-dom/server'
 const logger = new Logger(import.meta.filename)
 
 export class ViewController {
-  data: DataController
-  file: FileController
-
-  constructor(dependencies: { data: DataController, file: FileController }) {
-    this.data = dependencies.data
-    this.file = dependencies.file
-  }
+  constructor(
+    readonly data: DataController,
+    readonly file: FileController,
+  ) {}
 
   renderExchange(input: { data: COTData, exchanges: string[] }) {
     return (exchange: string) => {
