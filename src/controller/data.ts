@@ -1,9 +1,11 @@
 import type { Files } from '@/controller/files'
 import type { COTData, CSVData, FormattedCSVData, TraderCategory } from '@/model/types'
 import { config } from '@/common/config'
-import { logger } from '@/common/logger'
+import { Logger } from '@/common/logger'
 import { parse } from 'csv-parse/sync'
 import { pick } from 'lodash'
+
+const logger = new Logger(import.meta.filename)
 
 export type DataFetchInput = {
   /** The latest year of which to load historical data */
@@ -35,26 +37,26 @@ export class Data {
 
   async fetchData(i: DataFetchInput) {
     try {
-      logger.log('making data dir')
+      logger.info('making data dir')
       const destinationDir = 'data'
       this.files.makeDir(destinationDir)
-      logger.log('fetching data')
+      logger.info('fetching data')
       const fileName = `deahistfo${i.year}.zip`
       this.files.downloadFile({
         destinationDir,
         fileName,
         sourceURL: `${config.historyPath}${fileName}`,
       })
-      logger.log('extracting data')
+      logger.info('extracting data')
       const content = await this.files.getZipContent(`data/deahistfo${i.year}.zip`)
       if (content === undefined) {
         throw new Error('UndefinedDataContent')
       }
-      logger.log('processing data content')
+      logger.info('processing data content')
       return this.processData(content)
     }
     catch (error) {
-      logger.error(error)
+      logger.error('caught', error)
       return {}
     }
   }
@@ -73,14 +75,14 @@ export class Data {
     const data = await this.fetchData(i)
     // If not enough entries in current year,
     // load previous year and join data for each market
-    logger.log('checking data size')
+    logger.info('checking data size')
     const euroFx = data['CHICAGO MERCANTILE EXCHANGE']?.['EURO FX'] ?? []
     if (euroFx.length < i.minimumEntries) {
       // Limit retries of previous years
       if (i.year === 2020) {
         throw new Error('previous year limit')
       }
-      logger.log('Fetching data for previous year')
+      logger.info('Fetching data for previous year')
       const year = i.year - 1
       const previousYearData = await this.getData({ ...i, year })
       for (const exchange in previousYearData) {
@@ -95,7 +97,7 @@ export class Data {
         }
       }
     }
-    logger.log('successfully processed data')
+    logger.info('successfully processed data')
     return data
   }
 

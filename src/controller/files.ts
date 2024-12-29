@@ -2,11 +2,21 @@ import { execSync } from 'node:child_process'
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { cleanCSS } from '@/common/clean-css'
 import { config } from '@/common/config'
-import { logger } from '@/common/logger'
+import { Logger } from '@/common/logger'
 import { memoize } from 'lodash'
 import { Open } from 'unzipper'
 
+const logger = new Logger(import.meta.filename)
+
 export class Files {
+  createIndexPage() {
+    const indexPath = this.getPageId(config.defaultSelections)
+    copyFileSync(
+      `${config.buildPath}/${indexPath}.html`,
+      `${config.buildPath}/index.html`,
+    )
+  }
+
   copyAssets(fileNames: string[]) {
     for (const file of fileNames) {
       copyFileSync(
@@ -44,9 +54,9 @@ export class Files {
   }
 
   processAssets(): void {
-    logger.log('copying assets')
+    logger.info('copying assets')
     this.copyAssets(['favicon.ico', 'preview.png'])
-    logger.log('processing styles')
+    logger.info('processing styles')
     const styles = readFileSync(`${config.assetsPath}/styles.css`).toString()
     const minStyles = cleanCSS.minify(styles).styles
     writeFileSync(`${config.buildPath}/styles.css`, minStyles)

@@ -3,9 +3,11 @@ import type { Files } from '@/controller/files'
 import type { COTData, FormattedCSVData, MarketsData, TraderCategory } from '@/model/types'
 import { writeFileSync } from 'node:fs'
 import { config } from '@/common/config'
-import { logger } from '@/common/logger'
+import { Logger } from '@/common/logger'
 import { Template } from '@/view/template'
 import { renderToString } from 'react-dom/server'
+
+const logger = new Logger(import.meta.filename)
 
 export class View {
   data: Data
@@ -58,7 +60,7 @@ export class View {
       minimumEntries: config.averagePeriod,
     })
     const exchanges = this.data.getSortedKeys(data)
-    logger.log(`Rendering pages for ${exchanges.length} exchanges`)
+    logger.info(`Rendering pages for ${exchanges.length} exchanges`)
     exchanges.forEach(this.renderExchange({ data, exchanges }))
   }
 
@@ -73,7 +75,7 @@ export class View {
       traderCategory: TraderCategory
     }
   }) {
-    logger.log('processing template data', { selections: i.selections })
+    logger.info('processing template data', { selections: i.selections })
     const template = (
       <Template
         dropDownsData={{
