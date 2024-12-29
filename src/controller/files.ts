@@ -26,8 +26,8 @@ export class Files {
     }
   }
 
-  downloadFile(i: { destinationDir: string, fileName: string, sourceURL: string }) {
-    const { destinationDir, fileName, sourceURL } = i
+  downloadFile(input: { destinationDir: string, fileName: string, sourceURL: string }) {
+    const { destinationDir, fileName, sourceURL } = input
     if (!existsSync(`${destinationDir}/${fileName}`)) {
       return
     }
@@ -35,8 +35,8 @@ export class Files {
   }
 
   /** Used for HTML file names, and page links */
-  getPageId = memoize((i: { exchange: string, market: string, traderCategory: string }) => {
-    const path = `${i.exchange}-${i.market}-${i.traderCategory}`
+  getPageId = memoize((input: { exchange: string, market: string, traderCategory: string }) => {
+    const path = `${input.exchange}-${input.market}-${input.traderCategory}`
     const formattedPath = path.toLocaleLowerCase().replace(/\W/g, '')
     return encodeURIComponent(formattedPath)
   })

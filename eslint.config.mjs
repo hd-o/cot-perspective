@@ -1,7 +1,9 @@
 import antfu from '@antfu/eslint-config'
 
-export default antfu({
+export default antfu({}, {
+  files: ['**/*.mjs', '**/*.ts', '**/*.tsx'],
   rules: {
+    'curly': 'error',
     'style/max-len': [
       'error',
       {

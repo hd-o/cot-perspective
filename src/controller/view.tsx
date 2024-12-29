@@ -13,17 +13,17 @@ export class View {
   data: Data
   files: Files
 
-  constructor(i: { data: Data, files: Files }) {
-    this.data = i.data
-    this.files = i.files
+  constructor(dependencies: { data: Data, files: Files }) {
+    this.data = dependencies.data
+    this.files = dependencies.files
   }
 
-  renderExchange(i: { data: COTData, exchanges: string[] }) {
+  renderExchange(input: { data: COTData, exchanges: string[] }) {
     return (exchange: string) => {
-      const marketsData = i.data[exchange]
+      const marketsData = input.data[exchange]
       const markets = this.data.getSortedKeys(marketsData)
       markets.forEach(this.renderMarket({
-        ...i,
+        ...input,
         exchange,
         markets,
         marketsData,
@@ -31,7 +31,7 @@ export class View {
     }
   }
 
-  renderMarket(i: {
+  renderMarket(input: {
     data: COTData
     exchange: string
     exchanges: string[]
@@ -39,13 +39,13 @@ export class View {
     marketsData: MarketsData
   }) {
     return (market: string) => {
-      const marketData = i.marketsData[market]
+      const marketData = input.marketsData[market]
       for (const traderCategory of config.traderCategories) {
         this.renderTemplate({
-          ...i,
+          ...input,
           marketData,
           selections: {
-            exchange: i.exchange,
+            exchange: input.exchange,
             market,
             traderCategory,
           },
@@ -64,7 +64,7 @@ export class View {
     exchanges.forEach(this.renderExchange({ data, exchanges }))
   }
 
-  renderTemplate(i: {
+  renderTemplate(input: {
     data: COTData
     exchanges: string[]
     marketData: FormattedCSVData[]
@@ -75,26 +75,26 @@ export class View {
       traderCategory: TraderCategory
     }
   }) {
-    logger.info('processing template data', { selections: i.selections })
+    logger.info('processing template data', { selections: input.selections })
     const template = (
       <Template
         dropDownsData={{
-          data: i.data,
-          markets: i.markets,
-          exchanges: i.exchanges,
+          data: input.data,
+          markets: input.markets,
+          exchanges: input.exchanges,
           traderCategories: config.traderCategories,
-          ...i.selections,
+          ...input.selections,
         }}
         tableData={{
           averagePeriod: config.averagePeriod,
-          values: i.marketData.map(
-            this.data.processTableData(i.selections.traderCategory),
+          values: input.marketData.map(
+            this.data.processTableData(input.selections.traderCategory),
           ),
         }}
       />
     )
     writeFileSync(
-      `${config.buildPath}/${this.files.getPageId(i.selections)}.html`,
+      `${config.buildPath}/${this.files.getPageId(input.selections)}.html`,
       `<!doctype html> \n${renderToString(template)}`,
     )
   }

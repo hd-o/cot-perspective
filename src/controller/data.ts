@@ -31,24 +31,24 @@ export type AverageInput = {
 export class Data {
   files: Files
 
-  constructor(i: { files: Files }) {
-    this.files = i.files
+  constructor(dependencies: { files: Files }) {
+    this.files = dependencies.files
   }
 
-  async fetchData(i: DataFetchInput) {
+  async fetchData(input: DataFetchInput) {
     try {
       logger.info('making data dir')
       const destinationDir = 'data'
       this.files.makeDir(destinationDir)
       logger.info('fetching data')
-      const fileName = `deahistfo${i.year}.zip`
+      const fileName = `deahistfo${input.year}.zip`
       this.files.downloadFile({
         destinationDir,
         fileName,
         sourceURL: `${config.historyPath}${fileName}`,
       })
       logger.info('extracting data')
-      const content = await this.files.getZipContent(`data/deahistfo${i.year}.zip`)
+      const content = await this.files.getZipContent(`data/deahistfo${input.year}.zip`)
       if (content === undefined) {
         throw new Error('UndefinedDataContent')
       }
@@ -61,8 +61,8 @@ export class Data {
     }
   }
 
-  getAverage(i: AverageInput) {
-    const { averagePeriod, values } = i
+  getAverage(input: AverageInput) {
+    const { averagePeriod, values } = input
     return (rowIndex: number) => {
       const sum = values
         .slice(0, averagePeriod)
@@ -71,20 +71,20 @@ export class Data {
     }
   }
 
-  async getData(i: DataInput) {
-    const data = await this.fetchData(i)
+  async getData(input: DataInput) {
+    const data = await this.fetchData(input)
     // If not enough entries in current year,
     // load previous year and join data for each market
     logger.info('checking data size')
     const euroFx = data['CHICAGO MERCANTILE EXCHANGE']?.['EURO FX'] ?? []
-    if (euroFx.length < i.minimumEntries) {
+    if (euroFx.length < input.minimumEntries) {
       // Limit retries of previous years
-      if (i.year === 2020) {
+      if (input.year === 2020) {
         throw new Error('previous year limit')
       }
       logger.info('Fetching data for previous year')
-      const year = i.year - 1
-      const previousYearData = await this.getData({ ...i, year })
+      const year = input.year - 1
+      const previousYearData = await this.getData({ ...input, year })
       for (const exchange in previousYearData) {
         for (const market in previousYearData[exchange]) {
           const previousData = previousYearData[exchange][market]
@@ -101,7 +101,7 @@ export class Data {
     return data
   }
 
-  getSortedKeys <D extends { [k: string]: any }>(data: D): Array<keyof D> {
+  getSortedKeys <D extends Record<string, any>>(data: D): Array<keyof D> {
     return Object.keys(data).sort()
   }
 
