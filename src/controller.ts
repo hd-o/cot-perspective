@@ -1,47 +1,36 @@
-import { execSync } from 'child_process'
-import CleanCSS from 'clean-css'
-import { parse } from 'csv-parse/sync'
-import { memoize, pick } from 'lodash'
-import fs from 'node:fs'
-import { renderToString } from 'react-dom/server'
-import unzipper from 'unzipper'
-import { DataController } from './controller/data'
-import { FileController } from './controller/file'
-import { ModelController } from './controller/model'
-import { ViewController } from './controller/view'
+import { cpSync } from 'node:fs'
+import { config } from '@/common/config'
+import { Logger } from '@/common/logger'
+import { DataController } from '@/controller/data'
+import { FileController } from '@/controller/file'
+import { ViewController } from '@/controller/view'
 
-class Packages {
-  childProcess = { execSync }
-  cleanCss = new CleanCSS()
-  csv = { parse }
-  lodash = { memoize, pick }
-  node = { fs }
-  reactDom = { renderToString }
-  unzipper = unzipper
-}
-
-const defaultDependencies = Object.freeze({
-  DataController,
-  FileController,
-  ModelController,
-  Packages,
-  ViewController,
-})
+const logger = new Logger('controller')
 
 export class Controller {
-  constructor (dependencies = defaultDependencies) {
-    this.pkg = new dependencies.Packages()
-    this.data = new dependencies.DataController(this)
-    this.file = new dependencies.FileController(this)
-    this.model = new dependencies.ModelController()
-    this.view = new dependencies.ViewController(this)
+  constructor(
+    readonly file = new FileController(),
+    readonly data = new DataController(file),
+    readonly view = new ViewController(data, file),
+  ) {}
+
+  async build() {
+    logger.info('creating output directory')
+    this.file.makeDir(config.buildPath)
+    logger.info('processing assets')
+    this.file.processAssets()
+    if (!config.env.prod) {
+      logger.info('using test data')
+      cpSync('src/model/data', 'data', { recursive: true })
+    }
+    logger.info('getting data')
+    const data = await this.data.getData({
+      year: config.env.prod ? new Date().getFullYear() : 2024,
+      minimumEntries: config.averagePeriod,
+    })
+    logger.info('rendering HTML pages')
+    await this.view.renderPages({ data, controller: this })
+    logger.info('creating home page')
+    this.file.copyIndexPage()
   }
-
-  data: DataController
-  file: FileController
-  model: ModelController
-  pkg: Packages
-  view: ViewController
 }
-
-export const controller = new Controller()

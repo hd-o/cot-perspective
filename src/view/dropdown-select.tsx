@@ -1,15 +1,18 @@
-import { FC } from 'react'
-import { config } from '@/model/config'
+import type { ComponentProps, PropsWithChildren, ReactNode } from 'react'
+import { config } from '@/common/config'
 
-interface DropdownSelectProps {
+type Props = PropsWithChildren<ComponentProps<'select'> & {
   defaultValue: string
-}
+}>
 
-export const DropdownSelect: FC<DropdownSelectProps> = function (props) {
+export function DropdownSelect(props: Props): ReactNode {
+  const { defaultValue, ...selectProps } = props
   return (
     <select
       defaultValue={props.defaultValue}
-      className={`custom-select form-control ${config.dropdownClass}`}>
+      className={`custom-select form-control ${config.ui.dropdownClass}`}
+      {...selectProps}
+    >
       {props.children}
     </select>
   )

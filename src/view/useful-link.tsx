@@ -1,17 +1,18 @@
-import { FC } from 'react'
+import type { ReactNode } from 'react'
 import { Link } from './link'
 
-interface UsefulLinkProps {
+type UsefulLinkProps = {
   channel: string
   link: string
   title: string
 }
 
-export const UsefulLink: FC<UsefulLinkProps> = function (props) {
+export function UsefulLink(props: UsefulLinkProps): ReactNode {
   return (
-    <li className='useful-link'>
+    <li className="useful-link">
       <Link href={props.link} title={`${props.channel} - ${props.title}`}>
-        <strong>{props.channel}</strong> - {props.title}
+        <strong>{props.channel}</strong>
+        {` - ${props.title}`}
       </Link>
     </li>
   )

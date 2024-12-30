@@ -1,8 +1,8 @@
+import type { Controller } from '@/controller'
 import { createContext, useContext } from 'react'
-import { controller } from '@/controller'
 
-const ControllerContext = createContext(controller)
+export const ControllerContext = createContext({} as Controller)
 
-export function useController () {
-  return useContext(ControllerContext) ?? controller
+export function useController() {
+  return useContext(ControllerContext)
 }

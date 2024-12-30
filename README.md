@@ -7,7 +7,7 @@
 - Live at [cotperspective.com](https://cotperspective.com/)
 - Push to main starts [Netlify deploy][netlify_deploy]
 
-[package]: https://github.com/hd-o/cotperspective/blob/master/package.json
+ [package]: https://github.com/hd-o/cotperspective/blob/master/package.json
 [netlify_deploy]: https://app.netlify.com/sites/cotperspective/deploys
 [cot]: https://www.cftc.gov/MarketReports/CommitmentsofTraders/index.htm
 [mit]: ./LICENSE

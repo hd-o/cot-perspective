@@ -1,12 +1,13 @@
-import { config } from '@/model/config'
+import { config } from '@/common/config'
 
-declare global {
-  interface Window {
-    // Separate namespace to facilitate testing (using mocks)
-    cotperspective: {
-      assignLocation: typeof window.location.assign
+function initPageSelector() {
+  document.getElementById('{containerId}')?.addEventListener('change', (event): void => {
+    if (event.target instanceof HTMLSelectElement) {
+      if (event.target.className.includes('{dropdownClass}')) {
+        window.location.assign(`${event.target.value}.html`)
+      }
     }
-  }
+  })
 }
 
 /**
@@ -15,13 +16,6 @@ declare global {
  * run React for more complex components, but at the moment this
  * fulfills the requirement while being a statically rendered site.
  */
-export const pageSelectScript = `
-  window.cotperspective = {
-    assignLocation: window.location.assign.bind(window.location)
-  }
-  document.getElementById('cotperspective').addEventListener('change', (event) => {
-    if (event.target.className.includes('${config.dropdownClass}')) {
-      window.cotperspective.assignLocation(event.target.value + '.html')
-    }
-  })
-`
+export const pageSelectScript = `(${initPageSelector})()`
+  .replace('{containerId}', config.ui.containerId)
+  .replace('{dropdownClass}', config.ui.dropdownClass)

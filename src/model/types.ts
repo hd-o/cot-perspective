@@ -2,13 +2,13 @@ export type CSVData = Record<PropertiesToSelect, string>
 
 export type COTData = Record<string, MarketsData>
 
-export interface DropDownSelections {
+export type DropDownSelections = {
   exchange: string
   market: string
   traderCategory: TraderCategory
 }
 
-export interface FormattedCSVData extends CSVData {
+export type FormattedCSVData = CSVData & {
   exchange: string
   market: string
 }

@@ -1,6 +1,7 @@
-[build.environment]
-  NODE_VERSION = "16"
-  NPM_FLAGS = "--prefix=/dev/null"
 [build]
-  publish = "build"
-  command = "yarn build"
+publish = "build"
+command = "npm run build"
+
+[build.environment]
+BUILD_ENV = "prod"
+NODE_VERSION = "22"

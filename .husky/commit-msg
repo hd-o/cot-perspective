@@ -1,6 +1,0 @@
-#!/bin/sh
-dir=$(dirname "$0")
-# Init husky
-. "$dir/_/husky.sh"
-
-yarn commitlint --edit $1
