@@ -26,8 +26,8 @@ npm-debug.log*
 
 # Builds
 .cache
-build
-data
+/build
+/data
 
 # VS Code
 .vscode/*
