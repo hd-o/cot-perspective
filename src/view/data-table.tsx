@@ -65,10 +65,12 @@ export function DataTable(props: AverageInput): ReactNode {
                 && (index === 1 || index === 2 || index === 7)
               ) {
                 const previousColumn = props.values[valueIndex + 1][index]
-                if (previousColumn > column)
+                if (previousColumn > column) {
                   className = 'column-negative'
-                if (previousColumn < column)
+                }
+                if (previousColumn < column) {
                   className = 'column-positive'
+                }
               }
 
               // Some values are blank (not available) in COT's CSV

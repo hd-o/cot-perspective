@@ -6,10 +6,10 @@ import { Logger } from '@/common/logger'
 import { memoize } from 'lodash'
 import { Open } from 'unzipper'
 
-const logger = new Logger(import.meta.filename)
+const logger = new Logger('file')
 
 export class FileController {
-  createIndexPage() {
+  copyIndexPage() {
     const indexPath = this.getPageId(config.defaultSelections)
     copyFileSync(
       `${config.buildPath}/${indexPath}.html`,
@@ -28,9 +28,11 @@ export class FileController {
 
   downloadFile(input: { destinationDir: string, fileName: string, sourceURL: string }) {
     const { destinationDir, fileName, sourceURL } = input
-    if (!existsSync(`${destinationDir}/${fileName}`)) {
+    if (existsSync(`${destinationDir}/${fileName}`)) {
+      logger.info('skipped download', input)
       return
     }
+    logger.info('downloading', input)
     execSync(`wget -P data ${sourceURL}`)
   }
 

@@ -12,7 +12,7 @@ export type PageDropdownsProps = DropDownSelections & {
 }
 
 export function PageDropdowns(props: PageDropdownsProps): ReactNode {
-  const { file: file } = useController()
+  const { file } = useController()
 
   const defaultExchangeValue = file.getPageId({
     exchange: props.exchange,
@@ -27,7 +27,7 @@ export function PageDropdowns(props: PageDropdownsProps): ReactNode {
   })
 
   const exchangesDropdown = (
-    <DropdownSelect defaultValue={defaultExchangeValue}>
+    <DropdownSelect aria-label="exchanges" defaultValue={defaultExchangeValue}>
       {props.exchanges.map(exchange => (
         <option
           key={exchange}
@@ -44,7 +44,7 @@ export function PageDropdowns(props: PageDropdownsProps): ReactNode {
   )
 
   const marketsDropdown = (
-    <DropdownSelect defaultValue={defaultSelectValue}>
+    <DropdownSelect aria-label="markets" defaultValue={defaultSelectValue}>
       {props.markets.map(market => (
         <option
           key={market}
@@ -61,7 +61,7 @@ export function PageDropdowns(props: PageDropdownsProps): ReactNode {
   )
 
   const tradersDropdown = (
-    <DropdownSelect defaultValue={defaultSelectValue}>
+    <DropdownSelect aria-label="traders" defaultValue={defaultSelectValue}>
       {props.traderCategories.map(traderCategory => (
         <option
           key={traderCategory}

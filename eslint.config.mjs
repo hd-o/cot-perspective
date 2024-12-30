@@ -1,6 +1,10 @@
 import antfu from '@antfu/eslint-config'
 
-export default antfu({}, {
+export default antfu({
+  rules: {
+    'jsonc/sort-keys': 'off',
+  },
+}, {
   files: ['**/*.mjs', '**/*.ts', '**/*.tsx'],
   rules: {
     'accessor-pairs': 'off',
@@ -24,10 +28,5 @@ export default antfu({}, {
     // Allow types with the same name as its value
     'ts/no-redeclare': 'off',
     'unused-imports/no-unused-imports': 'error',
-  },
-}, {
-  files: ['package.json'],
-  rules: {
-    'jsonc/sort-keys': 'off',
   },
 })

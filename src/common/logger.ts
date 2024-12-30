@@ -1,6 +1,6 @@
-import { env } from 'node:process'
+import { config } from '@/common/config'
 
-const jsonSpace = env.BUILD_ENV === 'prod' ? 0 : 2
+const jsonSpace = config.env.prod ? 0 : 2
 
 export class Logger {
   readonly namespace: string

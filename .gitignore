@@ -32,3 +32,10 @@ data
 # VS Code
 .vscode/*
 !.vscode/extensions.json
+
+# Playwright
+/e2e/test-results/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

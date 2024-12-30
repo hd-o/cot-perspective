@@ -5,7 +5,7 @@ import { Logger } from '@/common/logger'
 import { parse } from 'csv-parse/sync'
 import { pick } from 'lodash'
 
-const logger = new Logger(import.meta.filename)
+const logger = new Logger('data')
 
 export type DataFetchInput = {
   /** The latest year of which to load historical data */

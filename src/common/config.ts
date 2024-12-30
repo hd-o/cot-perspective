@@ -1,4 +1,5 @@
 import type { DropDownSelections, PropertiesToSelect, TraderCategory } from '../model/types'
+import { env } from 'node:process'
 
 export const config = {
   assetsPath: './src/assets',
@@ -10,7 +11,9 @@ export const config = {
     market: 'EURO FX',
     traderCategory: 'Noncommercial',
   },
-  dropdownClass: 'js-page-dropdown-select',
+  env: {
+    prod: env.BUILD_ENV === 'prod',
+  },
   historyPath: 'https://www.cftc.gov/sites/default/files/files/dea/history/',
   propertiesToSelect: <PropertiesToSelect[]>[
     'Market and Exchange Names',
@@ -33,4 +36,8 @@ export const config = {
     'Commercial',
     'Noncommercial',
   ],
+  ui: {
+    containerId: 'cotperspective',
+    dropdownClass: 'js-page-dropdown-select',
+  },
 }
