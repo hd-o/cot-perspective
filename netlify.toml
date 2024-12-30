@@ -5,4 +5,3 @@ command = "npm run build"
 [build.environment]
 BUILD_ENV = "prod"
 NODE_VERSION = "22"
-NPM_FLAGS = "--prefix=/dev/null"

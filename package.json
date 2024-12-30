@@ -17,7 +17,7 @@
     "git:commit-msg": "commitlint --edit",
     "git:pre-push": "concurrently npm:lint npm:test",
     "lint": "concurrently npm:lint:types npm:lint:code",
-    "lint:code": "eslint .",
+    "lint:code": "eslint ${CHANGED_FILES:-.}",
     "lint:types": "tsc --noEmit -p ./tsconfig.json",
     "start": "serve build",
     "test": "playwright test"
