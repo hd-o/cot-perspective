@@ -1,4 +1,4 @@
-import type { AverageInput } from '@/controller/data'
+import type { AverageInput } from '@/controller/table-data'
 import type { ReactNode } from 'react'
 import type { PageDropdownsProps } from './page-dropdowns'
 import { readFileSync } from 'node:fs'
@@ -43,6 +43,9 @@ export function Template(props: TemplateProps): ReactNode {
             <div className="col-4 d-flex justify-content-end align-items-center" />
           </Header>
           <PageDropdowns {...props.dropDownsData} />
+          <p className="text-center text-muted mb-0">
+            Legacy COT · Futures and Options Combined
+          </p>
           <DataTable {...props.tableData} />
           <Header>
             <div className="col-12">

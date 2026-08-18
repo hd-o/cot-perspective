@@ -1,7 +1,8 @@
 import type { FileController } from '@/controller/file'
-import type { COTData, CSVData, FormattedCSVData, TraderCategory } from '@/model/types'
+import type { COTData, CSVData } from '@/model/types'
 import { config } from '@/common/config'
 import { Logger } from '@/common/logger'
+import { parseMarketAndExchange } from '@/controller/market-name'
 import { parse } from 'csv-parse/sync'
 import { pick } from 'lodash'
 
@@ -18,14 +19,6 @@ export type DataInput = DataFetchInput & {
    * otherwise load more data from previous year
    */
   minimumEntries: number
-}
-
-type PeriodValues = Array<string | number>
-
-export type AverageInput = {
-  /** Period in days */
-  averagePeriod: number
-  values: Array<PeriodValues>
 }
 
 export class DataController {
@@ -54,16 +47,6 @@ export class DataController {
     catch (error) {
       logger.error('caught', error)
       return {}
-    }
-  }
-
-  getAverage(input: AverageInput) {
-    const { averagePeriod, values } = input
-    return (rowIndex: number) => {
-      const sum = values
-        .slice(0, averagePeriod)
-        .reduce((total, row) => total + Number(row[rowIndex]), 0)
-      return Math.trunc(sum / averagePeriod).toLocaleString()
     }
   }
 
@@ -105,12 +88,11 @@ export class DataController {
     const records = parse(csvContent, { trim: true, columns: true, skip_empty_lines: true })
     return records.reduce(
       (data: COTData, csvData: CSVData) => {
-        const [marketText = '', exchangeText = ''] = csvData['Market and Exchange Names'].split(' - ')
-        const market = marketText.trim()
-        const exchange = exchangeText.trim()
-        if (market.length === 0 || exchange.length === 0) {
+        const parsed = parseMarketAndExchange(csvData['Market and Exchange Names'])
+        if (parsed === undefined) {
           return data
         }
+        const { exchange, market } = parsed
         if (data[exchange] === undefined) {
           data[exchange] = {}
         }
@@ -126,24 +108,5 @@ export class DataController {
       },
       {},
     )
-  }
-
-  /** @returns Table view rendering data */
-  processTableData(category: TraderCategory) {
-    return (data: FormattedCSVData) => {
-      const longs = Number(data[`${category} Positions-Long (All)` as keyof CSVData])
-      const shorts = Number(data[`${category} Positions-Short (All)` as keyof CSVData])
-      const netPositions = longs - shorts
-      return [
-        data['As of Date in Form YYYY-MM-DD'],
-        longs,
-        shorts,
-        Number(data[`Change in ${category}-Long (All)` as keyof CSVData]),
-        Number(data[`Change in ${category}-Short (All)` as keyof CSVData]),
-        data[`% of OI-${category}-Long (All)` as keyof CSVData],
-        data[`% of OI-${category}-Short (All)` as keyof CSVData],
-        netPositions,
-      ]
-    }
   }
 }

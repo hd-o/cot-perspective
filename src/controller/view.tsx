@@ -7,6 +7,7 @@ import type { ReactNode } from 'react'
 import { writeFileSync } from 'node:fs'
 import { config } from '@/common/config'
 import { Logger } from '@/common/logger'
+import { processTableData } from '@/controller/table-data'
 import { ControllerContext } from '@/view/controller-context'
 import { Template } from '@/view/template'
 import { StrictMode } from 'react'
@@ -85,7 +86,7 @@ export class ViewController {
         tableData={{
           averagePeriod: config.averagePeriod,
           values: input.marketData.map(
-            this.data.processTableData(input.selections.traderCategory),
+            processTableData(input.selections.traderCategory),
           ),
         }}
       />

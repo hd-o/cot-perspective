@@ -1,16 +1,20 @@
-import type { AverageInput } from '@/controller/data'
+import type { AverageInput } from '@/controller/table-data'
 import type { ReactNode } from 'react'
-import { useController } from './controller-context'
+import {
+  averageOf,
+  formatAverageContracts,
+  formatContracts,
+  formatPercent,
+  trendClass,
+} from '@/controller/table-data'
 
 export function DataTable(props: AverageInput): ReactNode {
-  const { data } = useController()
-
-  const getAverageWithIndex = data.getAverage(props)
-  const longAverage = getAverageWithIndex(1)
-  const shortAverage = getAverageWithIndex(2)
-  const longPercentageAverage = getAverageWithIndex(5)
-  const shortPercentageAverage = getAverageWithIndex(6)
-  const netAverage = getAverageWithIndex(7)
+  const { averagePeriod, values } = props
+  const longAverage = formatAverageContracts(averageOf(values, averagePeriod, 'long'))
+  const shortAverage = formatAverageContracts(averageOf(values, averagePeriod, 'short'))
+  const longPercentageAverage = formatPercent(averageOf(values, averagePeriod, 'percentLong'))
+  const shortPercentageAverage = formatPercent(averageOf(values, averagePeriod, 'percentShort'))
+  const netAverage = formatAverageContracts(averageOf(values, averagePeriod, 'net'))
 
   return (
     <table
@@ -30,68 +34,40 @@ export function DataTable(props: AverageInput): ReactNode {
         </tr>
       </thead>
       <tbody>
-        {props.values.length >= props.averagePeriod && (
+        {values.length >= averagePeriod && (
           <tr className="bg-light">
-            <td title={`${props.averagePeriod} Period Simple Average`}>
-              Average(
-              {props.averagePeriod}
-              )
+            <td title={`${averagePeriod}-week simple average`}>
+              {`${averagePeriod}-week average`}
             </td>
             <td>{longAverage}</td>
             <td>{shortAverage}</td>
             <td colSpan={2}></td>
-            <td>
-              {longPercentageAverage}
-              {' '}
-              %
-            </td>
-            <td>
-              {shortPercentageAverage}
-              {' '}
-              %
-            </td>
+            <td>{longPercentageAverage}</td>
+            <td>{shortPercentageAverage}</td>
             <td>{netAverage}</td>
           </tr>
         )}
-        {props.values.map((row, valueIndex) => (
-          <tr key={valueIndex}>
-            {row.map((column, index) => {
-              // Add classname to make table cell red/green
-              // depending if the value increased/decreased
-              let className = ''
-
-              if (
-                props.values[valueIndex + 1] !== undefined
-                && (index === 1 || index === 2 || index === 7)
-              ) {
-                const previousColumn = props.values[valueIndex + 1][index]
-                if (previousColumn > column) {
-                  className = 'column-negative'
-                }
-                if (previousColumn < column) {
-                  className = 'column-positive'
-                }
-              }
-
-              // Some values are blank (not available) in COT's CSV
-              let text = Number.isNaN(column) ? 'Not Available' : column
-
-              // Format numbers for better readability
-              if (index >= 1 || index <= 4 || index === 7) {
-                text = text.toLocaleString()
-              }
-              if (index === 5 || index === 6) {
-                text = `${text} %`
-              }
-
-              return (
-                <td className={className} key={index}>
-                  {text}
-                </td>
-              )
-            })}
-          </tr>
-        ))}
+        {values.map((row, valueIndex) => {
+          const previous = values[valueIndex + 1]
+          return (
+            <tr key={row.date}>
+              <td>{row.date}</td>
+              <td className={trendClass(row.long, previous?.long)}>
+                {formatContracts(row.long)}
+              </td>
+              <td className={trendClass(row.short, previous?.short)}>
+                {formatContracts(row.short)}
+              </td>
+              <td>{formatContracts(row.changeLong)}</td>
+              <td>{formatContracts(row.changeShort)}</td>
+              <td>{formatPercent(row.percentLong)}</td>
+              <td>{formatPercent(row.percentShort)}</td>
+              <td className={trendClass(row.net, previous?.net)}>
+                {formatContracts(row.net)}
+              </td>
+            </tr>
+          )
+        })}
       </tbody>
     </table>
   )

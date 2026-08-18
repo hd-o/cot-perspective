@@ -29,4 +29,9 @@ export default antfu({
     'ts/no-redeclare': 'off',
     'unused-imports/no-unused-imports': 'error',
   },
+}, {
+  files: ['**/*.test.ts'],
+  rules: {
+    'test/no-import-node-test': 'off',
+  },
 })

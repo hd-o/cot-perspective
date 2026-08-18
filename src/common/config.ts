@@ -3,7 +3,7 @@ import { env } from 'node:process'
 
 export const config = {
   assetsPath: './src/assets',
-  /** Quantity of periods to calculate the average of COT values */
+  /** Number of weekly COT snapshots to average */
   averagePeriod: 12,
   buildPath: './build',
   defaultSelections: <DropDownSelections>{

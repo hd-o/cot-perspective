@@ -20,7 +20,8 @@
     "lint:code": "eslint ${CHANGED_FILES:-.}",
     "lint:types": "tsc --noEmit -p ./tsconfig.json",
     "start": "serve build",
-    "test": "playwright test"
+    "test": "npm run test:unit && playwright test",
+    "test:unit": "tsx --test src/**/*.test.ts"
   },
   "commitlint": {
     "extends": [
